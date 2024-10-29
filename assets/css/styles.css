@@ -15,21 +15,7 @@ body {
 }
 
 .logo img {
-    height: 70px; /* Increase size of logo */
-}
-
-.hamburger-menu {
-    display: flex;
-    flex-direction: column;
-    cursor: pointer;
-    gap: 4px;
-}
-
-.hamburger-menu span {
-    display: block;
-    width: 25px;
-    height: 3px;
-    background-color: #333;
+    height: 70px; /* Adjusted logo size */
 }
 
 /* Dropdown Menu Styling */
@@ -83,26 +69,22 @@ body {
     display: block;
 }
 
-.sub-menu li {
-    list-style: none;
-}
-
 /* Carousel styling */
 .carousel {
-    width: 100%;
+    width: 350px;
+    height: 200px;
     overflow: hidden;
-    position: relative;
     margin-top: 20px;
 }
 
 .carousel-slide {
     display: flex;
-    width: 300%;
     transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
-    width: 100%;
+    width: 350px;
+    height: 200px;
 }
 
 /* Sidebar styling */
@@ -112,16 +94,23 @@ body {
 }
 
 .sidebar {
-    width: 250px;
+    width: 200px;
     padding: 20px;
     background-color: #f4f4f4;
     margin-right: 20px;
+    text-align: center;
+}
+
+.sidebar img {
+    width: 200px;
+    height: 200px;
 }
 
 main {
     flex: 1;
     padding: 20px;
 }
+
 /* Footer styling */
 .main-footer {
     background-color: #333;
@@ -156,4 +145,3 @@ main {
 .footer-column a:hover {
     color: #fff;
 }
-
