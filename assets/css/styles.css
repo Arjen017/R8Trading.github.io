@@ -15,9 +15,24 @@ body {
 }
 
 .logo img {
-    height: 50px;
+    height: 70px; /* Increase size of logo */
 }
 
+.hamburger-menu {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+    gap: 4px;
+}
+
+.hamburger-menu span {
+    display: block;
+    width: 25px;
+    height: 3px;
+    background-color: #333;
+}
+
+/* Dropdown Menu Styling */
 .navigation-container {
     display: flex;
     flex-direction: column;
@@ -31,27 +46,8 @@ body {
     gap: 20px;
 }
 
-.top-navigation a,
-.bottom-navigation a {
-    text-decoration: none;
-    color: #2a1e43;
-    font-weight: bold;
-    font-size: 14px;
-    transition: color 0.3s;
-}
-
-.top-navigation a:hover,
-.bottom-navigation a:hover {
-    color: #ff0000;
-}
-
-/* Dropdown Menu Styling */
 .dropdown {
     position: relative;
-}
-
-.dropdown-toggle {
-    cursor: pointer;
 }
 
 .dropdown-menu {
@@ -62,66 +58,102 @@ body {
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 0;
     min-width: 120px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
     z-index: 1;
 }
 
-.dropdown-menu li {
-    list-style: none;
-    position: relative;
-}
-
-.dropdown-menu a {
+.dropdown-item:hover .sub-menu {
     display: block;
-    padding: 8px 20px;
-    color: #2a1e43;
-    text-decoration: none;
-    font-size: 14px;
 }
 
-.dropdown-menu a:hover {
-    background-color: #f0f0f0;
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
 }
 
-/* Show dropdown when hovering over either the dropdown toggle or the dropdown menu itself */
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover {
     display: block;
 }
 
-/* Sub-menu styling for Cars and Motorcycle dropdowns */
-.sub-menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%; /* Position it to the right of the parent item */
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 0;
-    min-width: 120px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-.dropdown-item:hover .sub-menu {
-    display: block; /* Show the sub-menu on hover */
-}
-
-/* Additional styling for the dropdown items */
 .sub-menu li {
     list-style: none;
 }
 
-.sub-menu a {
-    display: block;
-    padding: 8px 20px;
-    color: #2a1e43;
-    text-decoration: none;
-    font-size: 14px;
+/* Carousel styling */
+.carousel {
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    margin-top: 20px;
 }
 
-.sub-menu a:hover {
-    background-color: #f0f0f0;
+.carousel-slide {
+    display: flex;
+    width: 300%;
+    transition: transform 0.5s ease-in-out;
 }
+
+.carousel-slide img {
+    width: 100%;
+}
+
+/* Sidebar styling */
+.main-content {
+    display: flex;
+    margin-top: 20px;
+}
+
+.sidebar {
+    width: 250px;
+    padding: 20px;
+    background-color: #f4f4f4;
+    margin-right: 20px;
+}
+
+main {
+    flex: 1;
+    padding: 20px;
+}
+/* Footer styling */
+.main-footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 150px;
+    margin: 10px;
+}
+
+.footer-column h3 {
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+.footer-column a {
+    color: #bbb;
+    text-decoration: none;
+    display: block;
+    margin: 5px 0;
+}
+
+.footer-column a:hover {
+    color: #fff;
+}
+
