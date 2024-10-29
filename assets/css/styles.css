@@ -7,7 +7,7 @@ body {
 
 .main-header {
     display: flex;
-    justify-content: space-between; /* Space between logo and navigation */
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: white;
@@ -15,26 +15,26 @@ body {
 }
 
 .logo img {
-    height: 50px; /* Adjust the logo height as needed */
+    height: 50px;
 }
 
 .navigation-container {
     display: flex;
     flex-direction: column;
-    align-items: flex-end; /* Aligns navigation to the right */
-    gap: 5px; /* Space between the two rows */
+    align-items: flex-end;
+    gap: 5px;
 }
 
 .top-navigation,
 .bottom-navigation {
     display: flex;
-    gap: 20px; /* Adds spacing between links in each row */
+    gap: 20px;
 }
 
 .top-navigation a,
 .bottom-navigation a {
     text-decoration: none;
-    color: #2a1e43; /* Adjust the color as needed */
+    color: #2a1e43;
     font-weight: bold;
     font-size: 14px;
     transition: color 0.3s;
@@ -42,5 +42,48 @@ body {
 
 .top-navigation a:hover,
 .bottom-navigation a:hover {
-    color: #ff0000; /* Hover color */
+    color: #ff0000;
+}
+
+/* Dropdown Menu Styling */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    cursor: pointer;
+}
+
+.dropdown-menu {
+    display: none; /* Hide dropdown by default */
+    position: absolute;
+    top: 100%; /* Position below the Battery link */
+    left: 0;
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 0;
+    min-width: 120px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-menu li {
+    list-style: none;
+}
+
+.dropdown-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: #2a1e43;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f0f0f0;
+}
+
+/* Show dropdown on hover */
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
