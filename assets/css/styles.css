@@ -49,8 +49,8 @@ body {
     z-index: 1;
 }
 
-.dropdown-item:hover .sub-menu {
-    display: block;
+.dropdown:hover .dropdown-menu {
+    display: block; /* Show dropdown on hover */
 }
 
 .sub-menu {
