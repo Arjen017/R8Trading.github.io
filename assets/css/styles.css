@@ -55,20 +55,22 @@ body {
 }
 
 .dropdown-menu {
-    display: none; /* Hide dropdown by default */
+    display: none;
     position: absolute;
-    top: 100%; /* Position below the Battery link */
+    top: 100%;
     left: 0;
     background-color: white;
     border: 1px solid #ddd;
     border-radius: 4px;
-    padding: 10px 0;
+    padding: 0;
     min-width: 120px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1;
 }
 
 .dropdown-menu li {
     list-style: none;
+    position: relative;
 }
 
 .dropdown-menu a {
@@ -83,7 +85,43 @@ body {
     background-color: #f0f0f0;
 }
 
-/* Show dropdown on hover */
-.dropdown:hover .dropdown-menu {
+/* Show dropdown when hovering over either the dropdown toggle or the dropdown menu itself */
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
     display: block;
+}
+
+/* Sub-menu styling for Cars and Motorcycle dropdowns */
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%; /* Position it to the right of the parent item */
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 0;
+    min-width: 120px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+.dropdown-item:hover .sub-menu {
+    display: block; /* Show the sub-menu on hover */
+}
+
+/* Additional styling for the dropdown items */
+.sub-menu li {
+    list-style: none;
+}
+
+.sub-menu a {
+    display: block;
+    padding: 8px 20px;
+    color: #2a1e43;
+    text-decoration: none;
+    font-size: 14px;
+}
+
+.sub-menu a:hover {
+    background-color: #f0f0f0;
 }
