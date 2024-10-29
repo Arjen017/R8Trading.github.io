@@ -7,7 +7,7 @@ body {
 
 .main-header {
     display: flex;
-    justify-content: space-between; /* Space between logo and navigation */
+    /*justify-content: space-between; /* Space between logo and navigation */
     align-items: center;
     padding: 10px 20px;
     background-color: white;
