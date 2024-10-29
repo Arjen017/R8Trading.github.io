@@ -7,20 +7,20 @@ body {
 
 .main-header {
     display: flex;
-    align-items: center;
-    padding: 10px 20px;
+    align-items: flex-start; /* Aligns items to the top */
+    padding: 20px;
     background-color: white;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
 .logo img {
     height: 50px; /* Adjust the logo height as needed */
+    margin-right: 20px; /* Space between the logo and navigation */
 }
 
 .navigation-container {
     display: flex;
     flex-direction: column;
-    margin-left: auto; /* Pushes the navigation to the right */
 }
 
 .top-navigation,
