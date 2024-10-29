@@ -82,10 +82,14 @@ body {
     transition: transform 0.5s ease-in-out;
 }
 
-.carousel-slide img {
-    width: 350px;
-    height: 200px;
+.carousel-item {
+    width: 350px; /* Fixed width */
+    height: 200px; /* Fixed height */
+    object-fit: cover;
+    object-position: 50% 50%;
 }
+
+
 
 /* Sidebar styling */
 .main-content {
