@@ -31,24 +31,46 @@ body {
     display: flex;
     gap: 20px;
 }
+/* Navigation links */
+.navigation a {
+    text-decoration: none; /* Remove underline */
+    margin: 0 15px;
+    color: #333;
+    font-weight: bold;
+}
 
 .dropdown {
     position: relative;
 }
 
+/* Dropdown menu */
 .dropdown-menu {
     display: none;
     position: absolute;
     top: 100%;
     left: 0;
-    background-color: white;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 4px;
     min-width: 120px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* 3D-like shadow effect */
+    padding: 10px 0;
     z-index: 1;
+    list-style: none; /* Remove bullets */
+}
+/* Dropdown items */
+.dropdown-item {
+    padding: 8px 16px;
 }
 
+.dropdown-item a {
+    text-decoration: none; /* Remove underline for dropdown links */
+    color: #333;
+}
+.dropdown-item:hover {
+    background-color: #f0f0f0;
+    color: #000;
+}
 .dropdown:hover .dropdown-menu {
     display: block; /* Show dropdown on hover */
 }
@@ -62,6 +84,23 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+}
+
+/* Sub-menu styling */
+.sub-menu {
+    margin-left: 10px; /* Indent sub-menu */
+    list-style-type: none; /* Remove bullets */
+}
+
+.sub-menu li a {
+    text-decoration: none;
+    color: #555;
+}
+
+/* Navigation hover styling */
+.navigation a:hover,
+.dropdown-item a:hover {
+    color: #0073e6;
 }
 
 .dropdown:hover .dropdown-menu,
