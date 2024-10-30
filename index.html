@@ -11,36 +11,33 @@
     <header class="main-header">
         <div class="logo">
             <img src="assets/images/logo.png" alt="R8 Logo">
-        </div>
-        <div class="navigation-container">
-            <div class="top-navigation">
-                <a href="#">Dealer Search</a>
-                <a href="#">Inquiry</a>
-                <a href="#">Pandi Bulacan</a>
-            </div>
-            <div class="bottom-navigation">
-                <a href="#">Home</a>
-                <!-- Dropdown for Battery -->
-                <div class="dropdown" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
-                    <a href="#" class="dropdown-toggle">Battery</a>
-                    <ul class="dropdown-menu">
-                        <li class="dropdown-item">
-                            <a href="#">Cars</a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Varta</a></li>
-                                <li><a href="#">Oursun</a></li>
-                                <li><a href="#">JP</a></li>
-                            </ul>
-                        </li>
-                        <li class="dropdown-item">
-                            <a href="#">Motorcycle</a>
-                            <ul class="sub-menu">
-                                <li><a href="#">Varta</a></li>
-                                <li><a href="#">Oursun</a></li>
-                                <li><a href="#">JP</a></li>
-                            </ul>
-                        </li>
-                    </ul>
+        </div>  
+        <!---- Navigation-------->
+        <div class="navigation">
+    <a href="#">Home</a>
+    <a href="#" class="dropdown-toggle" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">Battery</a>
+    <a href="#">Gallery</a>
+    <a href="#">Contact</a>
+    
+    <!-- Dropdown menu for Battery -->
+    <ul class="dropdown-menu" id="batteryDropdown" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
+        <li class="dropdown-item">
+            <a href="#">Cars</a>
+            <ul class="sub-menu">
+                <li><a href="#">Varta</a></li>
+                <li><a href="#">Oursun</a></li>
+                <li><a href="#">JP</a></li>
+            </ul>
+        </li>
+        <li class="dropdown-item">
+            <a href="#">Motorcycle</a>
+            <ul class="sub-menu">
+                <li><a href="#">Varta</a></li>
+                <li><a href="#">Oursun</a></li>
+                <li><a href="#">JP</a></li>
+            </ul>
+        </li>
+    </ul> <!----END NAVIGATIOn ---- >
                 </div>
                 <a href="#">Contact</a>
             </div>
