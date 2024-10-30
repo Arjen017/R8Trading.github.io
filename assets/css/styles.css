@@ -233,4 +233,6 @@ footer {
     height: 20px;
     margin-right: 8px;
     vertical-align: middle;
+    object-fit: contain; /* Ensures the aspect ratio is maintained */
 }
+
