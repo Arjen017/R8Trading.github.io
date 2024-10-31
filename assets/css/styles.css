@@ -5,6 +5,7 @@ body {
     font-family: Arial, sans-serif;
 }
 
+/* Header */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -18,7 +19,6 @@ body {
     height: 70px; /* Adjusted logo size */
 }
 
-/* Dropdown Menu Styling */
 .navigation-container {
     display: flex;
     flex-direction: column;
@@ -26,11 +26,13 @@ body {
     gap: 5px;
 }
 
+/* Separate navigation sections */
 .top-navigation,
 .bottom-navigation {
     display: flex;
     gap: 20px;
 }
+
 /* Navigation links */
 .navigation a {
     text-decoration: none; /* Remove underline */
@@ -58,7 +60,7 @@ body {
     z-index: 1;
     list-style: none; /* Remove bullets */
 }
-/* Dropdown items */
+
 .dropdown-item {
     padding: 8px 16px;
 }
@@ -67,14 +69,17 @@ body {
     text-decoration: none; /* Remove underline for dropdown links */
     color: #333;
 }
+
 .dropdown-item:hover {
     background-color: #f0f0f0;
     color: #000;
 }
+
 .dropdown:hover .dropdown-menu {
     display: block; /* Show dropdown on hover */
 }
 
+/* Sub-menu */
 .sub-menu {
     display: none;
     position: absolute;
@@ -84,10 +89,6 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-}
-
-/* Sub-menu styling */
-.sub-menu {
     margin-left: 10px; /* Indent sub-menu */
     list-style-type: none; /* Remove bullets */
 }
@@ -97,12 +98,18 @@ body {
     color: #555;
 }
 
+/* Show sub-menu on hover */
+.dropdown-item:hover .sub-menu {
+    display: block;
+}
+
 /* Navigation hover styling */
 .navigation a:hover,
 .dropdown-item a:hover {
     color: #0073e6;
 }
 
+/* Dropdown hover delay */
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover {
     display: block;
@@ -128,8 +135,6 @@ body {
     object-position: 50% 50%;
 }
 
-
-
 /* Sidebar styling */
 .main-content {
     display: flex;
@@ -154,40 +159,6 @@ main {
     padding: 20px;
 }
 
-/* Footer styling */
-.main-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-}
-
-.footer-container {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-.footer-column {
-    flex: 1;
-    min-width: 150px;
-    margin: 10px;
-}
-
-.footer-column h3 {
-    font-size: 1.2em;
-    margin-bottom: 10px;
-}
-
-.footer-column a {
-    color: #bbb;
-    text-decoration: none;
-    display: block;
-    margin: 5px 0;
-}
-
-.footer-column a:hover {
-    color: #fff;
-}
 /* Footer styling */
 footer {
     background-color: #333;
@@ -235,4 +206,3 @@ footer {
     vertical-align: middle;
     object-fit: contain; /* Ensures the aspect ratio is maintained */
 }
-
