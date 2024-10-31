@@ -9,49 +9,57 @@
 <body>
     <!-- Header Section -->
     <header class="main-header">
-        <div class="logo">
-            <img src="assets/images/logo.png" alt="R8 Logo">
-        </div>  
-        <!---- Navigation-------->
-        <div class="navigation">
-    <a href="#">Home</a>
-    <a href="#" class="dropdown-toggle" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">Battery</a>
-    <a href="#">Gallery</a>
-    <a href="#">Contact</a>
-    
-    <!-- Dropdown menu for Battery -->
-    <ul class="dropdown-menu" id="batteryDropdown" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
-        <li class="dropdown-item">
-            <a href="#">Cars</a>
-            <ul class="sub-menu">
-                <li><a href="#">Varta</a></li>
-                <li><a href="#">Oursun</a></li>
-                <li><a href="#">JP</a></li>
-            </ul>
-        </li>
-        <li class="dropdown-item">
-            <a href="#">Motorcycle</a>
-            <ul class="sub-menu">
-                <li><a href="#">Varta</a></li>
-                <li><a href="#">Oursun</a></li>
-                <li><a href="#">JP</a></li>
-            </ul>
-        </li>
-    </ul> <!----END NAVIGATIOn ---->
-                </div>
-                <a href="#">Contact</a>
+        <div class="header-container">
+            <!-- Logo Section -->
+            <div class="logo">
+                <img src="assets/images/logo.png" alt="R8 Logo">
             </div>
+
+            <!-- Right Side Text (Dealer Search, Inquiry, Pandi Bulacan) -->
+            <div class="header-info">
+                <p>Dealer Search</p>
+                <p>Inquiry</p>
+                <p>Pandi Bulacan</p>
+            </div>
+
+            <!-- Navigation Section -->
+            <nav class="navigation">
+                <a href="#">Home</a>
+                <a href="#" class="dropdown-toggle" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">Battery</a>
+                <a href="#">Gallery</a>
+                <a href="#">Contact</a>
+                
+                <!-- Dropdown menu for Battery -->
+                <ul class="dropdown-menu" id="batteryDropdown" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
+                    <li class="dropdown-item">
+                        <a href="#">Cars</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Varta</a></li>
+                            <li><a href="#">Oursun</a></li>
+                            <li><a href="#">JP</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="#">Motorcycle</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Varta</a></li>
+                            <li><a href="#">Oursun</a></li>
+                            <li><a href="#">JP</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
         </div>
     </header>
 
+    <!-- Carousel Section -->
     <section class="carousel">
-    <div class="carousel-slide">
-        <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
-        <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
-        <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
-    </div>
-</section>
-
+        <div class="carousel-slide">
+            <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
+            <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
+            <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
+        </div>
+    </section>
 
     <!-- Sidebar and Main Content -->
     <div class="main-content">
@@ -65,37 +73,36 @@
     </div>
 
     <!-- Footer Section -->
-   <footer>
-    <div class="footer-content">
-        <div class="footer-section address">
-            <h4>Address:</h4>
-            <p>Siling Bata, Pandi,Bulacan</p>
-        </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section address">
+                <h4>Address:</h4>
+                <p>Siling Bata, Pandi, Bulacan</p>
+            </div>
 
-        <div class="footer-section links">
-            <h4>Links:</h4>
-            <a href="#">FAQs</a>
-        </div>
+            <div class="footer-section links">
+                <h4>Links:</h4>
+                <a href="#">FAQs</a>
+            </div>
 
-        <div class="footer-section contact">
-            <h4>Contact Us On:</h4>
-            <a href="https://www.facebook.com/p/r8-battery-trading-61558485714994/" target="_blank">
-                <img src="assets/images/facebook.png" alt="Facebook logo" class="footer-icon"> Facebook
-            </a>
-            <a href="viber://chat?number=%2B639266823374" target="_blank">
-    <img src="assets/images/viber.png" alt="Viber logo" class="footer-icon"> Viber
-</a>
-            
-        </div>
+            <div class="footer-section contact">
+                <h4>Contact Us On:</h4>
+                <a href="https://www.facebook.com/p/r8-battery-trading-61558485714994/" target="_blank">
+                    <img src="assets/images/facebook.png" alt="Facebook logo" class="footer-icon"> Facebook
+                </a>
+                <a href="viber://chat?number=%2B639266823374" target="_blank">
+                    <img src="assets/images/viber.png" alt="Viber logo" class="footer-icon"> Viber
+                </a>
+            </div>
 
-        <div class="footer-section ecommerce">
-            <h4>Ecommerce Store:</h4>
-            <a href="#">Lazada</a>
-            <a href="#">Shopee</a>
+            <div class="footer-section ecommerce">
+                <h4>Ecommerce Store:</h4>
+                <a href="#">Lazada</a>
+                <a href="#">Shopee</a>
+            </div>
         </div>
-    </div>
     </footer>
-    
+
     <script src="assets/js/carousel.js"></script>
 </body>
 </html>
