@@ -9,26 +9,25 @@
 <body>
     <!-- Header Section -->
     <header class="main-header">
-        <div class="header-container">
-            <!-- Logo Section -->
-            <div class="logo">
-                <img src="assets/images/logo.png" alt="R8 Logo">
-            </div>
+        <!-- Logo Section -->
+        <div class="logo">
+            <img src="assets/images/logo.png" alt="R8 Logo">
+        </div>
 
-            <!-- Right Side Text (Dealer Search, Inquiry, Pandi Bulacan) -->
-            <div class="header-info">
-                <p>Dealer Search</p>
-                <p>Inquiry</p>
-                <p>Pandi Bulacan</p>
+        <!-- Dealer Search and Info Section -->
+        <div class="header-info">
+            <div class="search-bar">
+                <input type="text" placeholder="Dealer Search">
+                <img src="assets/images/magnifying-glass.png" alt="Search Icon" class="search-icon">
             </div>
+            <p>Inquiry | Pandi Bulacan</p>
+        </div>
 
-            <!-- Navigation Section -->
-            <nav class="navigation">
-                <a href="#">Home</a>
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="#">Home</a>
+            <div class="dropdown">
                 <a href="#" class="dropdown-toggle" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">Battery</a>
-                <a href="#">Gallery</a>
-                <a href="#">Contact</a>
-                
                 <!-- Dropdown menu for Battery -->
                 <ul class="dropdown-menu" id="batteryDropdown" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
                     <li class="dropdown-item">
@@ -48,21 +47,24 @@
                         </ul>
                     </li>
                 </ul>
-            </nav>
-        </div>
+            </div>
+            <a href="#">Gallery</a>
+            <a href="#">Contact</a>
+        </nav>
     </header>
-
-    <!-- Carousel Section -->
-    <section class="carousel">
-        <div class="carousel-slide">
-            <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
-            <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
-            <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
-        </div>
-    </section>
-
-    <!-- Sidebar and Main Content -->
+    
+    <!-- Main Content -->
     <div class="main-content">
+        <!-- Carousel Section -->
+        <section class="carousel">
+            <div class="carousel-slide">
+                <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
+                <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
+                <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
+            </div>
+        </section>
+
+        <!-- Sidebar and Main Content -->
         <aside class="sidebar">
             <img src="assets/images/sidebar-image.jpg" alt="Sidebar Image">
             <p>Sidebar content matching the image...</p>
@@ -74,33 +76,7 @@
 
     <!-- Footer Section -->
     <footer>
-        <div class="footer-content">
-            <div class="footer-section address">
-                <h4>Address:</h4>
-                <p>Siling Bata, Pandi, Bulacan</p>
-            </div>
-
-            <div class="footer-section links">
-                <h4>Links:</h4>
-                <a href="#">FAQs</a>
-            </div>
-
-            <div class="footer-section contact">
-                <h4>Contact Us On:</h4>
-                <a href="https://www.facebook.com/p/r8-battery-trading-61558485714994/" target="_blank">
-                    <img src="assets/images/facebook.png" alt="Facebook logo" class="footer-icon"> Facebook
-                </a>
-                <a href="viber://chat?number=%2B639266823374" target="_blank">
-                    <img src="assets/images/viber.png" alt="Viber logo" class="footer-icon"> Viber
-                </a>
-            </div>
-
-            <div class="footer-section ecommerce">
-                <h4>Ecommerce Store:</h4>
-                <a href="#">Lazada</a>
-                <a href="#">Shopee</a>
-            </div>
-        </div>
+        <!-- Footer content goes here -->
     </footer>
 
     <script src="assets/js/carousel.js"></script>
