@@ -18,13 +18,11 @@ body {
     height: 70px;
 }
 
-/* Header Info Section (Search and Info Text) */
+/* Header Info Section (Search and Separate Inquiry Links) */
 .header-info {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
     margin-right: 20px;
-    text-align: right;
 }
 
 .search-bar {
@@ -61,6 +59,17 @@ body {
     color: #333;
 }
 
+/* Inquiry and Location links styled like navigation */
+.header-link {
+    color: #333;
+    font-weight: bold;
+    text-decoration: none;
+    margin-left: 15px;
+}
+.header-link:hover {
+    color: #0073e6;
+}
+
 /* Navigation */
 .navigation {
     display: flex;
@@ -72,6 +81,7 @@ body {
     color: #333;
     font-weight: bold;
 }
+
 
 /* Dropdown Menu */
 .dropdown {
@@ -132,7 +142,6 @@ body {
 }
 .search {
     --padding: 14px;
-    width: max-content;
     display: flex;
     align-items: center;
     padding: var(--padding);
@@ -148,21 +157,24 @@ body {
 .search-icon {
     color: rgba(0, 0, 0, 0.5);
     font-size: 24px;
+    margin-right: 8px;
 }
 
 .search-input {
     font-size: 16px;
     font-family: 'Lexend', sans-serif;
     color: #333333;
-    margin-left: var(--padding);
     outline: none;
     border: none;
     background: transparent;
+    margin-right: 15px;
 }
 
 .search-input::placeholder {
     color: rgba(0, 0, 0, 0.25);
 }
+
+
 /* Footer styling */
 footer {
     background-color: #333;
