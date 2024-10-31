@@ -15,19 +15,19 @@ document.addEventListener("DOMContentLoaded", function() {
 
     setInterval(carousel, 3000); // Change slide every 3 seconds
 
-    // Dropdown functionality
-    let dropdownTimeout;
+    // Function to show dropdown on hover and keep it visible for 5 seconds
+let dropdownTimeout;
 
-    // Function to show the dropdown immediately
-    window.showDropdown = function() {
-        clearTimeout(dropdownTimeout); // Clear any existing timeout
-        document.getElementById("batteryDropdown").style.display = "block";
-    };
+function showDropdown() {
+    clearTimeout(dropdownTimeout);
+    document.getElementById("batteryDropdown").style.display = "block";
+}
 
-    // Function to hide the dropdown after a 5-second delay
-    window.hideDropdown = function() {
-        dropdownTimeout = setTimeout(function() {
-            document.getElementById("batteryDropdown").style.display = "none";
-        }, 5000); // Delay in milliseconds (5 seconds)
+function hideDropdown() {
+    dropdownTimeout = setTimeout(function() {
+        document.getElementById("batteryDropdown").style.display = "none";
+    }, 5000);
+}
+// Delay in milliseconds (5 seconds)
     };
 });
