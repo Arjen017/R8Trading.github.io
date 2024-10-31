@@ -5,7 +5,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-/* Header */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -16,36 +15,69 @@ body {
 }
 
 .logo img {
-    height: 70px; /* Adjusted logo size */
+    height: 70px;
 }
 
-.navigation-container {
+/* Header Info Section (Search and Info Text) */
+.header-info {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
-    gap: 5px;
+    margin-right: 20px;
+    text-align: right;
 }
 
-/* Separate navigation sections */
-.top-navigation,
-.bottom-navigation {
+.search-bar {
+    position: relative;
+    width: 200px;
+    margin-bottom: 5px;
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 8px 10px 8px 30px;
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    opacity: 0.6;
+}
+
+.search-bar input[type="text"]::placeholder {
+    color: #666;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+
+/* Header Info Text */
+.header-info p {
+    font-size: 14px;
+    color: #333;
+}
+
+/* Navigation */
+.navigation {
     display: flex;
     gap: 20px;
 }
 
-/* Navigation links */
 .navigation a {
-    text-decoration: none; /* Remove underline */
-    margin: 0 15px;
+    text-decoration: none;
     color: #333;
     font-weight: bold;
 }
 
+/* Dropdown Menu */
 .dropdown {
     position: relative;
 }
 
-/* Dropdown menu */
 .dropdown-menu {
     display: none;
     position: absolute;
@@ -55,31 +87,21 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     min-width: 120px;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15); /* 3D-like shadow effect */
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     padding: 10px 0;
     z-index: 1;
-    list-style: none; /* Remove bullets */
+    list-style: none;
 }
 
 .dropdown-item {
     padding: 8px 16px;
 }
 
-.dropdown-item a {
-    text-decoration: none; /* Remove underline for dropdown links */
-    color: #333;
+.dropdown-item:hover .sub-menu {
+    display: block;
 }
 
-.dropdown-item:hover {
-    background-color: #f0f0f0;
-    color: #000;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block; /* Show dropdown on hover */
-}
-
-/* Sub-menu */
+/* Sub-menu Styling */
 .sub-menu {
     display: none;
     position: absolute;
@@ -89,8 +111,8 @@ body {
     border: 1px solid #ddd;
     border-radius: 4px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    margin-left: 10px; /* Indent sub-menu */
-    list-style-type: none; /* Remove bullets */
+    margin-left: 10px;
+    list-style-type: none;
 }
 
 .sub-menu li a {
@@ -98,111 +120,13 @@ body {
     color: #555;
 }
 
-/* Show sub-menu on hover */
-.dropdown-item:hover .sub-menu {
-    display: block;
-}
-
-/* Navigation hover styling */
+/* Navigation Hover */
 .navigation a:hover,
 .dropdown-item a:hover {
     color: #0073e6;
 }
 
-/* Dropdown hover delay */
 .dropdown:hover .dropdown-menu,
 .dropdown-menu:hover {
     display: block;
-}
-
-/* Carousel styling */
-.carousel {
-    width: 550px;
-    height: 300px;
-    overflow: hidden;
-    margin-top: 20px;
-}
-
-.carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-item {
-    width: 350px; /* Fixed width */
-    height: 200px; /* Fixed height */
-    object-fit: cover;
-    object-position: 50% 50%;
-}
-
-/* Sidebar styling */
-.main-content {
-    display: flex;
-    margin-top: 20px;
-}
-
-.sidebar {
-    width: 200px;
-    padding: 20px;
-    background-color: #f4f4f4;
-    margin-right: 20px;
-    text-align: center;
-}
-
-.sidebar img {
-    width: 200px;
-    height: 200px;
-}
-
-main {
-    flex: 1;
-    padding: 20px;
-}
-
-/* Footer styling */
-footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-start;
-    text-align: left;
-}
-
-.footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 20px;
-}
-
-.footer-section {
-    flex: 1;
-}
-
-.footer-section h4 {
-    margin-bottom: 10px;
-    font-size: 1.1em;
-    color: #f0f0f0;
-}
-
-.footer-section a {
-    color: #ccc;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.footer-section a:hover {
-    color: #fff;
-}
-
-.footer-icon {
-    width: 20px;
-    height: 20px;
-    margin-right: 8px;
-    vertical-align: middle;
-    object-fit: contain; /* Ensures the aspect ratio is maintained */
 }
