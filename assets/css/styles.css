@@ -171,3 +171,19 @@ footer {
 .footer-section a {
     color: #ccc;
     text-decoration: none;
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.footer-icon {
+    width: 24px;  /* Adjusted to a size appropriate for icons */
+    height: 24px; /* Ensures icons remain square */
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
