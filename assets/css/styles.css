@@ -197,4 +197,15 @@ footer {
     color: #ccc;
     text-decoration: none;
     display: flex;
-    align
+    align-items: center;
+    gap: 5px;
+}
+
+.footer-section a:hover {
+    color: #fff;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
+}
