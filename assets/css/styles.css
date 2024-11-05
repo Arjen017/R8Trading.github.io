@@ -16,7 +16,6 @@ body {
     height: 70px;
 }
 
-/* Header Info Section (Search Only) */
 .header-info {
     display: flex;
     align-items: center;
@@ -53,11 +52,6 @@ body {
     margin-right: 15px;
 }
 
-.search-input::placeholder {
-    color: rgba(0, 0, 0, 0.25);
-}
-
-/* Navigation */
 .navigation {
     display: flex;
     gap: 20px;
@@ -69,7 +63,6 @@ body {
     font-weight: bold;
 }
 
-/* Dropdown Menu */
 .dropdown {
     position: relative;
 }
@@ -111,7 +104,6 @@ body {
     display: block;
 }
 
-/* Sub-menu Styling */
 .sub-menu {
     display: none;
     position: absolute;
@@ -129,18 +121,51 @@ body {
     border-right: 3px solid red;
 }
 
-/* Carousel Image */
-.carousel-slide {
-    width: 640px; /* Similar to default YouTube video view */
+.carousel {
+    position: relative;
+    max-width: 100%;
     overflow: hidden;
+    margin: auto;
+}
+
+.carousel-slide {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    width: 300%;
 }
 
 .carousel-slide img {
-    width: 640px;
-    height: 360px;
+    width: 100%;
+    height: auto;
 }
 
-/* Footer styling */
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .carousel-slide img {
+        width: 100vw;
+    }
+}
+
 footer {
     background-color: #333;
     color: #fff;
@@ -172,18 +197,4 @@ footer {
     color: #ccc;
     text-decoration: none;
     display: flex;
-    align-items: center;
-    margin-bottom: 5px;
-}
-
-.footer-section a:hover {
-    color: #fff;
-}
-
-.footer-icon {
-    width: 24px;  /* Adjusted to a size appropriate for icons */
-    height: 24px; /* Ensures icons remain square */
-    margin-right: 8px;
-    vertical-align: middle;
-}
-
+    align
