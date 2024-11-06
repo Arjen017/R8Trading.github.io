@@ -6,6 +6,9 @@
     <title>R8 Battery Trading - Rodel Santiago</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+    <!-- Slick CSS for carousel -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 </head>
 <body>
     <!-- Header Section -->
@@ -28,11 +31,10 @@
         <!-- Navigation -->
         <nav class="navigation">
             <a href="#">Home</a>
-            <a href="#">Dealer Search</a> <!-- Moved Dealer Search to the top -->
+            <a href="#">Dealer Search</a>
             <div class="dropdown">
-                <a href="#" class="dropdown-toggle" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">Battery</a>
-                <!-- Dropdown menu for Battery -->
-                <ul class="dropdown-menu" id="batteryDropdown" onmouseenter="showDropdown()" onmouseleave="hideDropdown()">
+                <a href="#" class="dropdown-toggle">Battery</a>
+                <ul class="dropdown-menu" id="batteryDropdown">
                     <li class="dropdown-item">
                         <a href="#">Cars</a>
                         <ul class="sub-menu">
@@ -59,16 +61,19 @@
     <!-- Main Content -->
     <div class="main-content">
         <!-- Carousel Section -->
-        <section class="carousel">
+        <section class="carousel fade">
             <div class="carousel-slide">
-                <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
-                <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
-                <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
+                <img src="assets/images/slider1.jpg" alt="Image 1" class="carousel-item">
+                <img src="assets/images/slider2.jpg" alt="Image 2" class="carousel-item">
+                <img src="assets/images/slider3.jpg" alt="Image 3" class="carousel-item">
             </div>
-            <button class="carousel-prev" onclick="prevSlide()">&#10094;</button>
-            <button class="carousel-next" onclick="nextSlide()">&#10095;</button>
         </section>
 
+        <!-- Sidebar and Main Content -->
+        <aside class="sidebar">
+            <img src="assets/images/sidebar-image.jpg" alt="Sidebar Image">
+            <p>Sidebar content matching the image...</p>
+        </aside>
         <main>
             <p>Your main content here...</p>
         </main>
@@ -81,12 +86,10 @@
                 <h4>Address:</h4>
                 <p>Siling Bata, Pandi, Bulacan</p>
             </div>
-
             <div class="footer-section links">
                 <h4>Links:</h4>
                 <a href="#">FAQs</a>
             </div>
-
             <div class="footer-section contact">
                 <h4>Contact Us On:</h4>
                 <a href="https://www.facebook.com/p/r8-battery-trading-61558485714994/" target="_blank">
@@ -96,7 +99,6 @@
                     <img src="assets/images/viber.png" alt="Viber logo" class="footer-icon"> Viber
                 </a>
             </div>
-
             <div class="footer-section ecommerce">
                 <h4>Ecommerce Store:</h4>
                 <a href="#">Lazada</a>
@@ -105,6 +107,9 @@
         </div>
     </footer>
 
+    <!-- Scripts -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="assets/js/carousel.js"></script>
 </body>
 </html>
