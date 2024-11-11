@@ -22,3 +22,4 @@ document.addEventListener("DOMContentLoaded", function() {
         batteryDropdown.setAttribute('aria-hidden', expanded);
     });
 });
+ 
