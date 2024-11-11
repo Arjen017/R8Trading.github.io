@@ -1,24 +1,22 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Initialize Slick carousel with fade effect
-    $('.carousel').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear',
-        arrows: false,
-        autoplay: true,
-        autoplaySpeed: 3000
+    const dropdown = document.querySelector(".dropdown");
+    const batteryDropdown = document.getElementById("batteryDropdown");
+    let dropdownOpen = false;
+
+    dropdown.addEventListener("mouseenter", function() {
+        batteryDropdown.classList.add("show");
+        dropdownOpen = true;
     });
 
-    // Toggle Dropdown Menu Accessibility
-    const dropdownToggle = document.querySelector('.dropdown-toggle');
-    const batteryDropdown = document.getElementById('batteryDropdown');
+    dropdown.addEventListener("mouseleave", function() {
+        batteryDropdown.classList.remove("show");
+        dropdownOpen = false;
+    });
 
-    dropdownToggle.addEventListener('click', (event) => {
-        event.preventDefault();
-        const expanded = dropdownToggle.getAttribute('aria-expanded') === 'true' || false;
-        dropdownToggle.setAttribute('aria-expanded', !expanded);
-        batteryDropdown.setAttribute('aria-hidden', expanded);
+    document.addEventListener("click", function(event) {
+        if (!dropdown.contains(event.target) && dropdownOpen) {
+            batteryDropdown.classList.remove("show");
+            dropdownOpen = false;
+        }
     });
 });
