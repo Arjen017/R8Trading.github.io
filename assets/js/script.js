@@ -1,6 +1,24 @@
 document.addEventListener("DOMContentLoaded", function() {
 
-      const carouselSlide = document.querySelector(".carousel-slide");
+    const navigation = document.querySelector('.navigation');
+    const batteryDropdown = document.getElementById('batteryDropdown');
+    let dropdownOpen = false;
+
+    // Toggle the dropdown visibility on click
+    document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
+        event.preventDefault();
+        dropdownOpen = !dropdownOpen;
+        batteryDropdown.classList.toggle('show', dropdownOpen);
+    });
+
+    // Hide dropdown when mouse leaves navigation
+    navigation.addEventListener('mouseleave', function() {
+        batteryDropdown.classList.remove('show');
+        dropdownOpen = false;
+    });
+
+    // Carousel functionality
+    const carouselSlide = document.querySelector(".carousel-slide");
     const images = document.querySelectorAll(".carousel-slide img");
     let counter = 0;
     const slideWidth = images[0].clientWidth;
