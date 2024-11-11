@@ -170,6 +170,10 @@ body {
     right: 10px;
 }
 
+.show {
+    display: block !important;
+}
+
 .slick-dots {
     position: absolute;
     bottom: 20px;
