@@ -56,7 +56,7 @@ body {
     display: flex;
     gap: 20px;
     position: relative;
-    z-index: 100; /* Higher z-index to ensure navigation is above other sections */
+    z-index: 100;
 }
 
 .navigation a {
@@ -67,7 +67,7 @@ body {
 
 .dropdown {
     position: relative;
-    z-index: 150; /* Ensures the dropdown container is layered above the carousel */
+    z-index: 150;
 }
 
 .dropdown-menu {
@@ -75,12 +75,13 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 200; /* Higher z-index to appear in front of carousel and images */
+    z-index: 200;
     background-color: #ffffff;
     border: 1px solid #ddd;
     min-width: 120px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     list-style: none;
+    padding: 0;
 }
 
 .dropdown-item {
@@ -102,31 +103,8 @@ body {
     color: #555;
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown-menu:hover {
+.dropdown:hover .dropdown-menu {
     display: block;
-}
-
-.sub-menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    z-index: 250; /* Higher z-index to keep submenu above other content */
-    background-color: white;
-    border: 1px solid #ddd;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
-    list-style-type: none;
-    margin-left: 10px;
-}
-
-.dropdown-item:hover .sub-menu {
-    display: block;
-}
-
-.sub-menu li a:hover {
-    background-color: #e6f7ff;
-    border-right: 3px solid red;
 }
 
 .carousel {
@@ -134,7 +112,7 @@ body {
     max-width: 100%;
     overflow: hidden;
     margin: auto;
-    z-index: 1; /* Lower z-index than dropdown menu */
+    z-index: 1;
 }
 
 .carousel-slide {
@@ -145,8 +123,29 @@ body {
 
 .carousel-slide img {
     width: 100%;
-    height: 800px;
+    height: 400px; /* Adjusted height */
     object-fit: cover;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
 }
 
 .slick-dots {
@@ -200,4 +199,9 @@ footer {
 
 .footer-section a:hover {
     color: #fff;
+}
+
+.footer-icon {
+    width: 20px;
+    height: 20px;
 }
