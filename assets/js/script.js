@@ -1,5 +1,4 @@
 document.addEventListener("DOMContentLoaded", function() {
-
     const navigation = document.querySelector('.navigation');
     const batteryDropdown = document.getElementById('batteryDropdown');
     let dropdownOpen = false;
@@ -11,8 +10,14 @@ document.addEventListener("DOMContentLoaded", function() {
         batteryDropdown.classList.toggle('show', dropdownOpen);
     });
 
-    // Hide dropdown when mouse leaves navigation
-    navigation.addEventListener('mouseleave', function() {
+    // Show dropdown menu on hover of dropdown area or batteryDropdown
+    document.querySelector('.dropdown').addEventListener('mouseenter', function() {
+        batteryDropdown.classList.add('show');
+        dropdownOpen = true;
+    });
+
+    // Hide dropdown only when the mouse leaves both the dropdown and the menu itself
+    document.querySelector('.dropdown').addEventListener('mouseleave', function() {
         batteryDropdown.classList.remove('show');
         dropdownOpen = false;
     });
