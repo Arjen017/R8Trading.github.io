@@ -1,3 +1,4 @@
+/* General reset and navigation styling */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -44,7 +45,6 @@ body {
 
 .search-input {
     font-size: 16px;
-    font-family: 'Lexend', sans-serif;
     color: #333333;
     outline: none;
     border: none;
@@ -78,10 +78,11 @@ body {
     z-index: 200;
     background-color: #ffffff;
     border: 1px solid #ddd;
-    min-width: 120px;
+    min-width: 150px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .dropdown-item {
@@ -101,12 +102,38 @@ body {
 .dropdown-item a {
     text-decoration: none;
     color: #555;
+    display: block;
+    width: 100%;
 }
 
-.dropdown:hover .dropdown-menu {
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
     display: block;
 }
 
+.sub-menu {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 100%;
+    background-color: white;
+    border: 1px solid #ddd;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.dropdown-item:hover .sub-menu {
+    display: block;
+}
+
+.sub-menu li a:hover {
+    background-color: #e6f7ff;
+    border-right: 3px solid red;
+}
+
+/* Carousel and footer styling */
 .carousel {
     position: relative;
     max-width: 100%;
@@ -123,7 +150,7 @@ body {
 
 .carousel-slide img {
     width: 100%;
-    height: 400px; /* Adjusted height */
+    height: 600px;
     object-fit: cover;
 }
 
@@ -205,3 +232,4 @@ footer {
     width: 20px;
     height: 20px;
 }
+
