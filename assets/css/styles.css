@@ -65,6 +65,7 @@ body {
 
 .dropdown {
     position: relative;
+    z-index: 10; /* Ensures the dropdown container is layered above the carousel */
 }
 
 .dropdown-menu {
@@ -72,6 +73,7 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 20; /* Higher z-index to appear in front of other elements */
     background-color: #ffffff;
     border: 1px solid #ddd;
     min-width: 120px;
@@ -79,8 +81,11 @@ body {
     list-style: none;
 }
 
+.dropdown-menu.show {
+    display: block;
+}
+
 .dropdown-item {
-    position: relative;
     padding: 8px 16px;
     border-bottom: 1px solid #ddd;
 }
@@ -99,11 +104,6 @@ body {
     color: #555;
 }
 
-.dropdown:hover .dropdown-menu,
-.dropdown-menu:hover {
-    display: block;
-}
-
 .sub-menu {
     display: none;
     position: absolute;
@@ -116,6 +116,10 @@ body {
     margin-left: 10px;
 }
 
+.dropdown-item:hover .sub-menu {
+    display: block;
+}
+
 .sub-menu li a:hover {
     background-color: #e6f7ff;
     border-right: 3px solid red;
@@ -126,6 +130,7 @@ body {
     max-width: 100%;
     overflow: hidden;
     margin: auto;
+    z-index: 1; /* Lower z-index than dropdown menu */
 }
 
 .carousel-slide {
