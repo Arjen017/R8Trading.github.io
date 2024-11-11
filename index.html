@@ -6,34 +6,29 @@
     <title>R8 Battery Trading - Rodel Santiago</title>
     <link rel="stylesheet" href="assets/css/styles.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
-    <!-- Slick CSS for carousel -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
 </head>
 <body>
-    <!-- Header Section -->
     <header class="main-header">
-        <!-- Logo Section -->
         <div class="logo">
             <img src="assets/images/logo.png" alt="R8 Logo">
         </div>
 
-        <!-- Dealer Search and Info Section -->
         <div class="header-info">
             <form>
                 <div class="search">
                     <span class="search-icon material-symbols-outlined">search</span>
-                    <input class="search-input" type="search" placeholder="Dealer Search">
+                    <input class="search-input" type="search" placeholder="Dealer Search" aria-label="Dealer Search">
                 </div>
             </form>
         </div>
 
-        <!-- Navigation -->
         <nav class="navigation">
             <a href="#">Home</a>
             <div class="dropdown">
-                <a href="#" class="dropdown-toggle" onclick="toggleDropdown()">Battery</a>
-                <ul class="dropdown-menu" id="batteryDropdown">
+                <a href="#" class="dropdown-toggle" aria-expanded="false" onclick="toggleDropdown()">Battery</a>
+                <ul class="dropdown-menu" id="batteryDropdown" role="menu" aria-hidden="true">
                     <li class="dropdown-item"><a href="#">Cars</a></li>
                     <li class="dropdown-item"><a href="#">Motorcycle</a></li>
                 </ul>
@@ -43,14 +38,12 @@
         </nav>
     </header>
 
-    <!-- Main Content -->
     <div class="main-content">
-        <!-- Carousel Section -->
-        <section class="carousel fade">
+        <section class="carousel">
             <div class="carousel-slide">
-                <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
-                <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
-                <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
+                <img src="assets/images/image1.png" alt="Image showing battery products 1" class="carousel-item">
+                <img src="assets/images/image2.png" alt="Image showing battery products 2" class="carousel-item">
+                <img src="assets/images/image3.png" alt="Image showing battery products 3" class="carousel-item">
             </div>
         </section>
 
@@ -59,7 +52,6 @@
         </main>
     </div>
 
-     <!-- Footer Section -->
     <footer>
         <div class="footer-content">
             <div class="footer-section address">
@@ -90,11 +82,8 @@
         </div>
     </footer>
 
-
-    <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="assets/js/carousel.js"></script>
     <script src="assets/js/scripts.js"></script>
 </body>
 </html>
