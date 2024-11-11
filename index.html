@@ -32,7 +32,7 @@
         <nav class="navigation">
             <a href="#">Home</a>
             <div class="dropdown">
-                <a href="#" class="dropdown-toggle" onclick="toggleDropdown()">Battery</a>
+                <a href="#" class="dropdown-toggle">Battery</a>
                 <ul class="dropdown-menu" id="batteryDropdown">
                     <li class="dropdown-item">
                         <a href="#">Cars</a>
@@ -84,21 +84,6 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="assets/js/carousel.js"></script>
-    <script>
-        function toggleDropdown() {
-            document.getElementById('batteryDropdown').classList.toggle('show');
-        }
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropdown-toggle')) {
-                var dropdowns = document.getElementsByClassName("dropdown-menu");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        };
-    </script>
+    <script src="assets/js/scripts.js"></script>
 </body>
 </html>
