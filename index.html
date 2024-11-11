@@ -18,22 +18,16 @@
             <img src="assets/images/logo.png" alt="R8 Logo">
         </div>
 
-        <!-- Dealer Search and Info Section -->
+        <!-- Header Info Section (Removed Dealer Search) -->
         <div class="header-info">
-            <form>
-                <div class="search">
-                    <span class="search-icon material-symbols-outlined">search</span>
-                    <input class="search-input" type="search" placeholder="Dealer Search">
-                </div>
-            </form>
+            <!-- Removed Dealer Search form -->
         </div>
 
         <!-- Navigation -->
         <nav class="navigation">
             <a href="#">Home</a>
-            <a href="#">Dealer Search</a>
             <div class="dropdown">
-                <a href="#" class="dropdown-toggle">Battery</a>
+                <a href="#" class="dropdown-toggle" onclick="toggleDropdown()">Battery</a>
                 <ul class="dropdown-menu" id="batteryDropdown">
                     <li class="dropdown-item">
                         <a href="#">Cars</a>
@@ -69,7 +63,6 @@
             </div>
         </section>
 
-    
         <main>
             <p>Your main content here...</p>
         </main>
@@ -78,28 +71,7 @@
     <!-- Footer Section -->
     <footer>
         <div class="footer-content">
-            <div class="footer-section address">
-                <h4>Address:</h4>
-                <p>Siling Bata, Pandi, Bulacan</p>
-            </div>
-            <div class="footer-section links">
-                <h4>Links:</h4>
-                <a href="#">FAQs</a>
-            </div>
-            <div class="footer-section contact">
-                <h4>Contact Us On:</h4>
-                <a href="https://www.facebook.com/p/r8-battery-trading-61558485714994/" target="_blank">
-                    <img src="assets/images/facebook.png" alt="Facebook logo" class="footer-icon"> Facebook
-                </a>
-                <a href="viber://chat?number=%2B639266823374" target="_blank">
-                    <img src="assets/images/viber.png" alt="Viber logo" class="footer-icon"> Viber
-                </a>
-            </div>
-            <div class="footer-section ecommerce">
-                <h4>Ecommerce Store:</h4>
-                <a href="#">Lazada</a>
-                <a href="#">Shopee</a>
-            </div>
+            <!-- Footer content here... -->
         </div>
     </footer>
 
@@ -107,5 +79,21 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="assets/js/carousel.js"></script>
+    <script>
+        function toggleDropdown() {
+            document.getElementById('batteryDropdown').classList.toggle('show');
+        }
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropdown-toggle')) {
+                var dropdowns = document.getElementsByClassName("dropdown-menu");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        };
+    </script>
 </body>
 </html>
