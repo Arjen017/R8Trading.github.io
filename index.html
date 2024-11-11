@@ -1,4 +1,3 @@
-html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -35,8 +34,22 @@ html
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" onclick="toggleDropdown()">Battery</a>
                 <ul class="dropdown-menu" id="batteryDropdown">
-                    <li class="dropdown-item"><a href="#">Cars</a></li>
-                    <li class="dropdown-item"><a href="#">Motorcycle</a></li>
+                    <li class="dropdown-item">
+                        <a href="#">Cars</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Varta</a></li>
+                            <li><a href="#">Oursun</a></li>
+                            <li><a href="#">JP</a></li>
+                        </ul>
+                    </li>
+                    <li class="dropdown-item">
+                        <a href="#">Motorcycle</a>
+                        <ul class="sub-menu">
+                            <li><a href="#">Varta</a></li>
+                            <li><a href="#">Oursun</a></li>
+                            <li><a href="#">JP</a></li>
+                        </ul>
+                    </li>
                 </ul>
             </div>
             <a href="#">Gallery</a>
@@ -60,42 +73,74 @@ html
         </main>
     </div>
 
-     <!-- Footer Section -->
+    <!-- Footer Section -->
     <footer>
         <div class="footer-content">
-            <div class="footer-section address">
-                <h4>Address:</h4>
-                <p>Siling Bata, Pandi, Bulacan</p>
-            </div>
-
-            <div class="footer-section links">
-                <h4>Links:</h4>
-                <a href="#">FAQs</a>
-            </div>
-
-            <div class="footer-section contact">
-                <h4>Contact Us On:</h4>
-                <a href="https://www.facebook.com/p/r8-battery-trading-61558485714994/" target="_blank">
-                    <img src="assets/images/facebook.png" alt="Facebook logo" class="footer-icon"> Facebook
-                </a>
-                <a href="viber://chat?number=%2B639266823374" target="_blank">
-                    <img src="assets/images/viber.png" alt="Viber logo" class="footer-icon"> Viber
-                </a>
-            </div>
-
-            <div class="footer-section ecommerce">
-                <h4>Ecommerce Store:</h4>
-                <a href="#">Lazada</a>
-                <a href="#">Shopee</a>
-            </div>
+            <!-- Footer content here... -->
         </div>
     </footer>
-
 
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="assets/js/carousel.js"></script>
-    <script src="assets/js/scripts.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navigation = document.querySelector('.navigation');
+            const batteryDropdown = document.getElementById('batteryDropdown');
+            let dropdownOpen = false;
+
+            // Toggle the dropdown visibility on click
+            document.querySelector('.dropdown-toggle').addEventListener('click', function(event) {
+                event.preventDefault();
+                dropdownOpen = !dropdownOpen;
+                batteryDropdown.classList.toggle('show', dropdownOpen);
+            });
+
+            // Hide dropdown when mouse leaves navigation
+            navigation.addEventListener('mouseleave', function() {
+                batteryDropdown.classList.remove('show');
+                dropdownOpen = false;
+            });
+
+            // Carousel functionality
+            const carouselSlide = document.querySelector(".carousel-slide");
+            const images = document.querySelectorAll(".carousel-slide img");
+            let counter = 0;
+            const slideWidth = images[0].clientWidth;
+
+            function showSlide() {
+                carouselSlide.style.transform = `translateX(${-counter * slideWidth}px)`;
+            }
+
+            function nextSlide() {
+                counter = (counter + 1) % images.length;
+                showSlide();
+            }
+
+            function prevSlide() {
+                counter = (counter - 1 + images.length) % images.length;
+                showSlide();
+            }
+
+            setInterval(nextSlide, 3000);
+
+            window.addEventListener("resize", () => {
+                showSlide();
+            });
+
+            // Initialize Slick carousel with fade effect
+            $('.carousel').slick({
+                dots: true,
+                infinite: true,
+                speed: 500,
+                fade: true,
+                cssEase: 'linear',
+                arrows: false,
+                autoplay: true,
+                autoplaySpeed: 3000
+            });
+        });
+    </script>
 </body>
 </html>
