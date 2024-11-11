@@ -55,6 +55,8 @@ body {
 .navigation {
     display: flex;
     gap: 20px;
+    position: relative;
+    z-index: 100; /* Higher z-index to ensure navigation is above other sections */
 }
 
 .navigation a {
@@ -65,7 +67,7 @@ body {
 
 .dropdown {
     position: relative;
-    z-index: 10; /* Ensures the dropdown container is layered above the carousel */
+    z-index: 150; /* Ensures the dropdown container is layered above the carousel */
 }
 
 .dropdown-menu {
@@ -73,16 +75,12 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 20; /* Higher z-index to appear in front of other elements */
+    z-index: 200; /* Higher z-index to appear in front of carousel and images */
     background-color: #ffffff;
     border: 1px solid #ddd;
     min-width: 120px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     list-style: none;
-}
-
-.dropdown-menu.show {
-    display: block;
 }
 
 .dropdown-item {
@@ -104,11 +102,17 @@ body {
     color: #555;
 }
 
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
+}
+
 .sub-menu {
     display: none;
     position: absolute;
     top: 0;
     left: 100%;
+    z-index: 250; /* Higher z-index to keep submenu above other content */
     background-color: white;
     border: 1px solid #ddd;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
