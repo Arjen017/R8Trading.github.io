@@ -1,36 +1,31 @@
 document.addEventListener("DOMContentLoaded", function() {
-    // Get elements
     const dropdown = document.querySelector('.dropdown');
     const batteryDropdown = document.getElementById('batteryDropdown');
-    
-    // Function to show the dropdown menu
-    function showDropdown() {
+    let dropdownOpen = false;
+
+    // Show dropdown menu on hover of the dropdown
+    dropdown.addEventListener('mouseenter', function() {
         batteryDropdown.classList.add('show');
-    }
-
-    // Function to hide the dropdown menu
-    function hideDropdown() {
-        batteryDropdown.classList.remove('show');
-    }
-
-    // Show dropdown menu on mouse enter
-    dropdown.addEventListener('mouseenter', showDropdown);
-    batteryDropdown.addEventListener('mouseenter', showDropdown);
-
-    // Hide dropdown menu on mouse leave
-    dropdown.addEventListener('mouseleave', hideDropdown);
-    batteryDropdown.addEventListener('mouseleave', hideDropdown);
-
-    // Close dropdown menu when clicking outside of the dropdown
-    document.addEventListener('click', function(event) {
-        if (!dropdown.contains(event.target) && !batteryDropdown.contains(event.target)) {
-            hideDropdown();
-        }
+        dropdownOpen = true;
     });
 
-    // Prevent hiding when clicking on a dropdown item
-    batteryDropdown.addEventListener('click', function(event) {
-        event.stopPropagation(); // Prevent event from bubbling up
+    // Hide dropdown menu only when the mouse leaves both the dropdown and the menu itself
+    dropdown.addEventListener('mouseleave', function() {
+        setTimeout(() => {
+            if (!dropdown.matches(':hover') && !batteryDropdown.matches(':hover')) {
+                batteryDropdown.classList.remove('show');
+                dropdownOpen = false;
+            }
+        }, 100); // Add a slight delay to ensure the menu doesn't disappear too quickly
+    });
+
+    batteryDropdown.addEventListener('mouseleave', function() {
+        setTimeout(() => {
+            if (!dropdown.matches(':hover') && !batteryDropdown.matches(':hover')) {
+                batteryDropdown.classList.remove('show');
+                dropdownOpen = false;
+            }
+        }, 100);
     });
 
     // Carousel functionality
@@ -39,27 +34,22 @@ document.addEventListener("DOMContentLoaded", function() {
     let counter = 0;
     const slideWidth = images[0].clientWidth;
 
-    // Function to show current slide
     function showSlide() {
         carouselSlide.style.transform = `translateX(${-counter * slideWidth}px)`;
     }
 
-    // Move to the next slide
     function nextSlide() {
         counter = (counter + 1) % images.length;
         showSlide();
     }
 
-    // Move to the previous slide
     function prevSlide() {
         counter = (counter - 1 + images.length) % images.length;
         showSlide();
     }
 
-    // Auto-slide every 3 seconds
     setInterval(nextSlide, 3000);
 
-    // Adjust the slide on window resize
     window.addEventListener("resize", () => {
         showSlide();
     });
