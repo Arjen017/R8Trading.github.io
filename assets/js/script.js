@@ -2,25 +2,28 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get elements
     const dropdown = document.querySelector('.dropdown');
     const batteryDropdown = document.getElementById('batteryDropdown');
+    let dropdownTimeout;
 
-    // Show dropdown menu when entering dropdown area
-    dropdown.addEventListener('mouseenter', function() {
+    // Function to show dropdown
+    function showDropdown() {
+        clearTimeout(dropdownTimeout); // Clear any previous timeout
         batteryDropdown.classList.add('show');
-    });
+    }
 
-     // Keep dropdown menu open while in dropdown-menu area
-    batteryDropdown.addEventListener('mouseenter', function() {
-        batteryDropdown.classList.add('show');
-    });
+    // Function to hide dropdown with delay
+    function hideDropdown() {
+        dropdownTimeout = setTimeout(() => {
+            batteryDropdown.classList.remove('show');
+        }, 200); // Adds a slight delay before hiding
+    }
 
-    // Hide dropdown menu only when leaving the dropdown menu area
-    dropdown.addEventListener('mouseleave', function() {
-        batteryDropdown.classList.remove('show');
-    });
-    batteryDropdown.addEventListener('mouseleave', function() {
-        batteryDropdown.classList.remove('show');
-    });
+    // Show dropdown menu on mouse enter
+    dropdown.addEventListener('mouseenter', showDropdown);
+    batteryDropdown.addEventListener('mouseenter', showDropdown);
 
+    // Hide dropdown menu only when leaving both dropdown and dropdown-menu areas
+    dropdown.addEventListener('mouseleave', hideDropdown);
+    batteryDropdown.addEventListener('mouseleave', hideDropdown);
 
     // Carousel functionality
     const carouselSlide = document.querySelector(".carousel-slide");
