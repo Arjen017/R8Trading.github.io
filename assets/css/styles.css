@@ -1,3 +1,4 @@
+/* Existing CSS code */
 body {
     margin: 0;
     font-family: Arial, sans-serif;
@@ -84,6 +85,11 @@ body {
     padding: 0;
 }
 
+/* Show the dropdown menu when .show class is added */
+.dropdown-menu.show {
+    display: block;
+}
+
 .dropdown-item {
     padding: 8px 16px;
     border-bottom: 1px solid #ddd;
@@ -101,10 +107,6 @@ body {
 .dropdown-item a {
     text-decoration: none;
     color: #555;
-}
-
-.dropdown:hover .dropdown-menu {
-    display: block;
 }
 
 .carousel {
@@ -198,10 +200,4 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #fff;
-}
-
-.footer-icon {
-    width: 20px;
-    height: 20px;
-}
+    color:
