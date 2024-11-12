@@ -3,13 +3,21 @@ document.addEventListener("DOMContentLoaded", function() {
     const dropdown = document.querySelector('.dropdown');
     const batteryDropdown = document.getElementById('batteryDropdown');
 
-    // Show dropdown menu when hovering over the dropdown
+    // Show dropdown menu when entering dropdown area
     dropdown.addEventListener('mouseenter', function() {
+        batteryDropdown.classList.add('show');
+    });
+
+     // Keep dropdown menu open while in dropdown-menu area
+    batteryDropdown.addEventListener('mouseenter', function() {
         batteryDropdown.classList.add('show');
     });
 
     // Hide dropdown menu only when leaving the dropdown menu area
     dropdown.addEventListener('mouseleave', function() {
+        batteryDropdown.classList.remove('show');
+    });
+    batteryDropdown.addEventListener('mouseleave', function() {
         batteryDropdown.classList.remove('show');
     });
 
