@@ -24,9 +24,10 @@ body {
 }
 
 .search {
+    --padding: 14px;
     display: flex;
     align-items: center;
-    padding: 14px;
+    padding: var(--padding);
     border-radius: 28px;
     background: #f6f6f6;
     transition: box-shadow 0.25s;
@@ -44,6 +45,7 @@ body {
 
 .search-input {
     font-size: 16px;
+    font-family: 'Lexend', sans-serif;
     color: #333333;
     outline: none;
     border: none;
@@ -51,7 +53,6 @@ body {
     margin-right: 15px;
 }
 
-/* Navigation */
 .navigation {
     display: flex;
     gap: 20px;
@@ -75,13 +76,13 @@ body {
     position: absolute;
     top: 100%;
     left: 0;
+    z-index: 200;
     background-color: #ffffff;
     border: 1px solid #ddd;
     min-width: 120px;
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);
     list-style: none;
     padding: 0;
-    z-index: 200;
 }
 
 .dropdown-item {
@@ -98,11 +99,15 @@ body {
     border-right: 3px solid red;
 }
 
-.dropdown-menu.show {
+.dropdown-item a {
+    text-decoration: none;
+    color: #555;
+}
+
+.dropdown:hover .dropdown-menu {
     display: block;
 }
 
-/* Carousel */
 .carousel {
     position: relative;
     max-width: 100%;
@@ -119,8 +124,29 @@ body {
 
 .carousel-slide img {
     width: 100%;
-    height: 550px;
+    height: 600px; /* Adjusted height */
     object-fit: cover;
+}
+
+.carousel-prev, .carousel-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+}
+
+.carousel-prev {
+    left: 10px;
+}
+
+.carousel-next {
+    right: 10px;
 }
 
 .slick-dots {
@@ -131,20 +157,26 @@ body {
     justify-content: center;
 }
 
-/* Footer */
+@media (max-width: 768px) {
+    .carousel-slide img {
+        width: 100vw;
+    }
+}
+
 footer {
     background-color: #333;
     color: #fff;
     padding: 20px;
     display: flex;
     justify-content: space-around;
-    flex-wrap: wrap;
+    align-items: flex-start;
     text-align: left;
 }
 
 .footer-content {
     display: flex;
     flex-wrap: wrap;
+    width: 100%;
     gap: 20px;
 }
 
@@ -173,5 +205,5 @@ footer {
 .footer-icon {
     width: 20px;
     height: 20px;
-    object-fit: contain;
 }
+
