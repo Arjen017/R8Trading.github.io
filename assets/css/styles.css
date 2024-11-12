@@ -85,6 +85,9 @@ body {
     padding: 0;
 }
 
+.dropdown-menu.show {
+    display: block;
+}
 .dropdown-item {
     padding: 8px 16px;
     border-bottom: 1px solid #ddd;
