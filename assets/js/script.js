@@ -2,28 +2,36 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get elements
     const dropdown = document.querySelector('.dropdown');
     const batteryDropdown = document.getElementById('batteryDropdown');
-    let dropdownTimeout;
-
-    // Function to show dropdown
+    
+    // Function to show the dropdown menu
     function showDropdown() {
-        clearTimeout(dropdownTimeout); // Clear any previous timeout
         batteryDropdown.classList.add('show');
     }
 
-    // Function to hide dropdown with delay
+    // Function to hide the dropdown menu
     function hideDropdown() {
-        dropdownTimeout = setTimeout(() => {
-            batteryDropdown.classList.remove('show');
-        }, 200); // Adds a slight delay before hiding
+        batteryDropdown.classList.remove('show');
     }
 
     // Show dropdown menu on mouse enter
     dropdown.addEventListener('mouseenter', showDropdown);
     batteryDropdown.addEventListener('mouseenter', showDropdown);
 
-    // Hide dropdown menu only when leaving both dropdown and dropdown-menu areas
+    // Hide dropdown menu on mouse leave
     dropdown.addEventListener('mouseleave', hideDropdown);
     batteryDropdown.addEventListener('mouseleave', hideDropdown);
+
+    // Close dropdown menu when clicking outside of the dropdown
+    document.addEventListener('click', function(event) {
+        if (!dropdown.contains(event.target) && !batteryDropdown.contains(event.target)) {
+            hideDropdown();
+        }
+    });
+
+    // Prevent hiding when clicking on a dropdown item
+    batteryDropdown.addEventListener('click', function(event) {
+        event.stopPropagation(); // Prevent event from bubbling up
+    });
 
     // Carousel functionality
     const carouselSlide = document.querySelector(".carousel-slide");
@@ -68,4 +76,3 @@ document.addEventListener("DOMContentLoaded", function() {
         autoplaySpeed: 3000
     });
 });
-
