@@ -1,15 +1,15 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Get elements
-    const navigation = document.querySelector('.navigation');
+    const dropdown = document.querySelector('.dropdown');
     const batteryDropdown = document.getElementById('batteryDropdown');
 
-    // Show dropdown menu when entering navigation
-    navigation.addEventListener('mouseenter', function() {
+    // Show dropdown menu when entering dropdown area
+    dropdown.addEventListener('mouseenter', function() {
         batteryDropdown.classList.add('show');
     });
 
-    // Hide dropdown menu when leaving navigation
-    navigation.addEventListener('mouseleave', function() {
+    // Hide dropdown menu when leaving dropdown area
+    dropdown.addEventListener('mouseleave', function() {
         batteryDropdown.classList.remove('show');
     });
 
@@ -27,12 +27,6 @@ document.addEventListener("DOMContentLoaded", function() {
     // Move to the next slide
     function nextSlide() {
         counter = (counter + 1) % images.length;
-        showSlide();
-    }
-
-    // Move to the previous slide
-    function prevSlide() {
-        counter = (counter - 1 + images.length) % images.length;
         showSlide();
     }
 
