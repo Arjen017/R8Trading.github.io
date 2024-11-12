@@ -84,10 +84,6 @@ body {
     padding: 0;
 }
 
-.dropdown-menu.show {
-    display: block;
-}
-
 .dropdown-item {
     padding: 8px 16px;
     border-bottom: 1px solid #ddd;
@@ -105,6 +101,10 @@ body {
 .dropdown-item a {
     text-decoration: none;
     color: #555;
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
 }
 
 .carousel {
