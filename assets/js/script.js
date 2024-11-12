@@ -1,10 +1,9 @@
 document.addEventListener("DOMContentLoaded", function() {
     // Get elements
-    const dropdown = document.querySelector('.dropdown');
-    const batteryDropdown = document.getElementById('batteryDropdown');
     const navigation = document.querySelector('.navigation');
+    const batteryDropdown = document.getElementById('batteryDropdown');
 
-    // Show dropdown menu when hovering over navigation
+    // Show dropdown menu when entering navigation
     navigation.addEventListener('mouseenter', function() {
         batteryDropdown.classList.add('show');
     });
