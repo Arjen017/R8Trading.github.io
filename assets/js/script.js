@@ -2,20 +2,17 @@ document.addEventListener("DOMContentLoaded", function() {
     // Get elements
     const dropdown = document.querySelector('.dropdown');
     const batteryDropdown = document.getElementById('batteryDropdown');
-    let hideTimeout;
 
-    // Show dropdown menu when entering dropdown area
+    // Show dropdown menu when hovering over the dropdown
     dropdown.addEventListener('mouseenter', function() {
-        clearTimeout(hideTimeout);  // Clear any hide timeout if the user re-enters
         batteryDropdown.classList.add('show');
     });
 
-    // Hide dropdown menu with a slight delay when leaving dropdown area
+    // Hide dropdown menu only when leaving the dropdown menu area
     dropdown.addEventListener('mouseleave', function() {
-        hideTimeout = setTimeout(() => {
-            batteryDropdown.classList.remove('show');
-        }, 100); // Adjust delay if needed
+        batteryDropdown.classList.remove('show');
     });
+
 
     // Carousel functionality
     const carouselSlide = document.querySelector(".carousel-slide");
@@ -31,6 +28,12 @@ document.addEventListener("DOMContentLoaded", function() {
     // Move to the next slide
     function nextSlide() {
         counter = (counter + 1) % images.length;
+        showSlide();
+    }
+
+    // Move to the previous slide
+    function prevSlide() {
+        counter = (counter - 1 + images.length) % images.length;
         showSlide();
     }
 
