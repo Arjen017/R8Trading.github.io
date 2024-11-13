@@ -6,7 +6,7 @@
         const navigation = document.querySelector('.navigation');
         
         // Map and Carousel toggle elements
-        const mapLink = document.querySelector('.navigation a[href="#map"]');
+        const mapLink = document.getElementById("mapLink"); // Updated to use id
         const carouselSection = document.getElementById("carouselSection");
         const mapSection = document.getElementById("mapSection");
 
