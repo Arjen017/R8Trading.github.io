@@ -183,6 +183,10 @@ body {
     justify-content: center;
 }
 
+.hidden { display: none; }
+.visible { display: block; }
+
+
 @media (max-width: 768px) {
     .carousel-slide img {
         width: 100vw;
