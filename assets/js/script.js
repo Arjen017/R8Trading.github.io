@@ -57,8 +57,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Show map and hide carousel when "Map" link is clicked
     mapLink.addEventListener("click", function(event) {
-        event.preventDefault();
-        carouselSection.style.display = "none";
-        mapSection.style.display = "block";
+    event.preventDefault();
+    carouselSection.classList.add("hidden");
+    mapSection.classList.remove("hidden");
+    mapSection.classList.add("visible");
     });
 });
