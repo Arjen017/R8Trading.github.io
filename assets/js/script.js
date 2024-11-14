@@ -58,6 +58,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // Show map and hide carousel when "Map" link is clicked
     mapLink.addEventListener("click", function(event) {
     event.preventDefault();
+        console.log("Map link clicked"); // Add this for debugging
+         carouselSection.style.display = "none";
+    mapSection.style.display = "block";
     carouselSection.classList.add("hidden");
     mapSection.classList.remove("hidden");
     mapSection.classList.add("visible");
