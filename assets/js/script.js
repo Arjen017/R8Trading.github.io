@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
     homeLink.addEventListener("click", function(event) {
     event.preventDefault();
     console.log("Home link clicked");
-    mapSection.classList.add("hidden");
-    carouselSection.classList.remove("hidden");
+    mapSection.style.display = "none";
+    carouselSection.style.display = "block";
 });
     
     mapLink.addEventListener("click", function(event) {
