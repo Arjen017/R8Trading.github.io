@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const navigation = document.querySelector('.navigation');
     
     // Map and Carousel toggle elements
-    const mapLink = document.getElementById("mapLink"); // Updated to use id
+    const mapLink = document.getElementById("mapLink");
     const carouselSection = document.getElementById("carouselSection");
     const mapSection = document.getElementById("mapSection");
 
@@ -57,14 +57,9 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Show map and hide carousel when "Map" link is clicked
     mapLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    console.log("Map link clicked"); // Add this for debugging
-    
-    carouselSection.style.display = "none";
-    mapSection.style.display = "block";
-        
-    carouselSection.classList.add("hidden");
-    mapSection.classList.remove("hidden");
-    mapSection.classList.add("visible");
+        event.preventDefault();
+        console.log("Map link clicked"); // Debugging
+        carouselSection.style.display = "none";
+        mapSection.style.display = "block";
     });
 });
