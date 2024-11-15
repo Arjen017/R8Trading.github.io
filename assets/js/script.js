@@ -60,8 +60,8 @@ document.addEventListener("DOMContentLoaded", function() {
     event.preventDefault();
     console.log("Map link clicked"); // Add this for debugging
     
-    //carouselSection.style.display = "none";
-    //mapSection.style.display = "block";
+    carouselSection.style.display = "none";
+    mapSection.style.display = "block";
         
     carouselSection.classList.add("hidden");
     mapSection.classList.remove("hidden");
