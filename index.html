@@ -109,27 +109,24 @@
    <!-- <script src="assets/js/carousel.js"></script> -->
   <!-- <script src="assets/js/dropdown.js"></script> -->
 
+    <a href="#" id="mapLink">Map</a>
 
-    <!-- Place this script at the end of the body tag -->
-<script src="assets/js/carousel.js"></script>
-<script src="assets/js/dropdown.js"></script>
+<section id="carouselSection">
+    <p>Carousel Content</p>
+</section>
+
+<section id="mapSection" style="display: none;">
+    <p>Map Content</p>
+</section>
+
 <script>
-    document.addEventListener("DOMContentLoaded", function() {
-        const mapLink = document.getElementById("mapLink");
-        const carouselSection = document.getElementById("carouselSection");
-        const mapSection = document.getElementById("mapSection");
-
-        mapLink.addEventListener("click", function(event) {
-            event.preventDefault();
-            console.log("Map link clicked"); // Check console to ensure this logs
-            carouselSection.classList.add("hidden");
-            mapSection.classList.remove("hidden");
-            mapSection.classList.add("visible");
-        });
+    document.getElementById("mapLink").addEventListener("click", function(event) {
+        event.preventDefault();
+        document.getElementById("carouselSection").style.display = "none";
+        document.getElementById("mapSection").style.display = "block";
     });
 </script>
-</body>
-</html>
+
 
 </body>
 </html>
