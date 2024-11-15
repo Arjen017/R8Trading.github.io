@@ -106,7 +106,30 @@
     <!-- Scripts -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
-    <script src="assets/js/carousel.js"></script>
-    <script src="assets/js/dropdown.js"></script>
+   <!-- <script src="assets/js/carousel.js"></script> -->
+  <!-- <script src="assets/js/dropdown.js"></script> -->
+
+
+    <!-- Place this script at the end of the body tag -->
+<script src="assets/js/carousel.js"></script>
+<script src="assets/js/dropdown.js"></script>
+<script>
+    document.addEventListener("DOMContentLoaded", function() {
+        const mapLink = document.getElementById("mapLink");
+        const carouselSection = document.getElementById("carouselSection");
+        const mapSection = document.getElementById("mapSection");
+
+        mapLink.addEventListener("click", function(event) {
+            event.preventDefault();
+            console.log("Map link clicked"); // Check console to ensure this logs
+            carouselSection.classList.add("hidden");
+            mapSection.classList.remove("hidden");
+            mapSection.classList.add("visible");
+        });
+    });
+</script>
+</body>
+</html>
+
 </body>
 </html>
