@@ -193,6 +193,11 @@ body {
     background-color: #f9f9f9; /* Optional: For visibility */
 }
 
+#mapSection.show {
+    display: block; /* Visible state */
+}
+
+
 
 @media (max-width: 768px) {
     .carousel-slide img {
