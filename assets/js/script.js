@@ -2,15 +2,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const mapLink = document.getElementById("mapLink");
     const carouselSection = document.getElementById("carouselSection");
     const mapSection = document.getElementById("mapSection");
-
+    
     mapLink.addEventListener("click", function(event) {
-        event.preventDefault(); // Prevent the default link behavior
+    event.preventDefault();
+    console.log("Map link clicked");
 
-        // Debugging logs
-        console.log("Map link clicked");
-
-        // Toggle visibility
-        carouselSection.style.display = "none";
-        mapSection.style.display = "block";
+    // Hide carousel and show map
+    carouselSection.classList.add("hidden");
+    mapSection.classList.add("show");
     });
 });
