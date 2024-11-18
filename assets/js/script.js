@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const mapLink = document.getElementById("mapLink");
     const carouselSection = document.getElementById("carouselSection");
     const mapSection = document.getElementById("mapSection");
+    const homeLink = document.getElementById("homeLink");
 
     homeLink.addEventListener("click", function(event) {
     event.preventDefault();
