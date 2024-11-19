@@ -4,6 +4,18 @@ body {
     font-family: Arial, sans-serif;
 }
 
+.section {
+    display: none;
+}
+
+.visible {
+    display: block;
+}
+
+.hidden {
+    display: none;
+}
+
 .main-header {
     display: flex;
     justify-content: space-between;
