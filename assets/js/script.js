@@ -1,39 +1,26 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const homeLink = document.getElementById("homeLink");
-    const galleryLink = document.getElementById("galleryLink");
     const mapLink = document.getElementById("mapLink");
-
     const carouselSection = document.getElementById("carouselSection");
-    const contentSection = document.getElementById("contentSection");
+    const contentSection = document.getElementById("contentSection"); // map section
+    const homeLink = document.getElementById("homeLink");
 
-    /**
-     * Show the specified section and hide all others.
-     * @param {HTMLElement} sectionToShow - The section to be made visible.
-     */
-    function showSection(sectionToShow) {
-        document.querySelectorAll(".section").forEach((section) => {
-            section.classList.add("hidden");
-            section.classList.remove("visible");
-        });
-        sectionToShow.classList.add("visible");
-        sectionToShow.classList.remove("hidden");
-    }
-
-    // Event listener for "Home" link
+    // Home link click event
     homeLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        showSection(carouselSection);
+        event.preventDefault(); // Prevent default link behavior
+        console.log("Home link clicked");
+
+        // Show carousel and hide map
+        carouselSection.style.display = "block";
+        contentSection.style.display = "none"; // Corrected
     });
 
-    // Event listener for "Map" link
+    // Map link click event
     mapLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        showSection(contentSection);
-    });
+        event.preventDefault(); // Prevent default link behavior
+        console.log("Map link clicked");
 
-    // Placeholder: Add logic for "Gallery" link when needed
-    galleryLink.addEventListener("click", function (event) {
-        event.preventDefault();
-        console.log("Gallery link clicked - Add gallery logic here.");
+        // Hide carousel and show map
+        carouselSection.style.display = "none";
+        contentSection.style.display = "block"; // Corrected
     });
 });
