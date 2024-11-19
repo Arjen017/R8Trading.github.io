@@ -4,18 +4,6 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.section.visible {
-    display: block; /* Shown when active */
-}
-
-.section.hidden {
-    display: none; /* Ensure hidden when inactive */
-}
-
-.hidden {
-    display: none;
-}
-
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -199,7 +187,7 @@ body {
 .visible { display: block; }
 
 #mapSection {
-    display: flex; /* Hidden initially */
+    display: none; /* Hidden initially */
     min-height: 500px; /* Adjust height as needed */
     padding: 20px;
     background-color: #f9f9f9; /* Optional: For visibility */
@@ -211,7 +199,7 @@ body {
 
 /* Main content section */
 .content-section {
-    display: none;
+    display: flex;
     gap: 20px;
     padding: 20px;
     background-color: #f9f9f9; /* Optional: For visibility */
@@ -252,6 +240,10 @@ body {
     color: #333;
 }
 
+/* Hide contentSection (Google Map and images) by default */
+#contentSection {
+    display: none;
+}
 
 /* Flexbox wrapper for the map and images */
 .content-wrapper {
@@ -320,3 +312,4 @@ footer {
     width: 20px;
     height: 20px;
 }
+
