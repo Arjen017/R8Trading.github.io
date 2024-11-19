@@ -197,11 +197,56 @@ body {
     display: block; /* Visible state */
 }
 
+/* Main content section */
+.content-section {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f9f9f9; /* Optional: For visibility */
+}
+
+/* Map container */
+.map-container {
+    flex: 2; /* Take more space for the map */
+}
+
+/* Image container */
+.image-container {
+    flex: 1; /* Take less space for images */
+    display: flex;
+    flex-direction: column;
+    gap: 20px; /* Spacing between image boxes */
+}
+
+/* Each image box */
+.image-box {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 10px; /* Space between image and text */
+}
+
+.image-box img {
+    width: 100%; /* Adjust to container size */
+    max-width: 250px; /* Optional: Limit max image size */
+    height: auto;
+    object-fit: cover;
+}
+
+.image-box p {
+    font-size: 14px;
+    color: #333;
+    margin: 0;
+}
 
 
 @media (max-width: 768px) {
     .carousel-slide img {
         width: 100vw;
+    }
+    .content-section {
+        flex-direction: column; /* Stack map and images vertically */
     }
 }
 
