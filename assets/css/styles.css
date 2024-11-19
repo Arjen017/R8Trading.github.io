@@ -4,12 +4,12 @@ body {
     font-family: Arial, sans-serif;
 }
 
-.section {
-    display: none;
+.section.visible {
+    display: block; /* Shown when active */
 }
 
-.visible {
-    display: block;
+.section.hidden {
+    display: none; /* Ensure hidden when inactive */
 }
 
 .hidden {
