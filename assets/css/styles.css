@@ -210,35 +210,36 @@ body {
     flex: 2; /* Take more space for the map */
 }
 
-/* Image container */
-.image-container {
+/* Images container */
+.images-container {
     flex: 1; /* Take less space for images */
-    display: flex;
-    flex-direction: column;
-    gap: 20px; /* Spacing between image boxes */
+    text-align: center; /* Center-align description */
 }
 
-/* Each image box */
-.image-box {
+/* Images row */
+.images-row {
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    gap: 10px; /* Space between image and text */
+    justify-content: space-between;
+    gap: 10px; /* Spacing between images */
 }
 
-.image-box img {
-    width: 100%; /* Adjust to container size */
-    max-width: 250px; /* Optional: Limit max image size */
+/* Images */
+.images-row img {
+    width: 100%; /* Scale images to fit container */
+    max-width: 150px; /* Limit maximum width for each image */
     height: auto;
     object-fit: cover;
+    border: 1px solid #ddd; /* Optional: Add border around images */
+    border-radius: 5px; /* Optional: Rounded corners */
 }
 
-.image-box p {
+/* Description */
+.description {
+    margin-top: 10px;
     font-size: 14px;
     color: #333;
-    margin: 0;
 }
+
 
 
 @media (max-width: 768px) {
@@ -247,6 +248,13 @@ body {
     }
     .content-section {
         flex-direction: column; /* Stack map and images vertically */
+    }
+    .images-row {
+        flex-direction: column; /* Stack images vertically */
+    }
+
+    .images-row img {
+        max-width: 100%; /* Images will take full width */
     }
 }
 
