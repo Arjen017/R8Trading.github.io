@@ -219,8 +219,9 @@ body {
 /* Images row */
 .images-row {
     display: flex;
-    justify-content: center;
+    flex-direction: column; /* Stack vertically */
     gap: 10px; /* Spacing between images */
+    align-items: center;
 }
 
 /* Optional: Style the images further if needed */
@@ -251,6 +252,26 @@ body {
     justify-content: space-between;
     align-items: flex-start;
     gap: 30px; /* Adjust gap between map and images */
+}
+
+/* Styling for the Map and Images Section */
+.map-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
+
+.map-images-wrapper {
+    display: flex; /* Side-by-side layout */
+    gap: 30px; /* Space between map and images */
+    align-items: flex-start; /* Align items to the top */
+}
+
+/* Google Map Styling */
+.map-section iframe {
+    flex: 3; /* Take more space */
+    border: 1px solid #ddd; /* Optional: Add a border */
+    border-radius: 5px; /* Optional: Rounded corners */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Shadow */
 }
 
 @media (max-width: 768px) {
