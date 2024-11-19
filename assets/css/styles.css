@@ -207,7 +207,7 @@ body {
 
 /* Map container */
 .map-container {
-    flex: 2; /* Take more space for the map */
+    flex: 3; /* Take more space for the map */
 }
 
 /* Images container */
@@ -219,7 +219,7 @@ body {
 /* Images row */
 .images-row {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     gap: 10px; /* Spacing between images */
 }
 
@@ -236,7 +236,19 @@ body {
     color: #333;
 }
 
+/* Section container */
+.content-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+}
 
+/* Flexbox wrapper for the map and images */
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 30px; /* Adjust gap between map and images */
+}
 
 @media (max-width: 768px) {
     .carousel-slide img {
