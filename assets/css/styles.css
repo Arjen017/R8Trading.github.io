@@ -240,10 +240,6 @@ body {
     color: #333;
 }
 
-/* Hide contentSection (Google Map and images) by default */
-#contentSection {
-    display: none;
-}
 
 /* Flexbox wrapper for the map and images */
 .content-wrapper {
