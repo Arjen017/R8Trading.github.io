@@ -225,8 +225,8 @@ body {
 
 /* Optional: Style the images further if needed */
 .images-row img {
-    width: 42px; /* Ensure consistent width */
-    height: 42px; /* Ensure consistent height */
+    width: 100px; /* Ensure consistent width */
+    height: 100px; /* Ensure consistent height */
     object-fit: contain; /* Maintain image proportions within the set size */
     border: 1px solid #ddd; /* Optional border for styling */
     border-radius: 5px; /* Optional rounded corners */
