@@ -187,7 +187,7 @@ body {
 .visible { display: block; }
 
 #mapSection {
-    display: none; /* Hidden initially */
+    display: flex; /* Hidden initially */
     min-height: 500px; /* Adjust height as needed */
     padding: 20px;
     background-color: #f9f9f9; /* Optional: For visibility */
