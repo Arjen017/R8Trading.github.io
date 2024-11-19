@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
     const mapLink = document.getElementById("mapLink");
     const carouselSection = document.getElementById("carouselSection");
-    const mapSection = document.getElementById("mapSection");
+    const contentSection = document.getElementById("contentSection"); // Correct ID for the map section
     const homeLink = document.getElementById("homeLink");
 
     // Home link click event
@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Show carousel and hide map
         carouselSection.style.display = "block";
-        mapSection.style.display = "none";
+        contentSection.style.display = "none"; // Corrected
     });
 
     // Map link click event
@@ -21,6 +21,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Hide carousel and show map
         carouselSection.style.display = "none";
-        mapSection.style.display = "block";
+        contentSection.style.display = "block"; // Corrected
     });
 });
