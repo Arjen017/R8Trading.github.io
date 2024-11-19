@@ -240,10 +240,9 @@ body {
     color: #333;
 }
 
-/* Section container */
-.content-section {
-    padding: 20px;
-    background-color: #f9f9f9;
+/* Hide contentSection (Google Map and images) by default */
+#contentSection {
+    display: none;
 }
 
 /* Flexbox wrapper for the map and images */
