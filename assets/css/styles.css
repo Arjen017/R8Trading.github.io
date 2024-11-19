@@ -1,6 +1,7 @@
 /* General reset and navigation styling */
 body {
     margin: 0;
+    padding: 0;
     font-family: Arial, sans-serif;
 }
 
@@ -199,10 +200,15 @@ body {
 
 /* Main content section */
 .content-section {
+   /*  display: flex; */
+   /*  gap: 20px; */
+   /*  padding: 20px; */
+  /*   background-color: #f9f9f9; /* Optional: For visibility */
+    flex: 1; /* Take another portion of space */
     display: flex;
-    gap: 20px;
-    padding: 20px;
-    background-color: #f9f9f9; /* Optional: For visibility */
+    flex-direction: column; /* Stack images and text vertically */
+    justify-content: flex-start; /* Align content at the top */
+    min-width: 300px; /* Prevent content from shrinking too much */
 }
 
 /* Map container */
@@ -212,8 +218,13 @@ body {
 
 /* Images container */
 .images-container {
-    flex: 1; /* Take less space for images */
-    text-align: center; /* Center-align description */
+    display: flex;
+    flex-direction: row; /* Horizontal layout */
+    align-items: flex-start; /* Align content to the top */
+    justify-content: flex-start; /* No unnecessary centering */
+    gap: 20px; /* Space between the map and content */
+    padding: 20px;
+    flex-wrap: nowrap; /* Prevent wrapping */
 }
 
 /* Images row */
@@ -239,6 +250,7 @@ body {
     margin-top: 10px;
     font-size: 14px;
     color: #333;
+    line-height: 1.5;
 }
 
 /* Hide contentSection (Google Map and images) by default */
