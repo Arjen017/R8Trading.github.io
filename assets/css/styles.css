@@ -1,7 +1,6 @@
 /* General reset and navigation styling */
 body {
-    /* margin: 0; */
-    margin-right: 20px.
+    margin: 0;
     padding: 0;
     font-family: Arial, sans-serif;
 }
@@ -59,6 +58,8 @@ body {
     gap: 20px;
     position: relative;
     z-index: 100;
+    padding-right: 20px; /* Add space to the right of the navigation */
+    justify-content: flex-start; /* Aligns items to the left */
 }
 
 .navigation a {
@@ -66,6 +67,11 @@ body {
     color: #333;
     font-weight: bold;
     font-size: 18px; 
+    margin-right: 30px; /* Adjust the spacing between links */
+}
+
+.navigation a:last-child {
+    margin-right: 0; /* Prevent extra margin after the Map link */
 }
 
 .dropdown {
