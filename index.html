@@ -30,17 +30,23 @@
 
         <!-- Navigation -->
         <nav class="navigation">
-            <a href="#">Home</a>
-            <div class="dropdown">
-                <a href="#" class="dropdown-toggle" onclick="toggleDropdown()">Battery</a>
-                <ul class="dropdown-menu" id="batteryDropdown">
-                    <li class="dropdown-item"><a href="#">Cars</a></li>
-                    <li class="dropdown-item"><a href="#">Motorcycle</a></li>
-                </ul>
-            </div>
-            <a href="#">Gallery</a>
-            <a href="#" id="mapLink">Map</a>
-        </nav>
+    <a href="#">Home</a>
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown('batteryDropdown')">Battery</a>
+        <ul class="dropdown-menu" id="batteryDropdown">
+            <li class="dropdown-item"><a href="#">Cars</a></li>
+            <li class="dropdown-item"><a href="#">Motorcycle</a></li>
+        </ul>
+    </div>
+    <div class="dropdown">
+        <a href="#" class="dropdown-toggle" onclick="toggleDropdown('galleryDropdown')">Gallery</a>
+        <ul class="dropdown-menu" id="galleryDropdown">
+            <li class="dropdown-item"><a href="#">Customer</a></li>
+            <li class="dropdown-item"><a href="#">Events</a></li>
+        </ul>
+    </div>
+    <a href="#" id="mapLink">Map</a>
+</nav>
     </header>
 
     <!-- Main Content -->
