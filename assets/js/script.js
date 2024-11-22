@@ -1,4 +1,5 @@
 document.addEventListener("DOMContentLoaded", function () {
+    console.log("JavaScript loaded without inline scripts.");
     const homeLink = document.querySelector("a[href='#']");
     const mapLink = document.getElementById("mapLink");
     const galleryDropdownItems = document.querySelectorAll("#galleryDropdown .dropdown-item a");
