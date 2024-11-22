@@ -66,8 +66,8 @@ body {
     text-decoration: none;
     color: #333;
     font-weight: bold;
-    font-size: 18px; 
-    margin-right: 50px; /* Adjust the spacing between links */
+    font-size: 20px; 
+    margin-right: 35px; /* Adjust the spacing between links */
 }
 
 .navigation a:last-child {
