@@ -8,9 +8,16 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Utility function to show a section and hide others
     function showSection(sectionToShow) {
+        console.log("Showing section:", sectionToShow.id); // Debug
         const sections = [carouselSection, mapSection, customerSection];
         sections.forEach((section) => {
-            section.style.display = section === sectionToShow ? "block" : "none";
+            if (section === sectionToShow) {
+                section.style.display = "block";
+                section.classList.remove("hidden");
+            } else {
+                section.style.display = "none";
+                section.classList.add("hidden");
+            }
         });
     }
 
@@ -30,10 +37,9 @@ document.addEventListener("DOMContentLoaded", function () {
     galleryDropdownItems.forEach((item) => {
         item.addEventListener("click", function (event) {
             event.preventDefault();
-            if (item.textContent === "Customer") {
+            if (item.textContent.trim() === "Customer") {
                 showSection(customerSection);
             }
-            // Add logic for other gallery items if needed
         });
     });
 });
