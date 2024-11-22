@@ -299,6 +299,23 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Shadow */
 }
 
+/* Masonry Layout */
+.masonry-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    gap: 10px;
+    padding: 20px;
+}
+
+.masonry-grid img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    object-fit: cover;
+}
+
+
 @media (max-width: 768px) {
     .carousel-slide img {
         width: 100vw;
@@ -314,6 +331,8 @@ body {
         max-width: 100%; /* Images will take full width */
     }
 }
+
+
 
 footer {
     background-color: #333;
