@@ -1,26 +1,39 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const homeLink = document.querySelector("a[href='#']");
     const mapLink = document.getElementById("mapLink");
+    const galleryDropdownItems = document.querySelectorAll("#galleryDropdown .dropdown-item a");
     const carouselSection = document.getElementById("carouselSection");
-    const contentSection = document.getElementById("contentSection"); // map section
-    const homeLink = document.getElementById("homeLink");
+    const mapSection = document.getElementById("mapSection");
+    const customerSection = document.getElementById("customerSection");
+
+    // Utility function to show a section and hide others
+    function showSection(sectionToShow) {
+        const sections = [carouselSection, mapSection, customerSection];
+        sections.forEach((section) => {
+            section.style.display = section === sectionToShow ? "block" : "none";
+        });
+    }
 
     // Home link click event
     homeLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default link behavior
-        console.log("Home link clicked");
-
-        // Show carousel and hide map
-        carouselSection.style.display = "block";
-        contentSection.style.display = "none"; // Corrected
+        event.preventDefault();
+        showSection(carouselSection);
     });
 
     // Map link click event
     mapLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default link behavior
-        console.log("Map link clicked");
+        event.preventDefault();
+        showSection(mapSection);
+    });
 
-        // Hide carousel and show map
-        carouselSection.style.display = "none";
-        contentSection.style.display = "block"; // Corrected
+    // Gallery dropdown items click event
+    galleryDropdownItems.forEach((item) => {
+        item.addEventListener("click", function (event) {
+            event.preventDefault();
+            if (item.textContent === "Customer") {
+                showSection(customerSection);
+            }
+            // Add logic for other gallery items if needed
+        });
     });
 });
