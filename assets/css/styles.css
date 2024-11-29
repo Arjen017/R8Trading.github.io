@@ -62,21 +62,40 @@ body {
     justify-content: flex-start; /* Aligns items to the left */
 }
 
+/* Navigation link active effect */
 .navigation a {
-    text-decoration: none;
-    color: #333;
+    text-decoration: none; /* Remove underline */
+    color: #333; /* Default text color */
     font-weight: bold;
-    font-size: 20px; 
-    margin-right: 35px; /* Adjust the spacing between links */
+    font-size: 20px;
+    margin-right: 35px;
+    padding: 5px 15px; /* Add padding for clickable area */
+    border-radius: 12px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
 }
 
+.navigation a.active {
+    background-color: #e0e0e0; /* Light gray background for active state */
+    color: #000; /* Text color for active state */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for effect */
+    border-radius: 12px; /* Maintain rounded corners */
+}
+
+.navigation a:hover {
+    background-color: #f0f0f0; /* Slightly lighter gray for hover state */
+    color: #000; /* Ensure text remains visible */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add hover shadow effect */
+}
+
+/* Reset styles for last navigation link */
 .navigation a:last-child {
-    margin-right: 0; /* Prevent extra margin after the Map link */
+    margin-right: 0; /* No margin on the last link */
 }
 
+/* Ensure consistent spacing and alignment */
 .navigation a#mapLink {
-    margin-right: auto; /* Push Map away from the rest of the links */
-    padding-right: 50px; /* Add more space to the right of Map */
+    margin-right: auto;
+    padding-right: 50px; /* Adjust space to separate Map link */
 }
 
 .dropdown {
