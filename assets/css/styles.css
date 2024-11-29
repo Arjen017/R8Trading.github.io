@@ -60,7 +60,6 @@ body {
     align-items: center; /* Vertically align items */
     gap: 20px; /* Adjust spacing between items */
     padding: 10px 0; /* Add some vertical padding */
-    background-color: #f9f9f9; /* Optional: Light background for visibility */
     border-bottom: 1px solid #ddd; /* Optional: Subtle bottom border */
 }
 
