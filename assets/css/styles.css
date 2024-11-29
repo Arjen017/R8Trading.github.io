@@ -53,33 +53,36 @@ body {
     margin-right: 15px;
 }
 
+/* Navigation Menu Styling */
 .navigation {
     display: flex;
-    gap: 20px;
-    position: relative;
-    z-index: 100;
-    padding-right: 20px; /* Add space to the right of the navigation */
-    justify-content: flex-start; /* Aligns items to the left */
+    justify-content: center; /* Center-align the navigation items */
+    align-items: center; /* Vertically align items */
+    gap: 20px; /* Adjust spacing between items */
+    padding: 10px 0; /* Add some vertical padding */
+    background-color: #f9f9f9; /* Optional: Light background for visibility */
+    border-bottom: 1px solid #ddd; /* Optional: Subtle bottom border */
 }
 
-/* Navigation link active effect */
+
+/* Individual Navigation Links */
 .navigation a {
     text-decoration: none; /* Remove underline */
-    color: #333; /* Default text color */
-    font-weight: bold;
-    font-size: 20px;
-    margin-right: 35px;
-    padding: 5px 15px; /* Add padding for clickable area */
-    border-radius: 12px; /* Rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease, box-shadow 0.3s ease; /* Smooth transitions */
+    color: #333; /* Neutral text color */
+    font-weight: bold; /* Bold text for emphasis */
+    font-size: 18px; /* Adjust font size */
+    padding: 8px 20px; /* Add padding for clickable area */
+    border-radius: 8px; /* Rounded corners */
+    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
 }
 
+
+/* Active Link Styling (Optional) */
 .navigation a.active {
-    background-color: #e0e0e0; /* Light gray background for active state */
-    color: #000; /* Text color for active state */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow for effect */
-    border-radius: 12px; /* Maintain rounded corners */
+    background-color: #d3d3d3; /* Slightly darker gray for active link */
+    color: #000; /* Darker text color for active state */
 }
+
 
 .navigation a:hover {
     background-color: #f0f0f0; /* Slightly lighter gray for hover state */
@@ -119,25 +122,31 @@ body {
     z-index: 200;
 }
 
+/* Dropdown item base styling */
 .dropdown-item {
     padding: 8px 16px;
-    border-bottom: 1px solid #ddd;
+    border-bottom: none; /* Remove bottom border */
+    background-color: transparent; /* Ensure no background change */
+    transition: none; /* Remove transition effects */
 }
 
 .dropdown-item:last-child {
     border-bottom: none;
 }
 
+/* Remove hover effect */
 .dropdown-item:hover {
-    background-color: #e6f7ff;
-    border-right: 3px solid red;
+    background-color: transparent; /* No background change on hover */
+    border-right: none; /* Remove right border on hover */
 }
 
+/* Dropdown item links */
 .dropdown-item a {
     text-decoration: none;
-    color: #555;
+    color: #333; /* Neutral text color */
     display: block;
     width: 100%;
+    padding: 8px 0; /* Adjust padding if needed */
 }
 
 .dropdown:hover .dropdown-menu {
@@ -166,9 +175,10 @@ a:focus {
     display: block;
 }
 
+/* Remove sub-menu hover effect */
 .sub-menu li a:hover {
-    background-color: #e6f7ff;
-    border-right: 3px solid red;
+    background-color: transparent; /* No background change on hover */
+    border-right: none; /* Remove right border */
 }
 
 /* Carousel and footer styling */
@@ -355,6 +365,15 @@ a:focus {
     .images-row img {
         max-width: 100%; /* Images will take full width */
     }
+     .navigation {
+        flex-direction: column; /* Stack menu items vertically */
+        gap: 10px; /* Reduce spacing */
+    }
+
+    .navigation a {
+        padding: 10px 15px; /* Adjust padding for smaller screens */
+    }
+    
 }
 
 
