@@ -152,7 +152,7 @@ body {
     opacity: 1;
     visibility: visible;
 }
-
+/* ito yung imaginary line effect */
 a:focus {
     outline: 2px dashed #f90;
 }
