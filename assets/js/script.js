@@ -26,12 +26,23 @@ document.addEventListener("DOMContentLoaded", function () {
     homeLink.addEventListener("click", function (event) {
         event.preventDefault();
         showSection(carouselSection);
+        console.log("Home link clicked");
+
+        // Show carousel and hide map
+        carouselSection.style.display = "block";
+        contentSection.style.display = "none"; // Corrected
     });
 
     // Map link click event
     mapLink.addEventListener("click", function (event) {
         event.preventDefault();
         showSection(mapSection);
+        console.log("Map link clicked");
+
+        // Hide carousel and show map
+        carouselSection.style.display = "none";
+        contentSection.style.display = "block"; // Corrected
+
     });
 
     // Gallery dropdown items click event
