@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript loaded without inline scripts.");
+    
     const homeLink = document.querySelector("a[href='#']");
     const mapLink = document.getElementById("mapLink");
     const galleryDropdownItems = document.querySelectorAll("#galleryDropdown .dropdown-item a");
@@ -30,7 +31,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
         // Show carousel and hide map
         carouselSection.style.display = "block";
-        contentSection.style.display = "none"; // Corrected
     });
 
     // Map link click event
@@ -38,19 +38,19 @@ document.addEventListener("DOMContentLoaded", function () {
         event.preventDefault();
         showSection(mapSection);
         console.log("Map link clicked");
-
-        // Hide carousel and show map
-        carouselSection.style.display = "none";
-        contentSection.style.display = "block"; // Corrected
-
     });
 
     // Gallery dropdown items click event
     galleryDropdownItems.forEach((item) => {
         item.addEventListener("click", function (event) {
             event.preventDefault();
-            if (item.textContent.trim() === "Customer") {
-                showSection(customerSection);
+
+            // Check which dropdown item is clicked
+            const selectedText = item.textContent.trim();
+            console.log("Gallery item clicked:", selectedText);
+
+            if (selectedText === "Customer") {
+                showSection(customerSection); // Show masonry grid layout for "Customer"
             }
         });
     });
