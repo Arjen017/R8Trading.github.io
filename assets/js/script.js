@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
     console.log("JavaScript loaded without inline scripts.");
-    
+    const navLinks = document.querySelectorAll(".navigation a");
     const homeLink = document.querySelector("a[href='#']");
     const mapLink = document.getElementById("mapLink");
     const galleryDropdownItems = document.querySelectorAll("#galleryDropdown .dropdown-item a");
@@ -22,6 +22,26 @@ document.addEventListener("DOMContentLoaded", function () {
             }
         });
     }
+
+    // Function to update the active link
+    function setActiveLink(targetLink) {
+        navLinks.forEach((link) => link.classList.remove("active")); // Remove active class
+        targetLink.classList.add("active"); // Add active class to clicked link
+    }
+
+    // Add event listeners to navigation links
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            setActiveLink(this); // Set the clicked link as active
+        });
+    });
+
+    // Optional: Set the first link as active on page load
+    if (navLinks.length > 0) {
+        setActiveLink(navLinks[0]);
+    }
+
 
     // Home link click event
     homeLink.addEventListener("click", function (event) {
