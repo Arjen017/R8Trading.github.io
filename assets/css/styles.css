@@ -148,9 +148,9 @@ body {
     padding: 8px 0; /* Adjust padding if needed */
 }
 
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
+.dropdown:hover .dropdown-menu,
+.dropdown-menu:hover {
+    display: block;
 }
 /* ito yung imaginary line effect */
 /*a:focus {
