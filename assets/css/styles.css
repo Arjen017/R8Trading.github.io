@@ -11,7 +11,7 @@ body {
     align-items: center;
     padding: 10px 20px;
     background-color: white;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
 }
 
 .logo img {
@@ -289,7 +289,7 @@ body {
     object-fit: contain; /* Maintain image proportions within the set size */
     border: 1px solid #ddd; /* Optional border for styling */
     border-radius: 5px; /* Optional rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional shadow */
+    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/ /* Optional shadow */
 }
 
 /* Description */
