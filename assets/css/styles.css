@@ -135,8 +135,8 @@ body {
 
 /* Remove hover effect */
 .dropdown-item:hover {
-    background-color: transparent; /* No background change on hover */
-    border-right: none; /* Remove right border on hover */
+    background-color: #e6f7ff; /* No background change on hover */
+    border-right: 3px solid red; /* Remove right border on hover */
 }
 
 /* Dropdown item links */
