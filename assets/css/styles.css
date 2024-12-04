@@ -84,7 +84,7 @@ body {
 
 
 .navigation a:hover {
-    background-color: #f0f0f0; /* Slightly lighter gray for hover state */
+    /*background-color: #f0f0f0; /* Slightly lighter gray for hover state */
     color: #000; /* Ensure text remains visible */
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add hover shadow effect */
 }
