@@ -142,7 +142,7 @@ body {
 /* Remove hover effect from dropdown child items */
 .dropdown-menu .dropdown-item:hover {
     background-color: transparent; /* Remove gray hover */
-    border-right: none; /* Remove red border */
+    /*border-right: none; /* Remove red border */
 }
 
 /* Keep hover effect for parent dropdown items */
