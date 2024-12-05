@@ -33,14 +33,22 @@
         <!-- Navigation -->
         <nav class="navigation">
             <a href="#" id="homeLink" data-section-id="carouselSection">Home</a>
-            <a href="#" id="mapLink" data-section-id="mapSection">Map</a>
+            <div class="dropdown">
+                <a href="#" class="dropdown-toggle" onclick="toggleDropdown('batteryDropdown')">Battery</a>
+                <ul class="dropdown-menu" id="batteryDropdown">
+                    <li class="dropdown-item"><a href="#" data-section-id="batteryCarsSection">Cars</a></li>
+                    <li class="dropdown-item"><a href="#" data-section-id="batteryMotorcycleSection">Motorcycle</a></li>
+                </ul>
+            </div>
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" onclick="toggleDropdown('galleryDropdown')">Gallery</a>
                 <ul class="dropdown-menu" id="galleryDropdown">
                     <li class="dropdown-item"><a href="#" data-section-id="customerSection">Customer</a></li>
-                    <li class="dropdown-item"><a href="#">Events</a></li>
+                    <li class="dropdown-item"><a href="#" data-section-id="eventsSection">Events</a></li>
                 </ul>
             </div>
+            <a href="#" id="mapLink" data-section-id="mapSection">Map</a>
+            <a href="#" id="contactLink" data-section-id="contactSection">Contact Us</a>
         </nav>
     </header>
 
@@ -53,6 +61,18 @@
                 <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
                 <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
             </div>
+        </section>
+
+        <!-- Battery Cars Section -->
+        <section id="batteryCarsSection" class="hidden">
+            <h2>Car Batteries</h2>
+            <p>Explore our high-quality batteries for all types of cars.</p>
+        </section>
+
+        <!-- Battery Motorcycle Section -->
+        <section id="batteryMotorcycleSection" class="hidden">
+            <h2>Motorcycle Batteries</h2>
+            <p>Discover durable and reliable batteries for motorcycles.</p>
         </section>
 
         <!-- Map Section -->
@@ -71,26 +91,33 @@
 
         <!-- Customer Section -->
         <section id="customerSection" class="hidden">
-    <div class="masonry-grid">
-        <!-- 15 Sample Images -->
-        <img src="assets/images/sample1.png" alt="Sample Image 1">
-        <img src="assets/images/sample2.png" alt="Sample Image 2">
-        <img src="assets/images/sample3.png" alt="Sample Image 3">
-        <img src="assets/images/sample4.png" alt="Sample Image 4">
-        <img src="assets/images/sample5.png" alt="Sample Image 5">
-        <img src="assets/images/sample6.png" alt="Sample Image 6">
-        <img src="assets/images/sample7.png" alt="Sample Image 7">
-        <img src="assets/images/sample8.png" alt="Sample Image 8">
-        <img src="assets/images/sample9.png" alt="Sample Image 9">
-        <img src="assets/images/sample10.png" alt="Sample Image 10">
-        <img src="assets/images/sample11.png" alt="Sample Image 11">
-        <img src="assets/images/sample12.png" alt="Sample Image 12">
-        <img src="assets/images/sample13.png" alt="Sample Image 13">
-        <img src="assets/images/sample14.png" alt="Sample Image 14">
-        <img src="assets/images/sample15.png" alt="Sample Image 15">
-    </div>
-</section>
+            <h2>Customer Gallery</h2>
+            <div class="masonry-grid">
+                <!-- 5 Sample Images -->
+                <img src="assets/images/sample1.png" alt="Sample Image 1">
+                <img src="assets/images/sample2.png" alt="Sample Image 2">
+                <img src="assets/images/sample3.png" alt="Sample Image 3">
+                <img src="assets/images/sample4.png" alt="Sample Image 4">
+                <img src="assets/images/sample5.png" alt="Sample Image 5">
+            </div>
+        </section>
 
+        <!-- Events Section -->
+        <section id="eventsSection" class="hidden">
+            <h2>Event Gallery</h2>
+            <p>Discover our latest events and highlights captured through the lens.</p>
+        </section>
+
+        <!-- Contact Us Section -->
+        <section id="contactSection" class="hidden">
+            <h2>Contact Us</h2>
+            <p>For inquiries, feel free to reach out:</p>
+            <ul>
+                <li>Email: <a href="mailto:info@r8batterytrading.com">info@r8batterytrading.com</a></li>
+                <li>Phone: +63 926 682 3374</li>
+                <li>Address: Siling Bata, Pandi, Bulacan</li>
+            </ul>
+        </section>
     </div>
 
     <!-- Footer Section -->
