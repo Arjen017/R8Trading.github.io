@@ -5,8 +5,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const navLinks = document.querySelectorAll(".navigation a");
     const sections = {
         carouselSection: document.getElementById("carouselSection"),
+        batteryCarsSection: document.getElementById("batteryCarsSection"),
+        batteryMotorcycleSection: document.getElementById("batteryMotorcycleSection"),
         mapSection: document.getElementById("mapSection"),
         customerSection: document.getElementById("customerSection"),
+        eventsSection: document.getElementById("eventsSection"),
+        contactSection: document.getElementById("contactSection"),
     };
 
     // Utility: Show a section and hide others
@@ -39,6 +43,8 @@ document.addEventListener("DOMContentLoaded", function () {
             if (sections[sectionId]) {
                 showSection(sections[sectionId]);
                 console.log(`Showing section: ${sectionId}`);
+            } else {
+                console.error(`Section with ID "${sectionId}" not found in sections object.`);
             }
         });
     });
