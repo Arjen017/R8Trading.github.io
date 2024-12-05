@@ -348,9 +348,9 @@ body {
 /* Masonry Layout */
 .masonry-grid {
     display: grid;
-    grid-template-columns: repeat(5, 1fr); /* 5 columns */
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     gap: 10px;
-    padding: 20px;
+    padding: 10px;
 }
 
 .masonry-grid img {
