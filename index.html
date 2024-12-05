@@ -7,10 +7,10 @@
     
     <title>R8 Battery Trading - Rodel Santiago</title>
     <link rel="stylesheet" href="assets/css/styles.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&display=swap">
     <!-- Slick CSS for carousel -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick-theme.min.css">
 </head>
 <body>
     <!-- Header Section -->
@@ -30,82 +30,67 @@
             </form>
         </div>
 
-    <!-- Navigation -->
-    <nav class="navigation">
-        <a href="#">Home</a>
-            <div class="dropdown">
-                <a href="#" class="dropdown-toggle" onclick="toggleDropdown('batteryDropdown')">Battery</a>
-                    <ul class="dropdown-menu" id="batteryDropdown">
-                        <li class="dropdown-item"><a href="#">Cars</a></li>
-                        <li class="dropdown-item"><a href="#">Motorcycle</a></li>
-                    </ul>
-            </div>
+        <!-- Navigation -->
+        <nav class="navigation">
+            <a href="#" id="homeLink" data-section-id="carouselSection">Home</a>
+            <a href="#" id="mapLink" data-section-id="mapSection">Map</a>
             <div class="dropdown">
                 <a href="#" class="dropdown-toggle" onclick="toggleDropdown('galleryDropdown')">Gallery</a>
-                    <ul class="dropdown-menu" id="galleryDropdown">
-                        <li class="dropdown-item"><a href="#">Customer</a></li>
-                        <li class="dropdown-item"><a href="#">Events</a></li>
-                    </ul>
+                <ul class="dropdown-menu" id="galleryDropdown">
+                    <li class="dropdown-item"><a href="#" data-section-id="customerSection">Customer</a></li>
+                    <li class="dropdown-item"><a href="#">Events</a></li>
+                </ul>
             </div>
-            <a href="#" id="mapLink">Map</a>
-    </nav>
+        </nav>
     </header>
 
     <!-- Main Content -->
     <div class="main-content">
         <!-- Carousel Section -->
-            <section id="carouselSection" class="carousel fade">
-                <div class="carousel-slide">
-                    <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
-                    <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
-                    <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
-                </div>
-            </section>
-
-<!-- Map Section (Hidden by Default) -->
-<section id="mapSection" class="map-section" style="display: none;">
-    <h2>Map - Siling Bata, Pandi, Bulacan</h2>
-    <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12029.608098838886!2d120.96289122813629!3d14.886808007774238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397abc47e7509dd%3A0x5b6e8045e937a2a3!2sSiling%20Bata%2C%20Pandi%2C%20Bulacan!5e1!3m2!1sen!2sph!4v1731658988577!5m2!1sen!2sph" 
-        width="600" 
-        height="450" 
-        style="border:0;"
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-    </iframe>
-    
-    <!-- Images with descriptions -->
-        <div class="images-container">
-            <div class="images-row">
-                <img src="assets/images/sample.png" alt="Sample Image 1" />
-                <img src="assets/images/sample.png" alt="Sample Image 2" />
+        <section id="carouselSection" class="carousel fade">
+            <div class="carousel-slide">
+                <img src="assets/images/image1.png" alt="Image 1" class="carousel-item">
+                <img src="assets/images/image2.png" alt="Image 2" class="carousel-item">
+                <img src="assets/images/image3.png" alt="Image 3" class="carousel-item">
             </div>
-            <p class="description">
-                Text description for Image 1 Text description for Image 1 Text description for Image 1<br>
-                Text description for Image 2 Text description for Image 2 Text description for Image 2.
-        </div>
+        </section>
+
+        <!-- Map Section -->
+        <section id="mapSection" class="map-section hidden">
+            <h2>Map - Siling Bata, Pandi, Bulacan</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12029.608098838886!2d120.96289122813629!3d14.886808007774238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3397abc47e7509dd%3A0x5b6e8045e937a2a3!2sSiling%20Bata%2C%20Pandi%2C%20Bulacan!5e1!3m2!1sen!2sph!4v1731658988577!5m2!1sen!2sph" 
+                width="600" 
+                height="450" 
+                style="border:0;"
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade">
+            </iframe>
+        </section>
+
+        <!-- Customer Section -->
+        <section id="customerSection" class="hidden">
+    <div class="masonry-grid">
+        <!-- 15 Sample Images -->
+        <img src="assets/images/sample1.png" alt="Sample Image 1">
+        <img src="assets/images/sample2.png" alt="Sample Image 2">
+        <img src="assets/images/sample3.png" alt="Sample Image 3">
+        <img src="assets/images/sample4.png" alt="Sample Image 4">
+        <img src="assets/images/sample5.png" alt="Sample Image 5">
+        <img src="assets/images/sample6.png" alt="Sample Image 6">
+        <img src="assets/images/sample7.png" alt="Sample Image 7">
+        <img src="assets/images/sample8.png" alt="Sample Image 8">
+        <img src="assets/images/sample9.png" alt="Sample Image 9">
+        <img src="assets/images/sample10.png" alt="Sample Image 10">
+        <img src="assets/images/sample11.png" alt="Sample Image 11">
+        <img src="assets/images/sample12.png" alt="Sample Image 12">
+        <img src="assets/images/sample13.png" alt="Sample Image 13">
+        <img src="assets/images/sample14.png" alt="Sample Image 14">
+        <img src="assets/images/sample15.png" alt="Sample Image 15">
     </div>
 </section>
-    
-    <!-- Customer Section (Hidden by Default) -->
-    <section id="customerSection" class="hidden">
-        <div class="masonry-grid">
-            <img src="assets/images/sample.png" alt="Sample Image 1">
-            <img src="assets/images/sample.png" alt="Sample Image 2">
-            <img src="assets/images/sample.png" alt="Sample Image 3">
-            <img src="assets/images/sample.png" alt="Sample Image 4">
-            <img src="assets/images/sample.png" alt="Sample Image 5">
-            <img src="assets/images/sample.png" alt="Sample Image 6">
-            <img src="assets/images/sample.png" alt="Sample Image 7">
-            <img src="assets/images/sample.png" alt="Sample Image 8">
-            <img src="assets/images/sample.png" alt="Sample Image 9">
-            <img src="assets/images/sample.png" alt="Sample Image 10">
-        </div>
-    </section>
-        <main>
-     
-        </main>
+
     </div>
 
     <!-- Footer Section -->
@@ -115,27 +100,6 @@
                 <h4>Address:</h4>
                 <p>Siling Bata, Pandi, Bulacan</p>
             </div>
-
-            <div class="footer-section links">
-                <h4>Links:</h4>
-                <a href="#">FAQs</a>
-            </div>
-
-            <div class="footer-section contact">
-                <h4>Contact Us On:</h4>
-                <a href="https://www.facebook.com/p/r8-battery-trading-61558485714994/" target="_blank">
-                    <img src="assets/images/facebook.png" alt="Facebook logo" class="footer-icon"> Facebook
-                </a>
-                <a href="viber://chat?number=%2B639266823374" target="_blank">
-                    <img src="assets/images/viber.png" alt="Viber logo" class="footer-icon"> Viber
-                </a>
-            </div>
-
-            <div class="footer-section ecommerce">
-                <h4>Ecommerce Store:</h4>
-                <a href="#">Lazada</a>
-                <a href="#">Shopee</a>
-            </div>
         </div>
     </footer>
 
@@ -143,9 +107,5 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/slick-carousel/1.8.1/slick.min.js"></script>
     <script src="scripts/main.js" defer></script>
-   <!-- <script src="assets/js/carousel.js"></script> -->
-  <!-- <script src="assets/js/dropdown.js"></script> -->
-
-
 </body>
 </html>
