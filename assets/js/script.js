@@ -35,16 +35,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Add click event listeners to navigation links
     navLinks.forEach((link) => {
         link.addEventListener("click", function (event) {
-            event.preventDefault(); // Prevent default link behavior
+            event.preventDefault();
             setActiveLink(this);
 
-            // Get the section ID to show
             const sectionId = this.getAttribute("data-section-id");
             if (sections[sectionId]) {
                 showSection(sections[sectionId]);
                 console.log(`Showing section: ${sectionId}`);
             } else {
-                console.error(`Section with ID "${sectionId}" not found in sections object.`);
+                console.error(`Section with ID "${sectionId}" not found.`);
             }
         });
     });
@@ -61,21 +60,14 @@ document.addEventListener("DOMContentLoaded", function () {
         }
     }
 
-    // Ensure dropdown toggle doesn't interfere with navigation
-    document.querySelectorAll(".dropdown-toggle").forEach((dropdownToggle) => {
-        dropdownToggle.addEventListener("click", function (event) {
+    // Dropdown toggle logic
+    document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        dropdown.addEventListener("click", function (event) {
             event.preventDefault();
-            const dropdownMenuId = this.getAttribute("onclick").match(/'(.*?)'/)[1];
-            const dropdownMenu = document.getElementById(dropdownMenuId);
-            if (dropdownMenu) {
-                dropdownMenu.classList.toggle("hidden");
+            const menu = this.querySelector(".dropdown-menu");
+            if (menu) {
+                menu.classList.toggle("hidden");
             }
         });
-    });
-
-    // Log map clicks for debugging (optional)
-    sections.mapSection.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default behavior if needed
-        console.log("Map link clicked.");
     });
 });
