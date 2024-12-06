@@ -58,4 +58,14 @@ document.addEventListener("DOMContentLoaded", function () {
             showSection(sections[defaultSectionId]);
         }
     }
+    // Map link click event
+    mapSection.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+        console.log("Map link clicked");
+
+        // Hide carousel and show map
+        carouselSection.style.display = "none";
+        contentSection.style.display = "block"; // Corrected
+    });
+
 });
