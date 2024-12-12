@@ -129,10 +129,6 @@ body {
     /*transition: none; *//* Remove transition effects */
 }
 
-.dropdown-item:last-child {
-    border-bottom: none;
-}
-
 /* Remove hover effect */
 .dropdown-item:hover {
     background-color: transparent; /* No background change on hover */
@@ -243,8 +239,12 @@ body {
     justify-content: center;
 }
 
-.hidden { display: none; }
-.visible { display: block; }
+.hidden { 
+    display: none; 
+}
+.visible { 
+    display: block; 
+}
 
 #mapSection {
     display: none; /* Hidden initially */
