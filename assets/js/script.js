@@ -6,14 +6,15 @@ document.addEventListener("DOMContentLoaded", function () {
     // Selectors
     const navLinks = document.querySelectorAll(".navigation a");
     const sections = {
-        carouselSection: document.getElementById("carouselSection"),
-        batteryCarsSection: document.getElementById("batteryCarsSection"),
-        batteryMotorcycleSection: document.getElementById("batteryMotorcycleSection"),
-        /*mapSection: document.getElementById("mapSection"),*/
-        customerSection: document.getElementById("customerSection"),
-        eventsSection: document.getElementById("eventsSection"),
-        contactSection: document.getElementById("contactSection"),
-    };
+    carouselSection: document.getElementById("carouselSection"),
+    batteryCarsSection: document.getElementById("batteryCarsSection"),
+    batteryMotorcycleSection: document.getElementById("batteryMotorcycleSection"),
+    mapSection: document.getElementById("mapSection"),  // Uncomment this line
+    customerSection: document.getElementById("customerSection"),
+    eventsSection: document.getElementById("eventsSection"),
+    contactSection: document.getElementById("contactSection"),
+};
+
 
     // Utility: Show a section and hide others
     function showSection(sectionToShow) {
@@ -38,10 +39,9 @@ document.addEventListener("DOMContentLoaded", function () {
     event.preventDefault();
     console.log("Map link clicked");
 
-    // Hide carousel and show map
-    carouselSection.classList.add("hidden");
-    mapSection.classList.add("show");
-    });
+    showSection(mapSection);
+});
+
 
     // Add click event listeners to navigation links
     navLinks.forEach((link) => {
