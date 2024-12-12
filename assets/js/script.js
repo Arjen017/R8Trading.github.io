@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+    const mapSection = document.getElementById("mapSection");
+    const mapLink = document.getElementById("mapLink");
     console.log("JavaScript loaded.");
 
     // Selectors
@@ -7,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
         carouselSection: document.getElementById("carouselSection"),
         batteryCarsSection: document.getElementById("batteryCarsSection"),
         batteryMotorcycleSection: document.getElementById("batteryMotorcycleSection"),
-        mapSection: document.getElementById("mapSection"),
+        /*mapSection: document.getElementById("mapSection"),*/
         customerSection: document.getElementById("customerSection"),
         eventsSection: document.getElementById("eventsSection"),
         contactSection: document.getElementById("contactSection"),
@@ -31,6 +33,15 @@ document.addEventListener("DOMContentLoaded", function () {
         navLinks.forEach((link) => link.classList.remove("active"));
         targetLink.classList.add("active");
     }
+
+    mapLink.addEventListener("click", function(event) {
+    event.preventDefault();
+    console.log("Map link clicked");
+
+    // Hide carousel and show map
+    carouselSection.classList.add("hidden");
+    mapSection.classList.add("show");
+    });
 
     // Add click event listeners to navigation links
     navLinks.forEach((link) => {
