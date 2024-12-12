@@ -6,15 +6,14 @@ document.addEventListener("DOMContentLoaded", function () {
     // Selectors
     const navLinks = document.querySelectorAll(".navigation a");
     const sections = {
-    carouselSection: document.getElementById("carouselSection"),
-    batteryCarsSection: document.getElementById("batteryCarsSection"),
-    batteryMotorcycleSection: document.getElementById("batteryMotorcycleSection"),
-    mapSection: document.getElementById("mapSection"),  // Uncomment this line
-    customerSection: document.getElementById("customerSection"),
-    eventsSection: document.getElementById("eventsSection"),
-    contactSection: document.getElementById("contactSection"),
-};
-
+        carouselSection: document.getElementById("carouselSection"),
+        batteryCarsSection: document.getElementById("batteryCarsSection"),
+        batteryMotorcycleSection: document.getElementById("batteryMotorcycleSection"),
+        mapSection: document.getElementById("mapSection"),
+        customerSection: document.getElementById("customerSection"),
+        eventsSection: document.getElementById("eventsSection"),
+        contactSection: document.getElementById("contactSection"),
+    };
 
     // Utility: Show a section and hide others
     function showSection(sectionToShow) {
@@ -35,13 +34,20 @@ document.addEventListener("DOMContentLoaded", function () {
         targetLink.classList.add("active");
     }
 
-    mapLink.addEventListener("click", function(event) {
-    event.preventDefault();
-    console.log("Map link clicked");
+    // Add click event for map link
+    mapLink.addEventListener("click", function (event) {
+        event.preventDefault();
+        console.log("Map link clicked");
 
-    showSection(mapSection);
-});
+        if (mapSection) {
+            mapSection.classList.toggle("show"); // Toggle the 'show' class
+            console.log(`Map section class list: ${mapSection.classList}`);
+        } else {
+            console.error("mapSection element not found.");
+        }
 
+        setActiveLink(mapLink);
+    });
 
     // Add click event listeners to navigation links
     navLinks.forEach((link) => {
