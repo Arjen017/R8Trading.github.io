@@ -48,6 +48,7 @@ document.addEventListener("DOMContentLoaded", function () {
             } else if (sectionToShow.id === "mapSection") {
                 sectionToShow.style.display = "block";
             } else if (sectionToShow.id === "customerSection") {
+                 console.log("Showing customer section.");
                 sectionToShow.style.display = "block";
                 const grid = sectionToShow.querySelector(".masonry-grid");
                 if (grid) {
