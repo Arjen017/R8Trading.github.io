@@ -210,6 +210,10 @@ body {
     transform: scale(1.05);
 }
 
+section {
+    display: none; /* Default to hidden */
+}
+
 /* Responsive Breakpoints */
 @media (max-width: 768px) {
     .main-header {
