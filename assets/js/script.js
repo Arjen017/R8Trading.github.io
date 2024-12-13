@@ -1,36 +1,81 @@
 document.addEventListener("DOMContentLoaded", function () {
-    const mapLink = document.getElementById("mapLink");
-    const carouselSection = document.getElementById("carouselSection");
-    const contentSection = document.getElementById("contentSection"); // map section
-    const homeLink = document.getElementById("homeLink");
+    console.log("JavaScript fully loaded.");
 
-    function toggleDropdown(event) {
-    event.preventDefault();
-    const dropdownMenu = event.target.nextElementSibling;
-    if (dropdownMenu) {
-        dropdownMenu.classList.toggle("hidden");
+    // Selectors
+    const navLinks = document.querySelectorAll(".navigation a");
+    const sections = {
+        carouselSection: document.getElementById("carouselSection"),
+        batteryCarsSection: document.getElementById("batteryCarsSection"),
+        batteryMotorcycleSection: document.getElementById("batteryMotorcycleSection"),
+        mapSection: document.getElementById("mapSection"),
+        customerSection: document.getElementById("customerSection"),
+        eventsSection: document.getElementById("eventsSection"),
+        contactSection: document.getElementById("contactSection"),
+    };
+
+    // Utility: Show a section and hide others
+    function showSection(sectionToShow) {
+        Object.values(sections).forEach((section) => {
+            if (section === sectionToShow) {
+                section.style.display = "block";
+                section.classList.remove("hidden");
+                
+                // Special handling for customer section to ensure grid displays
+                if (section.id === "customerSection") {
+                    const grid = section.querySelector(".masonry-grid");
+                    if (grid) {
+                        grid.style.display = "grid";
+                    }
+                }
+            } else {
+                section.style.display = "none";
+                section.classList.add("hidden");
+            }
+        });
     }
+
+    // Utility: Highlight active link
+    function setActiveLink(targetLink) {
+        navLinks.forEach((link) => link.classList.remove("active"));
+        targetLink.classList.add("active");
     }
 
-    // Home link click event
-    homeLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default link behavior
-        console.log("Home link clicked");
+    // Add click event listeners to navigation links
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
+            setActiveLink(this);
 
-        // Show carousel and hide map
-        carouselSection.style.display = "block";
-        contentSection.style.display = "none"; // Corrected
+            const sectionId = this.getAttribute("data-section-id");
+            if (sections[sectionId]) {
+                showSection(sections[sectionId]);
+                console.log(`Showing section: ${sectionId}`);
+            } else {
+                console.error(`Section with ID "${sectionId}" not found.`);
+            }
+        });
     });
 
-    // Map link click event
-    mapLink.addEventListener("click", function (event) {
-        event.preventDefault(); // Prevent default link behavior
-        console.log("Map link clicked");
+    // Set the default active link and section on page load
+    if (navLinks.length > 0) {
+        const defaultLink = navLinks[0];
+        setActiveLink(defaultLink);
+        const defaultSectionId = defaultLink.getAttribute("data-section-id");
+        if (sections[defaultSectionId]) {
+            showSection(sections[defaultSectionId]);
+        } else {
+            console.error(`Default section ID "${defaultSectionId}" not found.`);
+        }
+    }
 
-        // Hide carousel and show map
-        carouselSection.style.display = "none";
-        contentSection.style.display = "block"; // Corrected
+    // Dropdown toggle logic
+    document.querySelectorAll(".dropdown").forEach((dropdown) => {
+        dropdown.addEventListener("click", function (event) {
+            event.preventDefault();
+            const menu = this.querySelector(".dropdown-menu");
+            if (menu) {
+                menu.classList.toggle("hidden");
+            }
+        });
     });
-
-    
 });
