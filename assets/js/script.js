@@ -25,6 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
         Object.values(sections).forEach((section) => {
             if (section.id !== "carouselSection") {
                 section.style.display = "none";
+                console.log(`Hiding: ${section.id}`);
             }
         });
     }
