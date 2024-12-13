@@ -1,37 +1,92 @@
-/* General reset and navigation styling */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: Arial, sans-serif;
+/* R8 Battery Trading - Enhanced CSS Stylesheet */
+
+/* CSS Custom Properties for Consistent Theming */
+:root {
+    /* Color Palette */
+    --primary-color: #333;
+    --secondary-color: #f6f6f6;
+    --accent-color: #d3d3d3;
+    --text-color: #333333;
+    --hover-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    
+    /* Transition Speeds */
+    --transition-fast: 0.3s;
+    --transition-medium: 0.5s;
+    
+    /* Typography */
+    --font-primary: Arial, sans-serif;
+    --font-size-base: clamp(16px, 1vw + 1rem, 22px);
 }
 
+/* Global Reset and Accessibility Foundations */
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    transition: all var(--transition-fast) ease;
+}
+
+/* Reduce Motion for Accessibility */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--text-color);
+    font-size: var(--font-size-base);
+}
+
+/* Scroll Enhancement */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: var(--secondary-color);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 5px;
+}
+
+/* Focused State Accessibility */
+*:focus {
+    outline: 2px solid var(--accent-color);
+    outline-offset: 2px;
+}
+
+/* Header Styling with Improved Responsiveness */
 .main-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     background-color: white;
-    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);*/
+    flex-wrap: wrap;
 }
 
 .logo img {
     height: 70px;
+    max-width: 100%;
+    object-fit: contain;
 }
 
-.header-info {
-    display: flex;
-    align-items: center;
-    margin-right: 20px;
-}
-
+/* Search Component with Enhanced Interaction */
 .search {
-    --padding: 14px;
     display: flex;
     align-items: center;
-    padding: var(--padding);
+    padding: 14px;
     border-radius: 28px;
-    background: #f6f6f6;
-    transition: box-shadow 0.25s;
+    background: var(--secondary-color);
+    transition: box-shadow var(--transition-fast);
+    max-width: 300px;
+    width: 100%;
 }
 
 .search:focus-within {
@@ -45,64 +100,45 @@ body {
 }
 
 .search-input {
+    flex-grow: 1;
     font-size: 16px;
-    color: #333333;
+    color: var(--text-color);
     outline: none;
     border: none;
     background: transparent;
-    margin-right: 15px;
 }
 
-/* Navigation Menu Styling */
+/* Navigation with Improved Responsiveness and Interaction */
 .navigation {
     display: flex;
-    justify-content: center; /* Center-align the navigation items */
-    align-items: center; /* Vertically align items */
-    gap: 20px; /* Adjust spacing between items */
-    padding: 10px 0; /* Add some vertical padding */
-    border-bottom: 1px solid #ddd; /* Optional: Subtle bottom border */
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    padding: 10px 0;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
 }
 
-
-/* Individual Navigation Links */
 .navigation a {
-    text-decoration: none; /* Remove underline */
-    color: #333; /* Neutral text color */
-    font-weight: bold; /* Bold text for emphasis */
-    font-size: 18px; /* Adjust font size */
-    padding: 8px 20px; /* Add padding for clickable area */
-    border-radius: 8px; /* Rounded corners */
-    transition: background-color 0.3s ease, color 0.3s ease; /* Smooth hover effect */
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    font-size: 18px;
+    padding: 8px 20px;
+    border-radius: 8px;
+    transition: all var(--transition-fast) ease;
 }
 
-
-/* Active Link Styling (Optional) */
-.navigation a.active {
-    background-color: #d3d3d3; /* Slightly darker gray for active link */
-    color: #000; /* Darker text color for active state */
-}
-
-
+.navigation a.active,
 .navigation a:hover {
-    /*background-color: #f0f0f0; /* Slightly lighter gray for hover state */
-    color: #000; /* Ensure text remains visible */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add hover shadow effect */
+    background-color: var(--accent-color);
+    color: black;
+    box-shadow: var(--hover-shadow);
 }
 
-/* Reset styles for last navigation link */
-.navigation a:last-child {
-    margin-right: 0; /* No margin on the last link */
-}
-
-/* Ensure consistent spacing and alignment */
-.navigation a#mapLink {
-    margin-right: auto;
-    padding-right: 50px; /* Adjust space to separate Map link */
-}
-
+/* Dropdown Refinements */
 .dropdown {
     position: relative;
-    /* z-index: 150; */
 }
 
 .dropdown-menu {
@@ -110,250 +146,55 @@ body {
     top: 100%;
     left: 0;
     background-color: white;
-    /*border: 1px solid #ddd;
-    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.15);*/
     list-style: none;
     margin: 0;
     padding: 0;
     opacity: 0;
     visibility: hidden;
-    /*transition: opacity 0.3s ease, visibility 0.3s ease;*/
+    transition: opacity var(--transition-fast), visibility var(--transition-fast);
     z-index: 200;
-}
-
-/* Dropdown item base styling */
-.dropdown-item {
-    padding: 8px 16px;
-    border-bottom: none; /* Remove bottom border */
-    background-color: transparent; /* Ensure no background change */
-    /*transition: none; *//* Remove transition effects */
-}
-
-/* Remove hover effect */
-.dropdown-item:hover {
-    background-color: transparent; /* No background change on hover */
-    border-right: 3px solid red; /* Remove right border on hover */
-}
-
-/* Remove hover effect from dropdown child items */
-.dropdown-menu .dropdown-item:hover {
-    background-color: transparent; /* Remove gray hover */
-    /*border-right: none; /* Remove red border */
-}
-
-/* Keep hover effect for parent dropdown items */
-.dropdown-toggle:hover {
-    background-color: gray; /* Keep the hover effect for parent */
-    color: white; /* Optional: Change text color for hover */
-}
-
-/* Dropdown item links */
-.dropdown-item a {
-    text-decoration: none;
-    color: #333; /* Neutral text color */
-    display: block;
-    width: 100%;
-    padding: 8px 0; /* Adjust padding if needed */
+    min-width: 200px;
+    box-shadow: var(--hover-shadow);
 }
 
 .dropdown:hover .dropdown-menu {
     opacity: 1;
     visibility: visible;
 }
-/* ito yung imaginary line effect */
-/*a:focus {
-    outline: 2px dashed #f90;
-}*/
 
-.sub-menu {
-    display: none;
-    position: absolute;
-    top: 0;
-    left: 100%;
-    background-color: white;
-    border: 1px solid #ddd;
-    /*box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);*/ /*shadow effec gray */
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
+.dropdown-item {
+    padding: 8px 16px;
 }
 
-.dropdown-item:hover .sub-menu {
+.dropdown-item a {
+    text-decoration: none;
+    color: var(--text-color);
     display: block;
+    width: 100%;
+    padding: 8px 0;
 }
 
-/* Remove sub-menu hover effect */
-.sub-menu li a:hover {
-    background-color: transparent; /* No background change on hover */
-    border-right: none; /* Remove right border */
-}
-
-/* Carousel and footer styling */
+/* Carousel Responsive Design */
 .carousel {
     position: relative;
     max-width: 100%;
     overflow: hidden;
-    margin: auto;
-    z-index: 1;
-}
-
-.carousel-slide {
-    display: flex;
-    transition: transform 0.5s ease-in-out;
-    width: 300%;
 }
 
 .carousel-slide img {
     width: 100%;
-  /*  height: 800px; */
-   height: 120vh; /* Relative to the viewport height */
+    height: 120vh;
     object-fit: cover;
 }
 
-.carousel-prev, .carousel-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
-    color: white;
-    font-size: 24px;
-    padding: 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-}
-
-.carousel-prev {
-    left: 10px;
-}
-
-.carousel-next {
-    right: 10px;
-}
-
-.slick-dots {
-    position: absolute;
-    bottom: 20px;
-    width: 100%;
-    display: flex !important;
-    justify-content: center;
-}
-
-.hidden { 
-    display: none; 
-}
-.visible { 
-    display: block; 
-}
-
-/* Map Section Visibility */
-#mapSection {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease;
-}
-
-#mapSection.show {
-    display: block;
-    opacity: 1;
-}
-
-/* Main content section */
-.content-section {
-   /*  display: flex; */
-   /*  gap: 20px; */
-   /*  padding: 20px; */
-  /*   background-color: #f9f9f9; /* Optional: For visibility */
-    flex: 1; /* Take another portion of space */
-    display: flex;
-    flex-direction: column; /* Stack images and text vertically */
-    justify-content: flex-start; /* Align content at the top */
-    min-width: 300px; /* Prevent content from shrinking too much */
-}
-
-/* Map container */
-.map-container {
-    flex: 3; /* Take more space for the map */
-}
-
-/* Images container */
-.images-container {
-    display: flex;
-    flex-direction: row; /* Horizontal layout */
-    align-items: flex-start; /* Align content to the top */
-    justify-content: flex-start; /* No unnecessary centering */
-    gap: 20px; /* Space between the map and content */
-    padding: 20px;
-    flex-wrap: nowrap; /* Prevent wrapping */
-}
-
-/* Images row */
-.images-row {
-    display: flex;
-    flex-direction: column; /* Stack vertically */
-    gap: 10px; /* Spacing between images */
-    align-items: center;
-}
-
-/* Optional: Style the images further if needed */
-.images-row img {
-    width: 100px; /* Ensure consistent width */
-    height: 100px; /* Ensure consistent height */
-    object-fit: contain; /* Maintain image proportions within the set size */
-    border: 1px solid #ddd; /* Optional border for styling */
-    border-radius: 5px; /* Optional rounded corners */
-    /*box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);*/ /* Optional shadow */
-}
-
-/* Description */
-.description {
-    margin-top: 10px;
-    font-size: 14px;
-    color: #333;
-    line-height: 1.5;
-}
-
-/* Hide contentSection (Google Map and images) by default */
-#contentSection {
-    display: none;
-}
-
-/* Flexbox wrapper for the map and images */
-.content-wrapper {
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-    gap: 30px; /* Adjust gap between map and images */
-}
-
-/* Styling for the Map and Images Section */
-.map-section {
-    padding: 20px;
-    background-color: #f9f9f9;
-}
-
-.map-images-wrapper {
-    display: flex; /* Side-by-side layout */
-    gap: 30px; /* Space between map and images */
-    align-items: flex-start; /* Align items to the top */
-}
-
-/* Google Map Styling */
-.map-section iframe {
-    flex: 3; /* Take more space */
-    border: 1px solid #ddd; /* Optional: Add a border */
-    border-radius: 5px; /* Optional: Rounded corners */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Shadow */
-}
-
-/* Masonry Grid Enhancements */
+/* Customer Gallery Grid */
 #customerSection .masonry-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
     grid-gap: 10px;
     width: 100%;
     opacity: 1;
-    transition: opacity 0.3s ease;
+    transition: opacity var(--transition-fast);
 }
 
 #customerSection .masonry-grid img {
@@ -361,48 +202,44 @@ body {
     height: auto;
     object-fit: cover;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    transform: scale(1);
+    transition: transform var(--transition-fast);
 }
 
 #customerSection .masonry-grid img:hover {
     transform: scale(1.05);
 }
 
+/* Responsive Breakpoints */
 @media (max-width: 768px) {
-    .carousel-slide img {
-        width: 100vw;
-    }
-    .content-section {
-        flex-direction: column; /* Stack map and images vertically */
-    }
-    .images-row {
-        flex-direction: column; /* Stack images vertically */
+    .main-header {
+        flex-direction: column;
+        align-items: center;
     }
 
-    .images-row img {
-        max-width: 100%; /* Images will take full width */
-    }
-     .navigation {
-        flex-direction: column; /* Stack menu items vertically */
-        gap: 10px; /* Reduce spacing */
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
     }
 
     .navigation a {
-        padding: 10px 15px; /* Adjust padding for smaller screens */
+        width: 100%;
+        text-align: center;
     }
-    
+
+    .carousel-slide img {
+        height: 50vh;
+    }
 }
 
-
-
+/* Footer with Improved Layout */
 footer {
-    background-color: #333;
-    color: #fff;
+    background-color: var(--primary-color);
+    color: white;
     padding: 20px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-around;
-    align-items: flex-start;
-    text-align: left;
 }
 
 .footer-content {
@@ -414,12 +251,7 @@ footer {
 
 .footer-section {
     flex: 1;
-}
-
-.footer-section h4 {
-    margin-bottom: 10px;
-    font-size: 1.1em;
-    color: #f0f0f0;
+    min-width: 200px;
 }
 
 .footer-section a {
@@ -431,11 +263,10 @@ footer {
 }
 
 .footer-section a:hover {
-    color: #fff;
+    color: white;
 }
 
 .footer-icon {
     width: 20px;
     height: 20px;
 }
-
