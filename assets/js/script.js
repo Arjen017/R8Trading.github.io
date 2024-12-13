@@ -19,6 +19,17 @@ document.addEventListener("DOMContentLoaded", function () {
     };
 
     /**
+     * Initial setup to hide all sections except the carousel
+     */
+    function initializeSectionVisibility() {
+        Object.values(sections).forEach((section) => {
+            if (section.id !== "carouselSection") {
+                section.style.display = "none";
+            }
+        });
+    }
+
+    /**
      * Utility function to show a specific section and hide others
      * @param {HTMLElement} sectionToShow - The section to display
      */
@@ -123,6 +134,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     // Initialize website functionality
+    initializeSectionVisibility(); // Add this line
     setupNavigation();
     setupDropdowns();
     initializeDefaultView();
