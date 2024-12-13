@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", function () {
     function closeAllDropdowns() {
         const dropdownMenus = document.querySelectorAll(".dropdown-menu");
         dropdownMenus.forEach(menu => menu.classList.remove("show"));
-    }
+    }   
 
     /**
      * Initialize the default view
