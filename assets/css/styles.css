@@ -246,15 +246,16 @@ body {
     display: block; 
 }
 
+/* Map Section Visibility */
 #mapSection {
-    display: none; /* Hidden initially */
-    min-height: 500px; /* Adjust height as needed */
-    padding: 20px;
-    background-color: #f9f9f9; /* Optional: For visibility */
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 #mapSection.show {
-    display: block; /* Visible state */
+    display: block;
+    opacity: 1;
 }
 
 /* Main content section */
@@ -345,22 +346,27 @@ body {
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Optional: Shadow */
 }
 
-/* Masonry Layout */
-.masonry-grid {
+/* Masonry Grid Enhancements */
+#customerSection .masonry-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    gap: 10px;
-    padding: 10px;
+    grid-gap: 10px;
+    width: 100%;
+    opacity: 1;
+    transition: opacity 0.3s ease;
 }
 
-.masonry-grid img {
+#customerSection .masonry-grid img {
     width: 100%;
     height: auto;
-    border-radius: 8px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
 }
 
+#customerSection .masonry-grid img:hover {
+    transform: scale(1.05);
+}
 
 @media (max-width: 768px) {
     .carousel-slide img {
