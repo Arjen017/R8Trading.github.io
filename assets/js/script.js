@@ -25,21 +25,24 @@ document.addEventListener("DOMContentLoaded", function () {
     function showSection(sectionToShow) {
         // Hide all sections first
         Object.values(sections).forEach((section) => {
-            section.classList.add("hidden");
             section.style.display = "none";
         });
 
         // Show the target section
         if (sectionToShow) {
-            sectionToShow.classList.remove("hidden");
-            sectionToShow.style.display = "block";
-
-            // Special handling for customer section grid
-            if (sectionToShow.id === "customerSection") {
+            // Special handling for different section types
+            if (sectionToShow.id === "carouselSection") {
+                sectionToShow.style.display = "block";
+            } else if (sectionToShow.id === "mapSection") {
+                sectionToShow.style.display = "block";
+            } else if (sectionToShow.id === "customerSection") {
+                sectionToShow.style.display = "block";
                 const grid = sectionToShow.querySelector(".masonry-grid");
                 if (grid) {
                     grid.style.display = "grid";
                 }
+            } else {
+                sectionToShow.style.display = "block";
             }
         }
     }
@@ -56,9 +59,15 @@ document.addEventListener("DOMContentLoaded", function () {
                 navLinks.forEach(l => l.classList.remove("active"));
                 this.classList.add("active");
 
+                // Special handling for map link
+                if (this.id === "mapLink") {
+                    showSection(sections.mapSection);
+                    return;
+                }
+
                 // Get the target section
                 const sectionId = this.getAttribute("data-section-id");
-                const targetSection = sections[sectionId];
+                const targetSection = sectionId ? sections[sectionId] : null;
 
                 if (targetSection) {
                     showSection(targetSection);
