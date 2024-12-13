@@ -4,6 +4,13 @@ document.addEventListener("DOMContentLoaded", function () {
     const contentSection = document.getElementById("contentSection"); // map section
     const homeLink = document.getElementById("homeLink");
 
+    function toggleDropdown(event) {
+    event.preventDefault();
+    const dropdownMenu = event.target.nextElementSibling;
+    if (dropdownMenu) {
+        dropdownMenu.classList.toggle("hidden");
+    }
+
     // Home link click event
     homeLink.addEventListener("click", function (event) {
         event.preventDefault(); // Prevent default link behavior
@@ -23,4 +30,6 @@ document.addEventListener("DOMContentLoaded", function () {
         carouselSection.style.display = "none";
         contentSection.style.display = "block"; // Corrected
     });
+
+    
 });
