@@ -10,6 +10,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (dropdownMenu) {
         dropdownMenu.classList.toggle("hidden");
     }
+    }
 
     // Home link click event
     homeLink.addEventListener("click", function (event) {
