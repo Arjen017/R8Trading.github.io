@@ -1,5 +1,5 @@
 $(document).ready(function() {
-    // Initialize slick carousel
+    console.log('Document is ready. Initializing carousel...');
     $('.carousel-slide').slick({
         dots: true,
         infinite: true,
@@ -7,6 +7,8 @@ $(document).ready(function() {
         slidesToShow: 1,
         adaptiveHeight: true
     });
+
+
 
     // Navigation setup
     $('.navigation a, .dropdown-item a').on('click', function(e) {
