@@ -35,6 +35,8 @@ document.addEventListener("DOMContentLoaded", function () {
      * @param {HTMLElement} sectionToShow - The section to display
      */
     function showSection(sectionToShow) {
+
+         console.log("Attempting to show section:", sectionToShow.id);
         // Hide all sections first
         Object.values(sections).forEach((section) => {
             section.style.display = "none";
