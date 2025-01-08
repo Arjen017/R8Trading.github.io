@@ -1,24 +1,17 @@
 /* R8 Battery Trading - Enhanced CSS Stylesheet */
 
-/* CSS Custom Properties for Consistent Theming */
 :root {
-    /* Color Palette */
     --primary-color: #333;
     --secondary-color: #f6f6f6;
     --accent-color: #d3d3d3;
     --text-color: #333333;
     --hover-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    
-    /* Transition Speeds */
     --transition-fast: 0.3s;
     --transition-medium: 0.5s;
-    
-    /* Typography */
     --font-primary: Arial, sans-serif;
     --font-size-base: clamp(16px, 1vw + 1rem, 22px);
 }
 
-/* Global Reset and Accessibility Foundations */
 *,
 *::before,
 *::after {
@@ -28,7 +21,6 @@
     transition: all var(--transition-fast) ease;
 }
 
-/* Reduce Motion for Accessibility */
 @media (prefers-reduced-motion: reduce) {
     * {
         animation-duration: 0.01ms !important;
@@ -44,7 +36,6 @@ body {
     font-size: var(--font-size-base);
 }
 
-/* Scroll Enhancement */
 ::-webkit-scrollbar {
     width: 10px;
     background-color: var(--secondary-color);
@@ -55,13 +46,11 @@ body {
     border-radius: 5px;
 }
 
-/* Focused State Accessibility */
 *:focus {
     outline: 2px solid var(--accent-color);
     outline-offset: 2px;
 }
 
-/* Header Styling with Improved Responsiveness */
 .main-header {
     display: flex;
     justify-content: space-between;
@@ -77,200 +66,118 @@ body {
     object-fit: contain;
 }
 
-/* Search Component with Enhanced Interaction */
 .search {
     display: flex;
     align-items: center;
-    padding: 14px;
-    border-radius: 28px;
-    background: var(--secondary-color);
-    transition: box-shadow var(--transition-fast);
-    max-width: 300px;
-    width: 100%;
-}
-
-.search:focus-within {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
-}
-
-.search-icon {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 24px;
-    margin-right: 8px;
-}
-
-.search-input {
-    flex-grow: 1;
-    font-size: 16px;
-    color: var(--text-color);
-    outline: none;
-    border: none;
-    background: transparent;
-}
-
-/* Navigation with Improved Responsiveness and Interaction */
-.navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    flex-wrap: wrap;
-}
-
-.navigation a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 18px;
-    padding: 8px 20px;
-    border-radius: 8px;
-    transition: all var(--transition-fast) ease;
-}
-
-.navigation a.active,
-.navigation a:hover {
-    background-color: var(--accent-color);
-    color: black;
-    box-shadow: var(--hover-shadow);
-}
-
-/* Dropdown Refinements */
-.dropdown {
     position: relative;
 }
 
-.dropdown-menu {
+.search-input {
+    width: 100%;
+    padding: 8px 30px;
+    border: 2px solid var(--primary-color);
+    border-radius: 4px;
+}
+
+.search-icon {
+    position: absolute;
+    left: 10px;
+    color: var(--primary-color);
+}
+
+.navigation a {
+    padding: 10px 15px;
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: bold;
+}
+
+.navigation .dropdown {
+    position: relative;
+}
+
+.navigation .dropdown .dropdown-menu {
+    display: none;
     position: absolute;
     top: 100%;
     left: 0;
     background-color: white;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--transition-fast), visibility var(--transition-fast);
-    z-index: 200;
-    min-width: 200px;
-    box-shadow: var(--hover-shadow);
-}
-
-.dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
-}
-
-.dropdown-item {
-    padding: 8px 16px;
-}
-
-.dropdown-item a {
-    text-decoration: none;
-    color: var(--text-color);
-    display: block;
-    width: 100%;
-    padding: 8px 0;
-}
-
-/* Carousel Responsive Design */
-.carousel {
-    position: relative;
-    max-width: 100%;
+    border: 1px solid var(--accent-color);
+    border-radius: 4px;
     overflow: hidden;
+    z-index: 1;
 }
 
-.carousel-slide img {
-    width: 100%;
-    height: 120vh;
-    object-fit: cover;
+.navigation .dropdown .dropdown-menu.show {
+    display: block;
 }
 
-/* Customer Gallery Grid */
-#customerSection .masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 10px;
-    width: 100%;
-    opacity: 1;
-    transition: opacity var(--transition-fast);
+.navigation .dropdown .dropdown-item a {
+    padding: 10px 15px;
+    display: block;
+    color: var(--text-color);
 }
 
-#customerSection .masonry-grid img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    transform: scale(1);
-    transition: transform var(--transition-fast);
+.navigation .dropdown .dropdown-item a:hover {
+    background-color: var(--accent-color);
 }
 
-#customerSection .masonry-grid img:hover {
-    transform: scale(1.05);
-}
-
-section {
-    display: none; /* Default to hidden */
-}
-
-/* Responsive Breakpoints */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navigation {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .navigation a {
-        width: 100%;
-        text-align: center;
-    }
-
-    .carousel-slide img {
-        height: 50vh;
-    }
-}
-
-/* Footer with Improved Layout */
-footer {
-    background-color: var(--primary-color);
-    color: white;
+.main-content {
     padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+}
+
+.hidden {
+    display: none;
 }
 
 .footer-content {
     display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 20px;
+    justify-content: space-between;
+    align-items: start;
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
 }
 
 .footer-section {
-    flex: 1;
-    min-width: 200px;
+    margin-right: 20px;
+}
+
+.footer-section h4 {
+    margin-bottom: 10px;
 }
 
 .footer-section a {
-    color: #ccc;
+    color: white;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
 }
 
 .footer-section a:hover {
-    color: white;
+    text-decoration: underline;
 }
 
 .footer-icon {
     width: 20px;
-    height: 20px;
+    margin-right: 5px;
+}
+
+.carousel-slide {
+    width: 100%;
+    position: relative;
+}
+
+.carousel-slide img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.masonry-grid {
+    column-count: 3;
+    column-gap: 1em;
+}
+
+.masonry-grid img {
+    width: 100%;
+    margin-bottom: 1em;
 }
