@@ -34,33 +34,18 @@ document.addEventListener("DOMContentLoaded", function () {
      * Utility function to show a specific section and hide others
      * @param {HTMLElement} sectionToShow - The section to display
      */
-    function showSection(sectionToShow) {
+   function showSection(sectionToShow) {
+    // Hide all sections
+    Object.values(sections).forEach((section) => {
+        section.classList.remove("show");
+    });
 
-         console.log("Attempting to show section:", sectionToShow.id);
-        // Hide all sections first
-        Object.values(sections).forEach((section) => {
-            section.style.display = "none";
-        });
-
-        // Show the target section
-        if (sectionToShow) {
-            // Special handling for different section types
-            if (sectionToShow.id === "carouselSection") {
-                sectionToShow.style.display = "block";
-            } else if (sectionToShow.id === "mapSection") {
-                sectionToShow.style.display = "block";
-            } else if (sectionToShow.id === "customerSection") {
-                 console.log("Showing customer section.");
-                sectionToShow.style.display = "block";
-                const grid = sectionToShow.querySelector(".masonry-grid");
-                if (grid) {
-                    grid.style.display = "grid";
-                }
-            } else {
-                sectionToShow.style.display = "block";
-            }
-        }
+    // Show the target section
+    if (sectionToShow) {
+        sectionToShow.classList.add("show");
     }
+}
+
 
     /**
      * Manage navigation link interactions
@@ -125,11 +110,23 @@ document.addEventListener("DOMContentLoaded", function () {
      * Initialize the default view
      */
     function initializeDefaultView() {
-        const homeLink = document.getElementById("homeLink");
-        if (homeLink) {
-            homeLink.click(); // Simulate click to set initial view
-        }
+    const homeLink = document.getElementById("homeLink");
+    
+    // Simulate click on the "homeLink" if it exists
+    if (homeLink) {
+        homeLink.click(); // Set the initial view
     }
+    
+    // Initialize the Slick carousel
+    $('.carousel-slide').slick({
+        dots: true,
+        infinite: true,
+        speed: 500,
+        slidesToShow: 1,
+        adaptiveHeight: true
+    });
+}
+
 
     // Initialize website functionality
     function initializeSectionVisibility() {
