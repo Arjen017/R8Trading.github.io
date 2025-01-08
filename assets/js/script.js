@@ -66,59 +66,53 @@ document.addEventListener("DOMContentLoaded", function () {
      * Manage navigation link interactions
      */
     function setupNavigation() {
-        navLinks.forEach((link) => {
-            link.addEventListener("click", function (event) {
-                event.preventDefault();
+    navLinks.forEach((link) => {
+        link.addEventListener("click", function (event) {
+            event.preventDefault();
 
-                // Remove active state from all links
-                navLinks.forEach(l => l.classList.remove("active"));
-                this.classList.add("active");
+            // Remove active state from all links
+            navLinks.forEach(l => l.classList.remove("active"));
+            this.classList.add("active");
 
-                // Special handling for map link
-                if (this.id === "mapLink") {
-                    showSection(sections.mapSection);
-                    return;
-                }
+            // Get the target section
+            const sectionId = this.getAttribute("data-section-id");
+            const targetSection = sectionId ? sections[sectionId] : null;
 
-                // Get the target section
-                const sectionId = this.getAttribute("data-section-id");
-                const targetSection = sectionId ? sections[sectionId] : null;
+            if (targetSection) {
+                showSection(targetSection);
+            } else {
+                console.warn(`Section "${sectionId}" not found.`);
+            }
 
-                if (targetSection) {
-                    showSection(targetSection);
-                } else {
-                    console.warn(`Section "${sectionId}" not found.`);
-                }
-
-                // Close any open dropdowns
-                closeAllDropdowns();
-            });
+            // Close any open dropdowns
+            closeAllDropdowns();
         });
-    }
+    });
+}
+
 
     /**
      * Manage dropdown menu interactions
      */
     function setupDropdowns() {
-        dropdownToggles.forEach((toggle) => {
-            toggle.addEventListener("click", function (event) {
-                event.preventDefault();
-                event.stopPropagation();
+    dropdownToggles.forEach((toggle) => {
+        toggle.addEventListener("click", function (event) {
+            event.preventDefault();
+            event.stopPropagation();
 
-                // Close all dropdowns first
-                closeAllDropdowns();
+            // Close all dropdowns
+            closeAllDropdowns();
 
-                // Toggle current dropdown
-                const dropdown = this.closest(".dropdown");
-                const dropdownMenu = dropdown.querySelector(".dropdown-menu");
-                dropdownMenu.classList.toggle("show");
-            });
+            // Open the current dropdown
+            const dropdown = this.closest(".dropdown");
+            const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+            dropdownMenu.classList.toggle("show");
         });
+    });
 
-        // Close dropdowns when clicking outside
-        document.addEventListener("click", closeAllDropdowns);
-    }
-
+    // Close dropdowns when clicking outside
+    document.addEventListener("click", closeAllDropdowns);
+}
     /**
      * Close all dropdown menus
      */
