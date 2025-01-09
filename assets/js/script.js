@@ -10,12 +10,12 @@ $(document).ready(function() {
 
     // Handle navigation link clicks
     $('.navigation a').on('click', function(e) {
-        e.preventDefault(); // Prevent default link behavior
-        const sectionId = $(this).data('section-id'); // Get the target section ID
-        $('.main-content > section').addClass('hidden'); // Hide all sections
-        $('#' + sectionId).removeClass('hidden'); // Show the target section
-    });
-
+    e.preventDefault();
+    console.log('Navigation link clicked'); // Debugging line
+    const sectionId = $(this).data('section-id');
+    $('.main-content > section').addClass('hidden');
+    $('#' + sectionId).removeClass('hidden');
+});
     // Handle dropdown item clicks
     $('.dropdown-item a').on('click', function(e) {
         e.preventDefault(); // Prevent default link behavior
