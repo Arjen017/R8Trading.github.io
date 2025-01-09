@@ -187,6 +187,10 @@ body {
     object-fit: cover;
 }
 
+#carouselSection {
+    display: block; /* Ensure it's visible by default */
+}
+
 /* Customer Gallery Grid */
 #customerSection .masonry-grid {
     display: grid;
