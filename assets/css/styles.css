@@ -183,8 +183,17 @@ body {
 
 .carousel-slide img {
     width: 100%;
-    height: 120vh;
+    height: auto;    /*change 1/9   */
+    display: block;
     object-fit: cover;
+}
+
+.carousel .slick-slide {
+    display: none;
+}
+
+.carousel .slick-active {
+    display: block;
 }
 
 #carouselSection {
