@@ -34,70 +34,91 @@ document.addEventListener("DOMContentLoaded", function () {
      * Utility function to show a specific section and hide others
      * @param {HTMLElement} sectionToShow - The section to display
      */
-   function showSection(sectionToShow) {
-    // Hide all sections
-    Object.values(sections).forEach((section) => {
-        section.classList.remove("show");
-    });
+    function showSection(sectionToShow) {
 
-    // Show the target section
-    if (sectionToShow) {
-        sectionToShow.classList.add("show");
+         console.log("Attempting to show section:", sectionToShow.id);
+        // Hide all sections first
+        Object.values(sections).forEach((section) => {
+            section.style.display = "none";
+        });
+
+        // Show the target section
+        if (sectionToShow) {
+            // Special handling for different section types
+            if (sectionToShow.id === "carouselSection") {
+                sectionToShow.style.display = "block";
+            } else if (sectionToShow.id === "mapSection") {
+                sectionToShow.style.display = "block";
+            } else if (sectionToShow.id === "customerSection") {
+                 console.log("Showing customer section.");
+                sectionToShow.style.display = "block";
+                const grid = sectionToShow.querySelector(".masonry-grid");
+                if (grid) {
+                    grid.style.display = "grid";
+                }
+            } else {
+                sectionToShow.style.display = "block";
+            }
+        }
     }
-}
-
 
     /**
      * Manage navigation link interactions
      */
     function setupNavigation() {
-    navLinks.forEach((link) => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
+        navLinks.forEach((link) => {
+            link.addEventListener("click", function (event) {
+                event.preventDefault();
 
-            // Remove active state from all links
-            navLinks.forEach(l => l.classList.remove("active"));
-            this.classList.add("active");
+                // Remove active state from all links
+                navLinks.forEach(l => l.classList.remove("active"));
+                this.classList.add("active");
 
-            // Get the target section
-            const sectionId = this.getAttribute("data-section-id");
-            const targetSection = sectionId ? sections[sectionId] : null;
+                // Special handling for map link
+                if (this.id === "mapLink") {
+                    showSection(sections.mapSection);
+                    return;
+                }
 
-            if (targetSection) {
-                showSection(targetSection);
-            } else {
-                console.warn(`Section "${sectionId}" not found.`);
-            }
+                // Get the target section
+                const sectionId = this.getAttribute("data-section-id");
+                const targetSection = sectionId ? sections[sectionId] : null;
 
-            // Close any open dropdowns
-            closeAllDropdowns();
+                if (targetSection) {
+                    showSection(targetSection);
+                } else {
+                    console.warn(`Section "${sectionId}" not found.`);
+                }
+
+                // Close any open dropdowns
+                closeAllDropdowns();
+            });
         });
-    });
-}
-
+    }
 
     /**
      * Manage dropdown menu interactions
      */
     function setupDropdowns() {
-    dropdownToggles.forEach((toggle) => {
-        toggle.addEventListener("click", function (event) {
-            event.preventDefault();
-            event.stopPropagation();
+        dropdownToggles.forEach((toggle) => {
+            toggle.addEventListener("click", function (event) {
+                event.preventDefault();
+                event.stopPropagation();
 
-            // Close all dropdowns
-            closeAllDropdowns();
+                // Close all dropdowns first
+                closeAllDropdowns();
 
-            // Open the current dropdown
-            const dropdown = this.closest(".dropdown");
-            const dropdownMenu = dropdown.querySelector(".dropdown-menu");
-            dropdownMenu.classList.toggle("show");
+                // Toggle current dropdown
+                const dropdown = this.closest(".dropdown");
+                const dropdownMenu = dropdown.querySelector(".dropdown-menu");
+                dropdownMenu.classList.toggle("show");
+            });
         });
-    });
 
-    // Close dropdowns when clicking outside
-    document.addEventListener("click", closeAllDropdowns);
-}
+        // Close dropdowns when clicking outside
+        document.addEventListener("click", closeAllDropdowns);
+    }
+
     /**
      * Close all dropdown menus
      */
@@ -110,31 +131,14 @@ document.addEventListener("DOMContentLoaded", function () {
      * Initialize the default view
      */
     function initializeDefaultView() {
-    const homeLink = document.getElementById("homeLink");
-    
-    // Simulate click on the "homeLink" if it exists
-    if (homeLink) {
-        homeLink.click(); // Set the initial view
+        const homeLink = document.getElementById("homeLink");
+        if (homeLink) {
+            homeLink.click(); // Simulate click to set initial view
+        }
     }
-    
-    // Initialize the Slick carousel
-    $('.carousel-slide').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        slidesToShow: 1,
-        adaptiveHeight: true
-    });
-}
-
 
     // Initialize website functionality
-    function initializeSectionVisibility() {
-    Object.values(sections).forEach((section) => {
-        section.style.display = "none"; // Hide all sections
-    });
-    sections.carouselSection.style.display = "block"; // Show the carousel section
-    }
+    initializeSectionVisibility(); // Add this line
     setupNavigation();
     setupDropdowns();
     initializeDefaultView();
