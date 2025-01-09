@@ -1,46 +1,50 @@
 $(document).ready(function() {
-    // Initialize the carousel
-    $('.carousel-slide').slick({
-        dots: true,
-        infinite: true,
-        speed: 500,
-        fade: true,
-        cssEase: 'linear'
-    });
+    // Show the initial section
+    $('#carouselSection').removeClass('hidden').show();
 
-    // Handle navigation link clicks
+    // Function to hide all sections and show the selected one
+    function showSection(sectionId) {
+        $('.main-content > section').hide(); // Hide all sections
+        $('#' + sectionId).show(); // Show the selected section
+    }
+
+    // Navigation link click event
     $('.navigation a').on('click', function(e) {
-    e.preventDefault();
-    console.log('Navigation link clicked'); // Debugging line
-    const sectionId = $(this).data('section-id');
-    $('.main-content > section').addClass('hidden');
-    $('#' + sectionId).removeClass('hidden');
-});
-    // Handle dropdown item clicks
-    $('.dropdown-item a').on('click', function(e) {
-        e.preventDefault(); // Prevent default link behavior
-        const sectionId = $(this).data('section-id'); // Get the target section ID
-        $('.main-content > section').addClass('hidden'); // Hide all sections
-        $('#' + sectionId).removeClass('hidden'); // Show the target section
-        closeAllDropdowns(); // Close dropdowns after selection
+        e.preventDefault();
+        const sectionId = $(this).data('section-id');
+        showSection(sectionId);
     });
 
-    // Close all dropdowns when clicking outside
+    // Dropdown item click event
+    $('.dropdown-item a').on('click', function(e) {
+        e.preventDefault();
+        const sectionId = $(this).data('section-id');
+        showSection(sectionId);
+        closeAllDropdowns();
+    });
+
+    // Function to close all dropdowns
+    function closeAllDropdowns() {
+        $('.dropdown-menu').hide();
+    }
+
+    // Close all dropdowns on click outside
     $(document).on('click', function(e) {
         if (!$(e.target).closest('.dropdown').length) {
             closeAllDropdowns();
         }
     });
 
-    // Function to close all dropdowns
-    function closeAllDropdowns() {
-        $('.dropdown-menu').hide(); // Hide all dropdown menus
-    }
-
-    // Handle contact form submission
+    // Contact form submission event
     $('#contactForm').on('submit', function(e) {
-        e.preventDefault(); // Prevent default form submission
-        alert('Message sent!'); // Show alert
-        $(this).trigger('reset'); // Reset the form
+        e.preventDefault();
+        alert('Message sent!');
+        $(this).trigger('reset');
+    });
+
+    // Dropdown toggle functionality
+    $('.dropdown-toggle').on('click', function(e) {
+        e.preventDefault();
+        $(this).next('.dropdown-menu').toggle(); // Toggle the dropdown visibility
     });
 });
