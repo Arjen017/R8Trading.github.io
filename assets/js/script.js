@@ -2,6 +2,17 @@ $(document).ready(function() {
     // Show the initial section
     $('#carouselSection').removeClass('hidden').show();
 
+    $('.carousel-slide').slick({
+        dots: true, // Enables navigation dots below the carousel
+        infinite: true, // Infinite loop of slides
+        speed: 500, // Slide transition speed
+        fade: false, // Fade effect for slides
+        cssEase: 'linear', // CSS transition effect
+        arrows: true, // Adds navigation arrows
+        autoplay: true, // Enables autoplay
+        autoplaySpeed: 3000, // Autoplay speed in milliseconds
+    });
+
     // Function to hide all sections and show the selected one
     function showSection(sectionId) {
         $('.main-content > section').hide(); // Hide all sections
