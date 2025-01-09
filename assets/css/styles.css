@@ -214,6 +214,9 @@ section {
     display: none; /* Default to hidden */
 }
 
+.hidden {
+    display: none; /* This will hide the sections */
+}
 /* Responsive Breakpoints */
 @media (max-width: 768px) {
     .main-header {
