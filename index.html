@@ -48,22 +48,58 @@
     </header>
 
     <!-- Main Content -->
-    <div class="main-content">
-        <section id="carouselSection" class="carousel fade">
-            <div class="carousel-slide">
-                <div><img src="assets/images/image1.png" alt="Image 1"></div>
-                <div><img src="assets/images/image2.png" alt="Image 2"></div>
-                <div><img src="assets/images/image3.png" alt="Image 3"></div>
+   <div class="carousel">
+    <div class="carousel_inner">
+        <div class="carousel_item carousel_item__active">
+            <img src="assets/images/image1.png" alt="Image 1" class="carousel_img">
+            <div class="carousel_caption">
+                <h1 class="carousel_title">Change It As You See Fit</h1>
+                <p class="carousel_description">R8 BATTERY R8 BATTERY R8 BATTERY R8 BATTERY R8 BATTERY R8 BATTERY.</p>
             </div>
-        </section>
+        </div>
+        <div class="carousel_item">
+            <img src="assets/images/image2.png" alt="Image 2" class="carousel_img">
+        </div>
+        <div class="carousel_item">
+            <img src="assets/images/image3.png" alt="Image 3" class="carousel_img">
+        </div>
+    </div>
+
+    <div class="carousel_indicator">
+        <button class="carousel_dot carousel_dot__active"></button>
+        <button class="carousel_dot"></button>
+        <button class="carousel_dot"></button>
+    </div>
+
+    <div class="carousel_control">
+        <button class="carousel_button carousel_button__prev">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="carousel_button carousel_button__next">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+        
+        
         <section id="batteryCarsSection" class="hidden">
             <h2>Car Batteries</h2>
             <p>Explore our high-quality batteries for all types of cars.</p>
         </section>
+        
         <section id="batteryMotorcycleSection" class="hidden">
             <h2>Motorcycle Batteries</h2>
             <p>Discover durable and reliable batteries for motorcycles.</p>
         </section>
+        
         <section id="mapSection" class="map-section" style="display: none;">
             <h2>Map - Siling Bata, Pandi, Bulacan</h2>
             <iframe 
@@ -74,6 +110,7 @@
                 allowfullscreen="" 
                 loading="lazy"></iframe>
         </section>
+        
         <section id="customerSection" class="hidden">
             <h2>Customer Gallery</h2>
                 <div class="masonry-grid">
