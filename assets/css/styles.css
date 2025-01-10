@@ -248,6 +248,8 @@ body {
 .carousel_img{
    display: block;
    width: 100%;
+   max-height: 500px; /* Adjust this value to your desired limit */
+   object-fit: cover; /* Ensures the image is cropped proportionally to fit */
 }
 
 .carousel_caption{
