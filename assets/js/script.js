@@ -1,29 +1,47 @@
 let onSlide = false;
 
 window.addEventListener("load", () => {
+   console.log("Window loaded, initializing autoSlide.");
    autoSlide();
 
    const dots = document.querySelectorAll(".carousel_dot");
    dots.forEach((dot, index) => {
-      dot.addEventListener("click", () => slide(index));
+      dot.addEventListener("click", () => {
+         console.log(`Dot clicked: ${index}`);
+         slide(index);
+      });
    });
 
    const buttonPrev = document.querySelector(".carousel_button__prev");
    const buttonNext = document.querySelector(".carousel_button__next");
-   buttonPrev.addEventListener("click", () => slide(getItemActiveIndex() - 1));
-   buttonNext.addEventListener("click", () => slide(getItemActiveIndex() + 1));
+   buttonPrev.addEventListener("click", () => {
+      console.log("Previous button clicked.");
+      slide(getItemActiveIndex() - 1);
+   });
+   buttonNext.addEventListener("click", () => {
+      console.log("Next button clicked.");
+      slide(getItemActiveIndex() + 1);
+   });
 });
 
 function autoSlide() {
    setInterval(() => {
       if (!onSlide) {
+         console.log("Auto sliding to next slide.");
          slide(getItemActiveIndex() + 1);
+      } else {
+         console.log("Auto slide skipped due to ongoing transition.");
       }
    }, 3000); // slide speed = 3s
 }
 
 function slide(toIndex) {
-   if (onSlide) return;
+   if (onSlide) {
+      console.log("Slide skipped due to ongoing transition.");
+      return;
+   }
+
+   console.log(`Starting slide to index: ${toIndex}`);
    onSlide = true;
 
    const itemsArray = Array.from(document.querySelectorAll(".carousel_item"));
@@ -57,6 +75,7 @@ function slide(toIndex) {
       itemActive.className = "carousel_item";
       newItemActive.className = "carousel_item carousel_item__active";
       onSlide = false;
+      console.log("Slide transition completed.");
    }, { once: true });
 
    slideIndicator(toIndex);
@@ -72,4 +91,5 @@ function slideIndicator(toIndex) {
    const dots = document.querySelectorAll(".carousel_dot");
    document.querySelector(".carousel_dot__active").classList.remove("carousel_dot__active");
    dots[toIndex].classList.add("carousel_dot__active");
+   console.log(`Slide indicator updated to index: ${toIndex}`);
 }
