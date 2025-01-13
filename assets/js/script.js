@@ -1,85 +1,84 @@
-let onSlide = false;
-let slideInterval;
+document.addEventListener('DOMContentLoaded', function () {
+    let onSlide = false;
+    let slideInterval;
 
-// Function to slide the carousel automatically
-function autoSlide() {
-    const activeIndex = getItemActiveIndex();
-    const nextIndex = (activeIndex + 1) % document.querySelectorAll('.carousel_item').length;
-    slide(nextIndex);
-}
+    // Function to slide the carousel automatically
+    function autoSlide() {
+        const activeIndex = getItemActiveIndex();
+        const nextIndex = (activeIndex + 1) % document.querySelectorAll('.carousel_item').length;
+        slide(nextIndex);
+    }
 
-// Function to get the index of the currently active item
-function getItemActiveIndex() {
-    const itemsArray = Array.from(document.querySelectorAll('.carousel_item'));
-    const itemActive = document.querySelector('.carousel_item__active');
-    return itemsArray.indexOf(itemActive);
-}
+    // Function to get the index of the currently active item
+    function getItemActiveIndex() {
+        const itemsArray = Array.from(document.querySelectorAll('.carousel_item'));
+        const itemActive = document.querySelector('.carousel_item__active');
+        return itemsArray.indexOf(itemActive);
+    }
 
-// Function to initiate the auto-slide with an interval
-function startAutoSlide() {
-    slideInterval = setInterval(() => {
-        if (!onSlide) {
-            autoSlide();
+    // Function to initiate the auto-slide with an interval
+    function startAutoSlide() {
+        slideInterval = setInterval(() => {
+            if (!onSlide) {
+                autoSlide();
+            }
+        }, 5000); // 5-second interval
+    }
+
+    // Function to stop the auto-slide
+    function stopAutoSlide() {
+        clearInterval(slideInterval);
+    }
+
+    // Function to handle the slide transition
+    function slide(toIndex) {
+        if (onSlide) {
+            return;
         }
-    }, 5000); // 5-second interval
-}
+        onSlide = true;
 
-// Function to stop the auto-slide
-function stopAutoSlide() {
-    clearInterval(slideInterval);
-}
+        const itemsArray = Array.from(document.querySelectorAll('.carousel_item'));
+        const itemActive = document.querySelector('.carousel_item__active');
+        let newItemActive = null;
 
-// Function to handle the slide transition
-function slide(toIndex) {
-    if (onSlide) {
-        return;
-    }
-    onSlide = true;
+        if (toIndex >= itemsArray.length) {
+            toIndex = 0;
+        } else if (toIndex < 0) {
+            toIndex = itemsArray.length - 1;
+        }
 
-    const itemsArray = Array.from(document.querySelectorAll('.carousel_item'));
-    const itemActive = document.querySelector('.carousel_item__active');
-    let newItemActive = null;
+        newItemActive = itemsArray[toIndex];
 
-    if (toIndex >= itemsArray.length) {
-        toIndex = 0;
-    } else if (toIndex < 0) {
-        toIndex = itemsArray.length - 1;
-    }
+        if (toIndex > getItemActiveIndex()) {
+            newItemActive.classList.add('carousel_item__pos_next');
+            setTimeout(() => {
+                newItemActive.classList.add('carousel_item__next');
+                itemActive.classList.add('carousel_item__next');
+            }, 20);
+        } else {
+            newItemActive.classList.add('carousel_item__pos_prev');
+            setTimeout(() => {
+                newItemActive.classList.add('carousel_item__prev');
+                itemActive.classList.add('carousel_item__prev');
+            }, 20);
+        }
 
-    newItemActive = itemsArray[toIndex];
+        newItemActive.addEventListener('transitionend', () => {
+            itemActive.className = 'carousel_item';
+            newItemActive.className = 'carousel_item carousel_item__active';
+            onSlide = false;
+        }, { once: true });
 
-    if (toIndex > getItemActiveIndex()) {
-        newItemActive.classList.add('carousel_item__pos_next');
-        setTimeout(() => {
-            newItemActive.classList.add('carousel_item__next');
-            itemActive.classList.add('carousel_item__next');
-        }, 20);
-    } else {
-        newItemActive.classList.add('carousel_item__pos_prev');
-        setTimeout(() => {
-            newItemActive.classList.add('carousel_item__prev');
-            itemActive.classList.add('carousel_item__prev');
-        }, 20);
+        slideIndicator(toIndex);
     }
 
-    newItemActive.addEventListener('transitionend', () => {
-        itemActive.className = 'carousel_item';
-        newItemActive.className = 'carousel_item carousel_item__active';
-        onSlide = false;
-    }, { once: true });
+    // Function to update the carousel indicators
+    function slideIndicator(toIndex) {
+        const dots = document.querySelectorAll('.carousel_dot');
+        document.querySelector('.carousel_dot__active').classList.remove('carousel_dot__active');
+        dots[toIndex].classList.add('carousel_dot__active');
+    }
 
-    slideIndicator(toIndex);
-}
-
-// Function to update the carousel indicators
-function slideIndicator(toIndex) {
-    const dots = document.querySelectorAll('.carousel_dot');
-    document.querySelector('.carousel_dot__active').classList.remove('carousel_dot__active');
-    dots[toIndex].classList.add('carousel_dot__active');
-}
-
-// Event listeners for user interactions
-window.addEventListener('load', () => {
     startAutoSlide();
 
     const dots = document.querySelectorAll('.carousel_dot');
@@ -94,13 +93,17 @@ window.addEventListener('load', () => {
     const buttonPrev = document.querySelector('.carousel_button__prev');
     const buttonNext = document.querySelector('.carousel_button__next');
 
+    console.log(buttonPrev, buttonNext); // Debugging log
+
     buttonPrev.addEventListener('click', () => {
+        console.log('Prev button clicked'); // Debugging log
         stopAutoSlide();
         slide(getItemActiveIndex() - 1);
         startAutoSlide();
     });
 
     buttonNext.addEventListener('click', () => {
+        console.log('Next button clicked'); // Debugging log
         stopAutoSlide();
         slide(getItemActiveIndex() + 1);
         startAutoSlide();
