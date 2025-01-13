@@ -1,9 +1,9 @@
+let onSlide = false;
+let slideInterval;
+
 document.addEventListener('DOMContentLoaded', function () {
     startAutoSlide(); // Ensure this is called
 
-    
-    let onSlide = false;
-    let slideInterval;
 
     // Function to slide the carousel automatically
     function autoSlide() {
