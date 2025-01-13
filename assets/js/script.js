@@ -1,4 +1,7 @@
 document.addEventListener('DOMContentLoaded', function () {
+    startAutoSlide(); // Ensure this is called
+
+    
     let onSlide = false;
     let slideInterval;
 
