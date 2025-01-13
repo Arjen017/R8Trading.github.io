@@ -82,8 +82,6 @@ document.addEventListener('DOMContentLoaded', function () {
         dots[toIndex].classList.add('carousel_dot__active');
     }
 
-    startAutoSlide();
-
     const dots = document.querySelectorAll('.carousel_dot');
     dots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
