@@ -1,11 +1,12 @@
 document.addEventListener('DOMContentLoaded', function () {
     let onSlide = false;
     let slideInterval;
-    
+
     const slides = document.querySelectorAll('.carousel_item');
     const dots = document.querySelectorAll('.carousel_dot');
     const buttonPrev = document.querySelector('.carousel_button__prev');
     const buttonNext = document.querySelector('.carousel_button__next');
+    const navLinks = document.querySelectorAll('.navigation a');
     const sections = {
         homeLink: "carouselSection",
         mapLink: "mapSection",
@@ -23,9 +24,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
         if (link) {
             link.addEventListener('click', function (event) {
-                event.preventDefault(); // Prevent default link behavior
+                event.preventDefault();
                 hideAllSections();
                 section.style.display = "block";
+                updateActiveLink(this);
             });
         }
     });
@@ -37,6 +39,11 @@ document.addEventListener('DOMContentLoaded', function () {
                 section.style.display = "none";
             }
         });
+    }
+
+    function updateActiveLink(activeLink) {
+        navLinks.forEach(link => link.classList.remove('active'));
+        activeLink.classList.add('active');
     }
 
     function autoSlide() {
@@ -56,7 +63,7 @@ document.addEventListener('DOMContentLoaded', function () {
             if (!onSlide) {
                 autoSlide();
             }
-        }, 5000); // 5-second interval
+        }, 5000);
     }
 
     function stopAutoSlide() {
@@ -69,26 +76,15 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const itemsArray = Array.from(slides);
         const itemActive = document.querySelector('.carousel_item__active');
-        let newItemActive = null;
+        let newItemActive = itemsArray[toIndex % itemsArray.length];
 
-        if (toIndex >= itemsArray.length) toIndex = 0;
-        else if (toIndex < 0) toIndex = itemsArray.length - 1;
+        const direction = toIndex > getItemActiveIndex() ? 'next' : 'prev';
 
-        newItemActive = itemsArray[toIndex];
-
-        if (toIndex > getItemActiveIndex()) {
-            newItemActive.classList.add('carousel_item__pos_next');
-            setTimeout(() => {
-                newItemActive.classList.add('carousel_item__next');
-                itemActive.classList.add('carousel_item__next');
-            }, 20);
-        } else {
-            newItemActive.classList.add('carousel_item__pos_prev');
-            setTimeout(() => {
-                newItemActive.classList.add('carousel_item__prev');
-                itemActive.classList.add('carousel_item__prev');
-            }, 20);
-        }
+        newItemActive.classList.add(`carousel_item__pos_${direction}`);
+        setTimeout(() => {
+            newItemActive.classList.add(`carousel_item__${direction}`);
+            itemActive.classList.add(`carousel_item__${direction}`);
+        }, 20);
 
         newItemActive.addEventListener('transitionend', () => {
             itemActive.className = 'carousel_item';
@@ -101,7 +97,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     function slideIndicator(toIndex) {
         document.querySelector('.carousel_dot__active').classList.remove('carousel_dot__active');
-        dots[toIndex].classList.add('carousel_dot__active');
+        dots[toIndex % dots.length].classList.add('carousel_dot__active');
     }
 
     dots.forEach((dot, index) => {
@@ -112,19 +108,26 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     });
 
-    buttonPrev.addEventListener('click', () => {
-        console.log('Prev button clicked'); // Debugging log
+    buttonPrev.addEventListener('click', debounce(() => {
         stopAutoSlide();
         slide(getItemActiveIndex() - 1);
         startAutoSlide();
-    });
+    }, 300));
 
-    buttonNext.addEventListener('click', () => {
-        console.log('Next button clicked'); // Debugging log
+    buttonNext.addEventListener('click', debounce(() => {
         stopAutoSlide();
         slide(getItemActiveIndex() + 1);
         startAutoSlide();
-    });
+    }, 300));
+
+    function debounce(func, wait) {
+        let timeout;
+        return function(...args) {
+            const context = this;
+            clearTimeout(timeout);
+            timeout = setTimeout(() => func.apply(context, args), wait);
+        };
+    }
 
     startAutoSlide();
 });
