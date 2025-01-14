@@ -6,38 +6,20 @@ document.addEventListener('DOMContentLoaded', function () {
     const dots = document.querySelectorAll('.carousel_dot');
     const buttonPrev = document.querySelector('.carousel_button__prev');
     const buttonNext = document.querySelector('.carousel_button__next');
+     const mapLink = document.getElementById("mapLink");
+    const carouselSection = document.getElementById("carouselSection");
+    const contentSection = document.getElementById("contentSection"); // map section
+    const homeLink = document.getElementById("homeLink");
+  
+// Map link click event
+    mapLink.addEventListener("click", function (event) {
+        event.preventDefault(); // Prevent default link behavior
+        console.log("Map link clicked");
 
-    const sections = {
-        homeLink: "carouselSection",
-        mapLink: "mapSection",
-        contactLink: "contactSection",
-        batteryCarsLink: "batteryCarsSection",
-        batteryMotorcycleLink: "batteryMotorcycleSection",
-        customerLink: "customerSection",
-        eventsLink: "eventsSection"
-    };
-
-    Object.keys(sections).forEach(linkId => {
-        const sectionId = sections[linkId];
-        const link = document.getElementById(linkId);
-        const section = document.getElementById(sectionId);
-
-        if (link) {
-            link.addEventListener('click', function () {
-                hideAllSections();
-                section.style.display = "block";
-            });
-        }
+        // Hide carousel and show map
+        carouselSection.style.display = "none";
+        contentSection.style.display = "block"; // Corrected
     });
-
-    function hideAllSections() {
-        Object.values(sections).forEach(sectionId => {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.style.display = "none";
-            }
-        });
-    }
 
     function autoSlide() {
         const activeIndex = getItemActiveIndex();
