@@ -1,4 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
+    
+
     let onSlide = false;
     let slideInterval;
     
@@ -6,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function () {
     const dots = document.querySelectorAll('.carousel_dot');
     const buttonPrev = document.querySelector('.carousel_button__prev');
     const buttonNext = document.querySelector('.carousel_button__next');
+    const mapLink = document.getElementById("map-link");
+    const mapSec = document.getElementByID("mapSection");
 
     function autoSlide() {
         const activeIndex = getItemActiveIndex();
@@ -95,5 +99,9 @@ document.addEventListener('DOMContentLoaded', function () {
         startAutoSlide();
     });
 
+    mapLink.addEventListener('click", function() {
+	    mapSec.style.display= "block";
+    });
+    
     startAutoSlide();
 });
