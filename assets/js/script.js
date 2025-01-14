@@ -1,6 +1,4 @@
 document.addEventListener('DOMContentLoaded', function () {
-    
-
     let onSlide = false;
     let slideInterval;
     
@@ -8,8 +6,38 @@ document.addEventListener('DOMContentLoaded', function () {
     const dots = document.querySelectorAll('.carousel_dot');
     const buttonPrev = document.querySelector('.carousel_button__prev');
     const buttonNext = document.querySelector('.carousel_button__next');
-    const mapLink = document.getElementById("mapLink");
-    const mapSec = document.getElementByID("mapSection");
+
+    const sections = {
+        homeLink: "carouselSection",
+        mapLink: "mapSection",
+        contactLink: "contactSection",
+        batteryCarsLink: "batteryCarsSection",
+        batteryMotorcycleLink: "batteryMotorcycleSection",
+        customerLink: "customerSection",
+        eventsLink: "eventsSection"
+    };
+
+    Object.keys(sections).forEach(linkId => {
+        const sectionId = sections[linkId];
+        const link = document.getElementById(linkId);
+        const section = document.getElementById(sectionId);
+
+        if (link) {
+            link.addEventListener('click', function () {
+                hideAllSections();
+                section.style.display = "block";
+            });
+        }
+    });
+
+    function hideAllSections() {
+        Object.values(sections).forEach(sectionId => {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.style.display = "none";
+            }
+        });
+    }
 
     function autoSlide() {
         const activeIndex = getItemActiveIndex();
@@ -72,7 +100,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function slideIndicator(toIndex) {
-        const dots = document.querySelectorAll('.carousel_dot');
         document.querySelector('.carousel_dot__active').classList.remove('carousel_dot__active');
         dots[toIndex].classList.add('carousel_dot__active');
     }
@@ -99,9 +126,5 @@ document.addEventListener('DOMContentLoaded', function () {
         startAutoSlide();
     });
 
-    mapLink.addEventListener('click', function() {
-	    mapSec.style.display= "block";
-    });
-    
     startAutoSlide();
 });
