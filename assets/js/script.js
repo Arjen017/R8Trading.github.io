@@ -2,10 +2,12 @@ document.addEventListener('DOMContentLoaded', function () {
     let onSlide = false;
     let slideInterval;
     
-    const slides = document.querySelectorAll('.carousel_item');
-    const dots = document.querySelectorAll('.carousel_dot');
-    const buttonPrev = document.querySelector('.carousel_button__prev');
-    const buttonNext = document.querySelector('.carousel_button__next');
+    const carousel = document.querySelector('.carousel');
+    const slides = carousel.querySelectorAll('.carousel_item');
+    const dots = carousel.querySelectorAll('.carousel_dot');
+    const buttonPrev = carousel.querySelector('.carousel_button__prev');
+    const buttonNext = carousel.querySelector('.carousel_button__next');
+    
     const sections = {
         homeLink: "carouselSection",
         mapLink: "mapSection",
@@ -18,18 +20,16 @@ document.addEventListener('DOMContentLoaded', function () {
 
     Object.keys(sections).forEach(linkId => {
         const sectionId = sections[linkId];
-        const link = document.getElementById(linkId);
+        const link = document.getElementById(linkId) || document.querySelector(`[data-section-id="${sectionId}"]`);
         const section = document.getElementById(sectionId);
 
-        if (link) {
+        if (link && section) {
             link.addEventListener('click', function (event) {
                 event.preventDefault();
-                console.log(linkId + " clicked"); // Add this line
                 hideAllSections();
                 section.style.display = "block";
-        });
-    }
-
+            });
+        }
     });
 
     function hideAllSections() {
@@ -41,44 +41,23 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
-    function autoSlide() {
-        const activeIndex = getItemActiveIndex();
-        const nextIndex = (activeIndex + 1) % slides.length;
-        slide(nextIndex);
-    }
-
     function getItemActiveIndex() {
-        const itemsArray = Array.from(slides);
-        const itemActive = document.querySelector('.carousel_item__active');
-        return itemsArray.indexOf(itemActive);
-    }
-
-    function startAutoSlide() {
-        slideInterval = setInterval(() => {
-            if (!onSlide) {
-                autoSlide();
-            }
-        }, 5000); // 5-second interval
-    }
-
-    function stopAutoSlide() {
-        clearInterval(slideInterval);
+        return Array.from(slides).findIndex(slide => slide.classList.contains('carousel_item__active'));
     }
 
     function slide(toIndex) {
         if (onSlide) return;
         onSlide = true;
 
-        const itemsArray = Array.from(slides);
-        const itemActive = document.querySelector('.carousel_item__active');
-        let newItemActive = null;
+        const itemActive = carousel.querySelector('.carousel_item__active');
+        const itemActiveIndex = getItemActiveIndex();
 
-        if (toIndex >= itemsArray.length) toIndex = 0;
-        else if (toIndex < 0) toIndex = itemsArray.length - 1;
+        if (toIndex >= slides.length) toIndex = 0;
+        else if (toIndex < 0) toIndex = slides.length - 1;
 
-        newItemActive = itemsArray[toIndex];
+        const newItemActive = slides[toIndex];
 
-        if (toIndex > getItemActiveIndex()) {
+        if (toIndex > itemActiveIndex) {
             newItemActive.classList.add('carousel_item__pos_next');
             setTimeout(() => {
                 newItemActive.classList.add('carousel_item__next');
@@ -102,8 +81,26 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function slideIndicator(toIndex) {
-        document.querySelector('.carousel_dot__active').classList.remove('carousel_dot__active');
+        carousel.querySelector('.carousel_dot__active').classList.remove('carousel_dot__active');
         dots[toIndex].classList.add('carousel_dot__active');
+    }
+
+    function autoSlide() {
+        const activeIndex = getItemActiveIndex();
+        const nextIndex = (activeIndex + 1) % slides.length;
+        slide(nextIndex);
+    }
+
+    function startAutoSlide() {
+        slideInterval = setInterval(() => {
+            if (!onSlide) {
+                autoSlide();
+            }
+        }, 5000); // 5-second interval
+    }
+
+    function stopAutoSlide() {
+        clearInterval(slideInterval);
     }
 
     dots.forEach((dot, index) => {
@@ -115,14 +112,12 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     buttonPrev.addEventListener('click', () => {
-        console.log('Prev button clicked'); // Debugging log
         stopAutoSlide();
         slide(getItemActiveIndex() - 1);
         startAutoSlide();
     });
 
     buttonNext.addEventListener('click', () => {
-        console.log('Next button clicked'); // Debugging log
         stopAutoSlide();
         slide(getItemActiveIndex() + 1);
         startAutoSlide();
