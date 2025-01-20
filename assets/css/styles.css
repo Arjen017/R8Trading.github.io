@@ -333,7 +333,7 @@ footer {
 
 .map-images img {
   width: calc(50% - 10px);
-  max-width: 200px;
+  max-width: 240px;
   height: auto;
   object-fit: cover;
   border-radius: 8px;
