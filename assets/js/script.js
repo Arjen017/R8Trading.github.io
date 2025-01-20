@@ -18,18 +18,14 @@ document.addEventListener("DOMContentLoaded", () => {
     eventsLink: "eventsSection",
   }
 
-  Object.keys(sections).forEach((linkId) => {
-    const sectionId = sections[linkId]
-    const link = document.getElementById(linkId) || document.querySelector(`[data-section-id="${sectionId}"]`)
-    const section = document.getElementById(sectionId)
-
-    if (link && section) {
-      link.addEventListener("click", (event) => {
-        event.preventDefault()
-        hideAllSections()
-        section.style.display = "block"
-      })
-    }
+  // Updated section navigation using data attributes
+  document.querySelectorAll("a[data-section]").forEach((link) => {
+    link.addEventListener("click", (event) => {
+      event.preventDefault()
+      const sectionId = link.getAttribute("data-section")
+      hideAllSections()
+      document.getElementById(sectionId).style.display = "block"
+    })
   })
 
   function hideAllSections() {
@@ -131,5 +127,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Show home section by default
   document.getElementById("carouselSection").style.display = "block"
+
+  // Added responsive navigation handling
+  function handleResponsiveNav() {
+    const dropdown = document.querySelector(".dropdown")
+    const dropdownMenu = dropdown.querySelector(".dropdown-menu")
+    const productsLink = document.getElementById("productsLink")
+
+    function toggleDropdown() {
+      dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block"
+    }
+
+    productsLink.addEventListener("click", (event) => {
+      event.preventDefault()
+      toggleDropdown()
+    })
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        dropdownMenu.style.display = ""
+      }
+    })
+  }
+
+  handleResponsiveNav()
 })
 
