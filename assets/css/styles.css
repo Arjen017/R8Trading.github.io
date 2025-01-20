@@ -456,16 +456,16 @@ footer {
   align-items: flex-start;
 }
 
-.map-image img {
-  width: 140px;
-  height: 140px;
+.map-image img {  /* map store image1   */
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
 }
 
-.map-directions img {
-  width: 100%;
-  height: auto;
+.map-directions img {  /* map store image2   */
+  width: 180px;
+  height: 180px;
   object-fit: cover;
   border-radius: 8px;
 }
