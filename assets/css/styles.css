@@ -457,8 +457,8 @@ footer {
 }
 
 .map-image img {
-  width: 240px;
-  height: 240px;
+  width: 140px;
+  height: 140px;
   object-fit: cover;
   border-radius: 8px;
 }
