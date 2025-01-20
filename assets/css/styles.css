@@ -2,420 +2,432 @@
 
 /* CSS Custom Properties for Consistent Theming */
 :root {
-    /* Color Palette */
-    --primary-color: #333;
-    --secondary-color: #f6f6f6;
-    --accent-color: #d3d3d3;
-    --text-color: #333333;
-    --hover-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    
-    /* Transition Speeds */
-    --transition-fast: 0.3s;
-    --transition-medium: 0.5s;
-    
-    /* Typography */
-    --font-primary: Arial, sans-serif;
-    --font-size-base: clamp(16px, 1vw + 1rem, 22px);
+  /* Color Palette */
+  --primary-color: #333;
+  --secondary-color: #f6f6f6;
+  --accent-color: #d3d3d3;
+  --text-color: #333333;
+  --hover-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+
+  /* Transition Speeds */
+  --transition-fast: 0.3s;
+  --transition-medium: 0.5s;
+
+  /* Typography */
+  --font-primary: Arial, sans-serif;
+  --font-size-base: clamp(16px, 1vw + 1rem, 22px);
 }
 
 /* Global Reset and Accessibility Foundations */
 *,
 *::before,
 *::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    transition: all var(--transition-fast) ease;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all var(--transition-fast) ease;
 }
 
 /* Reduce Motion for Accessibility */
 @media (prefers-reduced-motion: reduce) {
-    * {
-        animation-duration: 0.01ms !important;
-        animation-iteration-count: 1 !important;
-        transition-duration: 0.01ms !important;
-    }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 body {
-    font-family: var(--font-primary);
-    line-height: 1.6;
-    color: var(--text-color);
-    font-size: var(--font-size-base);
+  font-family: var(--font-primary);
+  line-height: 1.6;
+  color: var(--text-color);
+  font-size: var(--font-size-base);
 }
 
 /* Scroll Enhancement */
 ::-webkit-scrollbar {
-    width: 10px;
-    background-color: var(--secondary-color);
+  width: 10px;
+  background-color: var(--secondary-color);
 }
 
 ::-webkit-scrollbar-thumb {
-    background-color: var(--primary-color);
-    border-radius: 5px;
+  background-color: var(--primary-color);
+  border-radius: 5px;
 }
 
 /* Focused State Accessibility */
 *:focus {
-    outline: 2px solid var(--accent-color);
-    outline-offset: 2px;
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 /* Header Styling with Improved Responsiveness */
 .main-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 20px;
-    background-color: white;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  background-color: white;
+  flex-wrap: wrap;
 }
 
 .logo img {
-    height: 70px;
-    max-width: 100%;
-    object-fit: contain;
+  height: 70px;
+  max-width: 100%;
+  object-fit: contain;
 }
 
 /* Search Component with Enhanced Interaction */
 .search {
-    display: flex;
-    align-items: center;
-    padding: 14px;
-    border-radius: 28px;
-    background: var(--secondary-color);
-    transition: box-shadow var(--transition-fast);
-    max-width: 300px;
-    width: 100%;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border-radius: 28px;
+  background: var(--secondary-color);
+  transition: box-shadow var(--transition-fast);
+  max-width: 300px;
+  width: 100%;
 }
 
 .search:focus-within {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
 }
 
 .search-icon {
-    color: rgba(0, 0, 0, 0.5);
-    font-size: 24px;
-    margin-right: 8px;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 24px;
+  margin-right: 8px;
 }
 
 .search-input {
-    flex-grow: 1;
-    font-size: 16px;
-    color: var(--text-color);
-    outline: none;
-    border: none;
-    background: transparent;
+  flex-grow: 1;
+  font-size: 16px;
+  color: var(--text-color);
+  outline: none;
+  border: none;
+  background: transparent;
 }
 
 /* Navigation with Improved Responsiveness and Interaction */
 .navigation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 20px;
-    padding: 10px 0;
-    border-bottom: 1px solid #ddd;
-    flex-wrap: wrap;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 10px 0;
+  border-bottom: 1px solid #ddd;
+  flex-wrap: wrap;
 }
 
 .navigation a {
-    text-decoration: none;
-    color: var(--primary-color);
-    font-weight: bold;
-    font-size: 18px;
-    padding: 8px 20px;
-    border-radius: 8px;
-    transition: all var(--transition-fast) ease;
+  text-decoration: none;
+  color: var(--primary-color);
+  font-weight: bold;
+  font-size: 18px;
+  padding: 8px 20px;
+  border-radius: 8px;
+  transition: all var(--transition-fast) ease;
 }
 
 .navigation a.active,
 .navigation a:hover {
-    background-color: var(--accent-color);
-    color: black;
-    box-shadow: var(--hover-shadow);
+  background-color: var(--accent-color);
+  color: black;
+  box-shadow: var(--hover-shadow);
 }
 
 /* Dropdown Refinements */
 .dropdown {
-    position: relative;
+  position: relative;
 }
 
 .dropdown-menu {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: white;
-    list-style: none;
-    margin: 0;
-    padding: 0;
-    opacity: 0;
-    visibility: hidden;
-    transition: opacity var(--transition-fast), visibility var(--transition-fast);
-    z-index: 200;
-    min-width: 200px;
-    box-shadow: var(--hover-shadow);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: white;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity var(--transition-fast), visibility var(--transition-fast);
+  z-index: 200;
+  min-width: 200px;
+  box-shadow: var(--hover-shadow);
 }
 
 .dropdown:hover .dropdown-menu {
-    opacity: 1;
-    visibility: visible;
+  opacity: 1;
+  visibility: visible;
 }
 
 .dropdown-item {
-    padding: 8px 16px;
+  padding: 8px 16px;
 }
 
 .dropdown-item a {
-    text-decoration: none;
-    color: var(--text-color);
-    display: block;
-    width: 100%;
-    padding: 8px 0;
+  text-decoration: none;
+  color: var(--text-color);
+  display: block;
+  width: 100%;
+  padding: 8px 0;
+}
+
+/* Main Content Styling */
+main {
+  min-height: 100vh;
+  padding: 20px;
 }
 
 /* Carousel Responsive Design */
-
-
 .carousel {
-    position: relative;
-    width: 100%;
-    overflow: hidden;
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  margin-bottom: 20px;
 }
 
 .carousel_inner {
-    width: 100%;
-    overflow: hidden;
+  width: 100%;
+  overflow: hidden;
 }
 
 .carousel_item {
-    position: relative;
-    float: left;
-    display: none;
-    width: 100%;
-    margin-right: -100%;
+  position: relative;
+  float: left;
+  display: none;
+  width: 100%;
+  margin-right: -100%;
 }
 
 .carousel_item__active,
 .carousel_item__pos_prev,
 .carousel_item__pos_next {
-    display: block;
+  display: block;
 }
 
 .carousel_item__pos_prev {
-    left: -100%;
+  left: -100%;
 }
 
 .carousel_item__pos_next {
-    left: 100%;
+  left: 100%;
 }
 
 .carousel_item__prev {
-    transform: translateX(100%);
-    transition: transform .5s ease-in-out;
+  transform: translateX(100%);
+  transition: transform .5s ease-in-out;
 }
 
 .carousel_item__next {
-    transform: translateX(-100%);
-    transition: transform .5s ease-in-out;
+  transform: translateX(-100%);
+  transition: transform .5s ease-in-out;
 }
 
 .carousel_img {
-    display: block;
-    width: 100%;
-    max-height: 500px;
-    object-fit: cover;
+  display: block;
+  width: 100%;
+  max-height: 500px;
+  object-fit: cover;
 }
 
 .carousel_caption {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    width: 100%;
-    height: 100%;
-    padding: 3rem 4rem;
-    text-align: center;
-    color: #fff;
-    z-index: 1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 3rem 4rem;
+  text-align: center;
+  color: #fff;
+  z-index: 1;
 }
 
 .carousel_indicator {
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    flex-direction: row;
-    gap: .5rem;
-    z-index: 1;
+  position: absolute;
+  bottom: 1rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: row;
+  gap: .5rem;
+  z-index: 1;
 }
 
 .carousel_dot {
-    display: block;
-    padding: .25rem;
-    background-color: rgba(255, 255, 255, .25);
-    border: none;
-    border-radius: 50%;
-    cursor: pointer;
-    transition: background-color .5s ease-in-out;
+  display: block;
+  padding: .25rem;
+  background-color: rgba(255, 255, 255, 0.25);
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: background-color .5s ease-in-out;
 }
 
 .carousel_dot__active {
-    background-color: lightskyblue;
-    cursor: default;
-    pointer-events: none;
+  background-color: lightskyblue;
+  cursor: default;
+  pointer-events: none;
 }
 
 .carousel_control {
-    position: absolute;
-    top: 0;
-    left: 0;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    width: 100%;
-    height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+  height: 100%;
 }
 
 .carousel_button {
-    display: block;
-    padding-inline: 1rem;
-    font-family: "Raleway", sans-serif;
-    font-size: 1.375rem;
-    background-color: transparent;
-    color: rgba(255, 255, 255, .25);
-    border: none;
-    cursor: pointer;
-    transition: color .25s;
-    z-index: 1;
+  display: block;
+  padding-inline: 1rem;
+  font-family: "Raleway", sans-serif;
+  font-size: 1.375rem;
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.25);
+  border: none;
+  cursor: pointer;
+  transition: color .25s;
+  z-index: 1;
 }
 
 .carousel_button:hover {
-    color: rgba(135, 206, 250, .75);
+  color: rgba(135, 206, 250, 0.75);
 }
 
-
-
-/* fade effect */
-.carousel__fade .carousel_item__pos_prev,
-.carousel__fade .carousel_item__pos_next{
-   left: 0;
-   opacity: 0;
+/* Section Styling */
+section {
+  display: none;
+  margin-bottom: 20px;
 }
 
-.carousel__fade .carousel_item__prev,
-.carousel__fade .carousel_item__next{
-   transform: none;
-   opacity: 1;
-   transition: opacity .5s ease-in-out;
+section h2 {
+  margin-bottom: 10px;
 }
 
-.carousel__fade .carousel_item__active.carousel_item__prev,
-.carousel__fade .carousel_item__active.carousel_item__next{
-   opacity: 0;
-}
-
-.carousel_title{
-   font-family: "Montserrat", sans-serif;
-   font-weight: 600;
-}
-
-.carousel_description{
-   margin-top: .75rem;
-   line-height: 150%;
-}
-
-#carouselSection {
-    display: block; /* Ensure it's visible by default */
+.hidden {
+  display: none;
 }
 
 /* Customer Gallery Grid */
 #customerSection .masonry-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-    grid-gap: 10px;
-    width: 100%;
-    opacity: 1;
-    transition: opacity var(--transition-fast);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 10px;
+  width: 100%;
+  opacity: 1;
+  transition: opacity var(--transition-fast);
 }
 
 #customerSection .masonry-grid img {
-    width: 100%;
-    height: auto;
-    object-fit: cover;
-    border-radius: 8px;
-    transform: scale(1);
-    transition: transform var(--transition-fast);
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 8px;
+  transform: scale(1);
+  transition: transform var(--transition-fast);
 }
 
 #customerSection .masonry-grid img:hover {
-    transform: scale(1.05);
+  transform: scale(1.05);
 }
 
-section {
-    display: none; /* Default to hidden */
+/* Contact Form Styling */
+#contactForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-width: 500px;
+  margin: 0 auto;
 }
 
-.hidden {
-    display: none; /* This will hide the sections */
-}
-/* Responsive Breakpoints */
-@media (max-width: 768px) {
-    .main-header {
-        flex-direction: column;
-        align-items: center;
-    }
-
-    .navigation {
-        flex-direction: column;
-        gap: 10px;
-    }
-
-    .navigation a {
-        width: 100%;
-        text-align: center;
-    }
-
+#contactForm input,
+#contactForm textarea {
+  padding: 10px;
+  border: 1px solid var(--accent-color);
+  border-radius: 4px;
 }
 
-/* Footer with Improved Layout */
+#contactForm button {
+  padding: 10px;
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#contactForm button:hover {
+  background-color: #555;
+}
+
+/* Footer Styling */
 footer {
-    background-color: var(--primary-color);
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
+  background-color: var(--primary-color);
+  color: white;
+  padding: 20px;
 }
 
 .footer-content {
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;
-    gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  gap: 20px;
 }
 
 .footer-section {
-    flex: 1;
-    min-width: 200px;
+  flex: 1;
+  min-width: 200px;
+}
+
+.footer-section h4 {
+  margin-bottom: 10px;
 }
 
 .footer-section a {
-    color: #ccc;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 5px;
+  color: #ccc;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
 }
 
 .footer-section a:hover {
-    color: white;
+  color: white;
 }
 
 .footer-icon {
-    width: 20px;
-    height: 20px;
+  width: 20px;
+  height: 20px;
 }
+
+/* Responsive Breakpoints */
+@media (max-width: 768px) {
+  .main-header {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .navigation {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .navigation a {
+    width: 100%;
+    text-align: center;
+  }
+
+  .footer-content {
+    flex-direction: column;
+  }
+}
+
