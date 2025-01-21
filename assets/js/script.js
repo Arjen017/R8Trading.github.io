@@ -132,4 +132,3 @@ document.addEventListener("DOMContentLoaded", () => {
   // Show home section by default
   document.getElementById("carouselSection").style.display = "block"
 })
-
