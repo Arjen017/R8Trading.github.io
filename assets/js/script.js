@@ -131,4 +131,29 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Show home section by default
   document.getElementById("carouselSection").style.display = "block"
+
+  // Added responsive navigation handling
+  function handleResponsiveNav() {
+    const dropdown = document.querySelector(".dropdown")
+    const dropdownMenu = dropdown.querySelector(".dropdown-menu")
+    const productsLink = document.getElementById("productsLink")
+
+    function toggleDropdown() {
+      dropdownMenu.style.display = dropdownMenu.style.display === "block" ? "none" : "block"
+    }
+
+    productsLink.addEventListener("click", (event) => {
+      event.preventDefault()
+      toggleDropdown()
+    })
+
+    window.addEventListener("resize", () => {
+      if (window.innerWidth > 768) {
+        dropdownMenu.style.display = ""
+      }
+    })
+  }
+
+  handleResponsiveNav()
 })
+
