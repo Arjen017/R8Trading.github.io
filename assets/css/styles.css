@@ -484,16 +484,6 @@ footer {
 
   .map-iframe,
   .map-info {
-    /*width: 100%;*/
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers content horizontally */
-    text-align: center; /* Centers text */
-  }
-  .map-image {
-    display: flex;
-    justify-content: center; /* Centers images horizontally */
-    gap: 10px; /* Adds space between images */
     width: 100%;
 }
   .map-image img {
