@@ -74,6 +74,8 @@ body {
   padding: 10px 0;
   border-bottom: 1px solid #ddd;
   flex-wrap: wrap;
+  position: relative;
+  z-index: 1;
 }
 
 .navigation a {
@@ -108,6 +110,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity var(--transition-fast), visibility var(--transition-fast);
+  z-index: 5;
 }
 
 .dropdown:hover .dropdown-menu {
@@ -129,6 +132,7 @@ main {
   width: 100%;
   overflow: hidden;
   margin-bottom: 20px;
+  z-index: 10;
 }
 
 .carousel_inner {
