@@ -242,28 +242,53 @@ section h2 {
   transform: scale(1.05);
 }
 
-#contactForm {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-width: 500px;
-  margin: 0 auto;
+/* New styles for Contact Us section */
+.contact-info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 20px auto;
+    padding: 20px;
+    border: 1px solid var(--accent-color);
+    border-radius: 8px;
+    background-color: var(--secondary-color);
+    text-align: center;
 }
 
-#contactForm input,
-#contactForm textarea {
-  padding: 10px;
-  border: 1px solid var(--accent-color);
-  border-radius: 4px;
+.contact-info-container p {
+    margin: 0;
+    font-size: var(--font-size-large);
 }
 
-#contactForm button {
-  padding: 10px;
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+.contact-info-container a {
+    color: var(--primary-color); /* Use primary color for links */
+    text-decoration: none;
+    transition: color var(--transition-fast);
+}
+
+.contact-info-container a:hover {
+    color: #007bff; /* A common blue for hover */
+    text-decoration: underline;
+}
+
+.contact-email-button {
+    display: inline-block; /* Make it behave like a button */
+    padding: 12px 25px;
+    background-color: var(--primary-color);
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: var(--font-size-large);
+    text-decoration: none; /* Remove underline from link */
+    transition: background-color var(--transition-fast), transform 0.2s ease;
+    margin-top: 10px;
+}
+
+.contact-email-button:hover {
+    background-color: #555; /* Darker shade on hover */
+    transform: translateY(-2px); /* Slight lift effect */
 }
 
 footer {
