@@ -67,23 +67,6 @@ document.addEventListener("DOMContentLoaded", function() {
         showSlide(currentIndex);
     }
 
-    // Event listeners for navigation buttons
-    if (nextButton) {
-        nextButton.addEventListener('click', () => {
-            clearInterval(autoSlideInterval);
-            nextSlide();
-            startAutoSlide();
-        });
-    }
-
-    if (prevButton) {
-        prevButton.addEventListener('click', () => {
-            clearInterval(autoSlideInterval);
-            prevSlide();
-            startAutoSlide();
-        });
-    }
-
     // Event listeners for dots
     carouselDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
