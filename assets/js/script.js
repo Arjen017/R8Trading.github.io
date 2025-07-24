@@ -2,6 +2,9 @@ document.addEventListener("DOMContentLoaded", function() {
     // ---- Navigation Logic ----
     const navLinks = document.querySelectorAll('nav a, .dropdown-item a');
     const allSections = document.querySelectorAll('main section');
+    const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
+    const navigationMenu = document.querySelector('.navigation');
+    const dropdownToggles = document.querySelectorAll('.dropdown-toggle');
 
     // Function to hide all sections and show the home section initially
     function initializeSections() {
@@ -39,10 +42,61 @@ document.addEventListener("DOMContentLoaded", function() {
                     targetSection.classList.remove('hidden');
                     // Add 'active' class to the clicked link
                     this.classList.add('active');
+
+                    // Close mobile menu after clicking a link
+                    if (navigationMenu.classList.contains('active')) {
+                        navigationMenu.classList.remove('active');
+                        mobileMenuToggle.textContent = 'menu'; // Reset icon
+                    }
+                    // Close any open dropdowns in mobile menu
+                    dropdownToggles.forEach(toggle => {
+                        toggle.nextElementSibling.classList.remove('active');
+                    });
                 }
             }
         });
     });
+
+    // Toggle mobile navigation menu
+    if (mobileMenuToggle) {
+        mobileMenuToggle.addEventListener('click', () => {
+            navigationMenu.classList.toggle('active');
+            if (navigationMenu.classList.contains('active')) {
+                mobileMenuToggle.textContent = 'close'; // Change to 'X' icon
+            } else {
+                mobileMenuToggle.textContent = 'menu'; // Change back to hamburger icon
+                // Close any open dropdowns when menu is closed
+                dropdownToggles.forEach(toggle => {
+                    toggle.nextElementSibling.classList.remove('active');
+                });
+            }
+        });
+    }
+
+    // Toggle dropdown menus within mobile navigation
+    dropdownToggles.forEach(toggle => {
+        toggle.addEventListener('click', function(e) {
+            // Only prevent default if it's a mobile view, to allow desktop hover
+            if (window.innerWidth <= 768) {
+                e.preventDefault(); 
+                const dropdownMenu = this.nextElementSibling;
+                dropdownMenu.classList.toggle('active');
+            }
+        });
+    });
+
+    // Close mobile menu if window is resized to desktop
+    window.addEventListener('resize', () => {
+        if (window.innerWidth > 768) {
+            navigationMenu.classList.remove('active');
+            mobileMenuToggle.textContent = 'menu';
+            // Ensure dropdowns are visible on desktop if they were hidden by mobile logic
+            dropdownToggles.forEach(toggle => {
+                toggle.nextElementSibling.classList.remove('active'); // Remove active class
+            });
+        }
+    });
+
 
     initializeSections();
 
@@ -51,17 +105,13 @@ document.addEventListener("DOMContentLoaded", function() {
     const carousel = document.querySelector(".carousel");
     const carouselItems = document.querySelectorAll('.carousel_item');
     const carouselDots = document.querySelectorAll('.carousel_dot');
-    // Removed prevButton and nextButton as they are no longer in HTML
     let currentIndex = 0;
     let autoSlideInterval;
 
-    // Function to show the current slide
     function showSlide(index) {
-        // Remove active classes from all items and dots
         carouselItems.forEach(item => item.classList.remove('carousel_item__active'));
         carouselDots.forEach(dot => dot.classList.remove('carousel_dot__active'));
 
-        // Add active class to the current item and dot
         if (carouselItems[index]) {
             carouselItems[index].classList.add('carousel_item__active');
         }
@@ -70,34 +120,29 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to go to the next slide (used by auto-slide and dots)
     function nextSlide() {
-        currentIndex = (currentIndex + 1) % carouselItems.length; // Cycle through slides
+        currentIndex = (currentIndex + 1) % carouselItems.length;
         showSlide(currentIndex);
     }
 
-    // Event listeners for dots (only dots remain for navigation)
     carouselDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
-            clearInterval(autoSlideInterval); // Stop auto-slide on manual click
-            currentIndex = index; // Set current index to the clicked dot's index
+            clearInterval(autoSlideInterval);
+            currentIndex = index;
             showSlide(currentIndex);
-            startAutoSlide(); // Restart auto-slide after manual interaction
+            startAutoSlide();
         });
     });
 
-    // Auto-slide functionality
     function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000); // Change slide every 5 seconds (5000 milliseconds)
+        autoSlideInterval = setInterval(nextSlide, 5000);
     }
 
-    // Optional: Stop auto-slide on hover and resume on mouse leave for better user experience
     if (carousel) {
         carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
         carousel.addEventListener('mouseleave', () => startAutoSlide());
     }
 
-    // Initial display of the first slide and start auto-slide when the page loads
     showSlide(currentIndex);
     startAutoSlide();
 });
