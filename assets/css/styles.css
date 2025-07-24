@@ -42,32 +42,16 @@ body {
   object-fit: contain;
 }
 
-/* Removed Dealer Search styles */
-/*
-.search {
-  display: flex;
-  align-items: center;
-  padding: 10px;
-  border-radius: 20px;
-  background: var(--secondary-color);
-  max-width: 300px;
-  width: 100%;
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    display: none; /* Hidden by default on desktop */
+    background: none;
+    border: none;
+    font-size: 30px;
+    cursor: pointer;
+    color: var(--primary-color);
+    padding: 5px;
 }
-
-.search-icon {
-  color: rgba(0, 0, 0, 0.5);
-  font-size: 20px;
-  margin-right: 8px;
-}
-
-.search-input {
-  flex-grow: 1;
-  font-size: var(--font-size-base);
-  border: none;
-  background: transparent;
-  outline: none;
-}
-*/
 
 .navigation {
   display: flex;
@@ -376,64 +360,64 @@ footer {
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .map-images {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .map-images img {
-    width: 100%;
-    max-width: 240px;
-  }
-
-  .map-image {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .map-image img {
-    width: 100%;
-    max-width: 240px;
-  }
-}
-
-@media (min-width: 769px) {
-  .map-container {
-    flex-direction: row;
-  }
-
-  .map-iframe {
-    flex: 1;
-  }
-
-  .map-info {
-    flex: 1;
-  }
-}
-
-/* Responsive design */
-@media (max-width: 768px) {
   .main-header {
-    flex-direction: column;
+    flex-direction: row; /* Keep logo and toggle on one row */
+    justify-content: space-between;
     align-items: center;
   }
 
-  /* Adjust navigation for smaller screens after removing search */
+  .mobile-menu-toggle {
+    display: block; /* Show hamburger menu on mobile */
+  }
+
   .navigation {
-    width: 100%; /* Make navigation take full width */
-    margin-top: 10px; /* Add some space from logo */
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    position: absolute; /* Position menu off-screen */
+    top: 80px; /* Below header */
+    left: 0;
+    background-color: white;
+    box-shadow: var(--hover-shadow);
+    transform: translateX(-100%); /* Hide menu off-screen */
+    transition: transform 0.3s ease-in-out;
+    border-bottom: none; /* Remove border from navigation itself */
+    padding: 0; /* Remove padding from navigation container */
+  }
+
+  .navigation.active {
+    transform: translateX(0); /* Slide menu into view */
   }
 
   .navigation a {
     width: 100%;
-    text-align: center;
+    text-align: left; /* Align text to left in mobile menu */
+    padding: 12px 20px; /* Larger tap target */
+    border-bottom: 1px solid #eee; /* Separator for menu items */
+  }
+
+  .dropdown {
+      width: 100%; /* Make dropdown take full width */
   }
 
   .dropdown-menu {
-    position: static;
-    opacity: 1;
+    position: static; /* Allow dropdown to expand naturally */
+    opacity: 1; /* Always visible when parent is open */
     visibility: visible;
     box-shadow: none;
+    padding-left: 20px; /* Indent dropdown items */
+    background-color: #f9f9f9; /* Slightly different background for dropdown items */
+    max-height: 0; /* Hidden by default on mobile */
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+  }
+
+  .dropdown-menu.active {
+      max-height: 200px; /* Adjust as needed to show all items */
+  }
+
+  .dropdown-item a {
+    padding: 8px 20px; /* Adjust padding for dropdown items */
   }
 
   .carousel_caption {
