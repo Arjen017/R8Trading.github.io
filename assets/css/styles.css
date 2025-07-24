@@ -76,6 +76,7 @@ body {
   flex-wrap: wrap;
   position: relative;
   z-index: 1;
+  box-shadow: var(--hover-shadow);
 }
 
 .navigation a {
@@ -92,6 +93,7 @@ body {
 .navigation a:hover {
   background-color: var(--accent-color);
   color: black;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .dropdown {
@@ -125,6 +127,10 @@ body {
 
 main {
   padding: 20px;
+}
+
+.hidden {
+  display: none;
 }
 
 /* ---- Corrected Carousel Styles ---- */
@@ -205,24 +211,10 @@ main {
 .carousel_dot__active {
     background-color: white;
 }
-.carousel_button:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-}
 /* ---- End of Corrected Carousel Styles ---- */
 
 
-section {
-  margin-bottom: 20px;
-}
-
-section h2 {
-  margin-bottom: 15px;
-}
-
-.hidden {
-  display: none;
-}
-
+/* ---- Customer Gallery Styles (Updated) ---- */
 #customerSection .masonry-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
@@ -235,14 +227,16 @@ section h2 {
   height: auto;
   object-fit: cover;
   border-radius: 8px;
-  transition: transform var(--transition-fast);
+  transition: transform var(--transition-fast), box-shadow var(--transition-fast);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
 #customerSection .masonry-grid img:hover {
   transform: scale(1.05);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* New styles for Contact Us section */
+/* ---- Contact Us Section Styles (Updated) ---- */
 .contact-info-container {
     display: flex;
     flex-direction: column;
@@ -254,6 +248,7 @@ section h2 {
     border-radius: 8px;
     background-color: var(--secondary-color);
     text-align: center;
+    box-shadow: var(--hover-shadow);
 }
 
 .contact-info-container p {
@@ -262,18 +257,18 @@ section h2 {
 }
 
 .contact-info-container a {
-    color: var(--primary-color); /* Use primary color for links */
+    color: #007bff;
     text-decoration: none;
     transition: color var(--transition-fast);
 }
 
 .contact-info-container a:hover {
-    color: #007bff; /* A common blue for hover */
+    color: #0056b3;
     text-decoration: underline;
 }
 
 .contact-email-button {
-    display: inline-block; /* Make it behave like a button */
+    display: inline-block;
     padding: 12px 25px;
     background-color: var(--primary-color);
     color: white;
@@ -281,14 +276,16 @@ section h2 {
     border-radius: 5px;
     cursor: pointer;
     font-size: var(--font-size-large);
-    text-decoration: none; /* Remove underline from link */
+    text-decoration: none;
     transition: background-color var(--transition-fast), transform 0.2s ease;
     margin-top: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 }
 
 .contact-email-button:hover {
-    background-color: #555; /* Darker shade on hover */
-    transform: translateY(-2px); /* Slight lift effect */
+    background-color: #555;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
 }
 
 footer {
