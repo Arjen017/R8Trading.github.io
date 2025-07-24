@@ -42,6 +42,8 @@ body {
   object-fit: contain;
 }
 
+/* Removed Dealer Search styles */
+/*
 .search {
   display: flex;
   align-items: center;
@@ -65,6 +67,7 @@ body {
   background: transparent;
   outline: none;
 }
+*/
 
 .navigation {
   display: flex;
@@ -415,13 +418,10 @@ footer {
     align-items: center;
   }
 
-  .search {
-    margin-top: 10px;
-  }
-
+  /* Adjust navigation for smaller screens after removing search */
   .navigation {
-    flex-direction: column;
-    align-items: stretch;
+    width: 100%; /* Make navigation take full width */
+    margin-top: 10px; /* Add some space from logo */
   }
 
   .navigation a {
