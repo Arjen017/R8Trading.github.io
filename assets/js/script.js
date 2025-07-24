@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
     // ---- Navigation Logic ----
-    // This section makes the navigation links show and hide the correct content sections.
     const navLinks = document.querySelectorAll('nav a, .dropdown-item a');
     const allSections = document.querySelectorAll('main section');
 
@@ -9,7 +8,15 @@ document.addEventListener("DOMContentLoaded", function() {
         allSections.forEach(section => {
             section.classList.add('hidden');
         });
-        document.getElementById('carouselSection').classList.remove('hidden');
+        const carouselSection = document.getElementById('carouselSection');
+        if (carouselSection) {
+            carouselSection.classList.remove('hidden');
+        }
+        // Set the initial active link
+        const homeLink = document.getElementById('homeLink');
+        if (homeLink) {
+            homeLink.classList.add('active');
+        }
     }
 
     navLinks.forEach(link => {
@@ -22,27 +29,28 @@ document.addEventListener("DOMContentLoaded", function() {
                     allSections.forEach(section => {
                         section.classList.add('hidden');
                     });
+                    navLinks.forEach(navLink => {
+                        navLink.classList.remove('active');
+                    });
+                    
                     targetSection.classList.remove('hidden');
+                    // Add 'active' class to the clicked link
+                    this.classList.add('active');
                 }
             }
         });
     });
 
-    // Make sure the home section is visible on page load
     initializeSections();
 
 
     // ---- Carousel functionality ----
-    // This section controls the auto-sliding, dot clicks, and navigation buttons for the carousel.
     const carousel = document.querySelector(".carousel");
     const carouselItems = document.querySelectorAll('.carousel_item');
     const carouselDots = document.querySelectorAll('.carousel_dot');
-    const prevButton = document.querySelector('.carousel_button__prev');
-    const nextButton = document.querySelector('.carousel_button__next');
     let currentIndex = 0;
     let autoSlideInterval;
 
-    // Function to show the current slide
     function showSlide(index) {
         carouselItems.forEach(item => item.classList.remove('carousel_item__active'));
         carouselDots.forEach(dot => dot.classList.remove('carousel_dot__active'));
@@ -55,19 +63,11 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
-    // Function to go to the next slide
     function nextSlide() {
         currentIndex = (currentIndex + 1) % carouselItems.length;
         showSlide(currentIndex);
     }
 
-    // Function to go to the previous slide
-    function prevSlide() {
-        currentIndex = (currentIndex - 1 + carouselItems.length) % carouselItems.length;
-        showSlide(currentIndex);
-    }
-
-    // Event listeners for dots
     carouselDots.forEach((dot, index) => {
         dot.addEventListener('click', () => {
             clearInterval(autoSlideInterval);
@@ -77,16 +77,15 @@ document.addEventListener("DOMContentLoaded", function() {
         });
     });
 
-    // Auto-slide functionality
     function startAutoSlide() {
-        autoSlideInterval = setInterval(nextSlide, 5000); // 5 seconds
+        autoSlideInterval = setInterval(nextSlide, 5000);
     }
 
-    // Stop auto-slide on hover to improve user experience
-    carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
-    carousel.addEventListener('mouseleave', () => startAutoSlide());
+    if (carousel) {
+        carousel.addEventListener('mouseenter', () => clearInterval(autoSlideInterval));
+        carousel.addEventListener('mouseleave', () => startAutoSlide());
+    }
 
-    // Start the auto-slide and show the first slide when the page loads
     showSlide(currentIndex);
     startAutoSlide();
 });
